@@ -1,0 +1,21 @@
+{
+	"name": "generate-clickhouse-testcases",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"analyze": "ts-node test-queries && npm run read-results && npm run group-results",
+		"read-results": "ts-node read-results",
+		"group-results": "ts-node group-test-results-by-error-type"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@gravity-ui/websql-autocomplete": "^11.0.0",
+		"@types/node": "^22.5.2",
+		"glob": "^11.0.0",
+		"prettier": "^3.3.3",
+		"typescript": "^5.5.4"
+	}
+}
