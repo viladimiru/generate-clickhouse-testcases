@@ -104,3 +104,86 @@ export function getQueryTypeFromResultFile(fileName: string): QueryType {
 
 	return queryType;
 }
+
+interface QueryPayload {
+	fileName: string;
+	query: string;
+}
+
+type QueriesByTypeMap = Record<(typeof queryTypes)[number], QueryPayload[]>;
+
+export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
+	// @ts-ignore
+	const queriesByTypeMap: QueriesByTypeMap = Object.fromEntries(
+		queryTypes.map((queryType) => [queryType, []])
+	);
+
+	const fileNames = await glob(
+		'../ClickHouse/tests/queries/0_stateless/*.sql',
+		{}
+	);
+	let totalDuplicateQueries = 0;
+	const uniqueQueries = new Set();
+	fileNames.forEach((sqlFile, index) => {
+		let content = readFileSync(sqlFile, 'utf8');
+		content = transformContent(content);
+
+		let queries: string[] = getQueries(content);
+		queries.forEach((query) => {
+			const queryFormatted = query.replace(/\n+/m, ' ').replace(/^ +/gm, '');
+			const queryLowerCase = queryFormatted.toLowerCase();
+			const oldUniqueQueriesSize = uniqueQueries.size;
+			uniqueQueries.add(queryLowerCase);
+			if (oldUniqueQueriesSize === uniqueQueries.size) {
+				totalDuplicateQueries++;
+				return;
+			}
+
+			for (const queryType of queryTypes) {
+				if (queryType === 'other') {
+					queriesByTypeMap.other.push({
+						fileName: sqlFile,
+						query: queryFormatted,
+					});
+					return;
+				}
+
+				if (queryLowerCase.startsWith(queryType)) {
+					queriesByTypeMap[queryType].push({
+						fileName: sqlFile,
+						query: queryFormatted,
+					});
+					break;
+				}
+			}
+		});
+
+		if (index % 100 === 0) {
+			console.log('scans left:', fileNames.length - index + 1);
+		}
+	});
+	console.log('total duplicate queries', totalDuplicateQueries);
+	return queriesByTypeMap;
+}
+
+function getQueries(content: string): string[] {
+	const queries = content.match(/^(.|\n)+?;( |)+$/gm);
+	if (queries) {
+		return queries;
+	}
+
+	return [content];
+}
+
+function transformContent(content: string): string {
+	return content
+		.replace(/^ +/gm, '')
+		.replace(/^--(.|)+/gm, '')
+		.replace(/\\/gm, '\\\\')
+		.replace(/^(\n|\\n)+/gm, '')
+		.replace(/　/g, ' ')
+		.replace(/\/\*(.|\n)+\*\//gm, '')
+		.replace(/`/gm, '\\'.concat('`'))
+		.replace(/\$/gm, '\\'.concat('$'))
+		.replace(/\n\n(\n|)+/gm, '\n');
+}

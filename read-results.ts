@@ -24,8 +24,16 @@ async function main(): Promise<void> {
 				},
 			];
 		})
-		// @ts-ignore
-		.sort((a, b) => a[1]?.errorPercentage - b[1]?.errorPercentage);
+		// sort by error percentage
+		// .sort((a, b) =>
+		// 	// @ts-ignore
+		// 	(a[1]?.errorPercentage || 0) > (b[1]?.errorPercentage || 0) ? -1 : 1
+		// );
+		// sort by total test cases
+		.sort((a, b) =>
+			// @ts-ignore
+			(a[1]?.totalCases || 0) > (b[1]?.totalCases || 0) ? -1 : 1
+		);
 
 	writeFileSync(
 		'./statistics.json',
