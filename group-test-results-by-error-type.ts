@@ -52,12 +52,19 @@ async function main(): Promise<void> {
 
 	queryTypes.forEach((queryType) => {
 		errorTypes.forEach((errorType) => {
+			const errors = errorByTypeMap[queryType][errorType];
+			if (!errors.length) {
+				return;
+			}
+
+			const groupPath = path.concat(`/${queryType}`);
+			if (!existsSync(groupPath)) {
+				mkdirSync(groupPath);
+			}
+
 			writeFileSync(
-				path
-					.concat('/')
-					.concat(queryType + '_' + errorType)
-					.concat('.json'),
-				JSON.stringify(errorByTypeMap[queryType][errorType])
+				groupPath.concat('/').concat(errorType).concat('.json'),
+				JSON.stringify(errors)
 			);
 		});
 	});

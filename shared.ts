@@ -43,8 +43,6 @@ export const errorTypes = [
 	'extraneousInput',
 	'missing',
 	'unknown',
-	'totalErrorCases',
-	'totalErrors',
 ] as const;
 
 export function getErrorType(
