@@ -1,13 +1,14 @@
-import { existsSync, mkdirSync, writeFileSync } from 'fs';
+import { mkdirSync, rmdirSync, writeFileSync } from 'fs';
 import { getQueriesByTypeMap, QueryType, queryTypes } from './shared';
 
-const maxTestCasesToGenerate = 1000;
+const maxTestCasesForFile = 7000;
 async function main(): Promise<void> {
 	const queriesByTypeMap = await getQueriesByTypeMap();
 	const path = './generated';
-	if (!existsSync(path)) {
-		mkdirSync(path);
-	}
+	rmdirSync(path, {
+		recursive: true,
+	});
+	mkdirSync(path);
 
 	const filesToGenerate: Record<string, string> = {};
 
@@ -16,12 +17,8 @@ async function main(): Promise<void> {
 			return;
 		}
 
-		const content: string[] = [getTestCaseHeader()];
-		const fileName = path.concat(`/${queryType}.test.ts`);
-		const queries = queriesByTypeMap[queryType].slice(
-			0,
-			maxTestCasesToGenerate
-		);
+		const fileNameSuffix = '.test.ts';
+		const queries = queriesByTypeMap[queryType];
 
 		if (queries.length === 0) {
 			return;
@@ -30,7 +27,33 @@ async function main(): Promise<void> {
 		const testCasesContent = queries.map(({ query }, index) =>
 			makeTestCase(queryType, query, index)
 		);
-		filesToGenerate[fileName] = content.concat(testCasesContent).join('\n\n');
+
+		if (testCasesContent.length > maxTestCasesForFile) {
+			const testCasesFolderPath = path.concat(`/${queryType}`);
+			mkdirSync(testCasesFolderPath);
+			for (
+				let index = 0;
+				index < testCasesContent.length / maxTestCasesForFile;
+				index++
+			) {
+				const fileName = testCasesFolderPath
+					.concat(`/chunk-${index + 1}`)
+					.concat(fileNameSuffix);
+				filesToGenerate[fileName] = [getTestCaseHeader(true)]
+					.concat(
+						testCasesContent.slice(index, (index + 1) * maxTestCasesForFile)
+					)
+					.join('\n\n')
+					.concat('\n');
+			}
+			return;
+		}
+
+		const fileName = path.concat(`/${queryType}`.concat(fileNameSuffix));
+		filesToGenerate[fileName] = [getTestCaseHeader()]
+			.concat(testCasesContent)
+			.join('\n\n')
+			.concat('\n');
 	});
 
 	const entries = Object.entries(filesToGenerate);
@@ -49,20 +72,20 @@ function makeTestCase(
 	index: number
 ): string {
 	return [
-		`test('should pass without errors ${queryType}: ${index + 1}', () => {`,
-		`	const query = \`${query}\``,
+		`test('[${queryType.toUpperCase()}] should pass without errors: ${index + 1}', () => {`,
+		`    const query = \`${query}\`;`,
 		'',
-		'	const autocompleteResult = parseClickHouseQueryWithoutCursor(query);',
-		'	expect(autocompleteResult.errors).toHaveLength(0);',
-		`})`,
+		'    const autocompleteResult = parseClickHouseQueryWithoutCursor(query);',
+		'    expect(autocompleteResult.errors).toHaveLength(0);',
+		`});`,
 	].join('\n');
 }
 
-function getTestCaseHeader(): string {
+function getTestCaseHeader(hasSubFolder?: boolean): string {
 	return [
 		'/* eslint no-useless-escape: "off" */',
-		"import {parseClickHouseQueryWithoutCursor} from '../../index';",
+		'/* eslint filenames/match-regex: "off" */',
+		'/* eslint no-irregular-whitespace: "off" */',
+		`import {parseClickHouseQueryWithoutCursor} from '${'../'.concat(hasSubFolder ? '../' : '')}../index';`,
 	].join('\n');
 }
-
-main();

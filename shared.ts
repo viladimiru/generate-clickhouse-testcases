@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { glob } from 'glob';
 
 export const queryTypes = [
@@ -110,6 +110,7 @@ interface QueryPayload {
 
 type QueriesByTypeMap = Record<(typeof queryTypes)[number], QueryPayload[]>;
 
+const invalidCharactersQueries: string[] = [];
 export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
 	// @ts-ignore
 	const queriesByTypeMap: QueriesByTypeMap = Object.fromEntries(
@@ -123,7 +124,7 @@ export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
 	let totalDuplicateQueries = 0;
 	const uniqueQueries = new Set();
 	fileNames.forEach((sqlFile, index) => {
-		let content = readFileSync(sqlFile, 'utf8');
+		let content = readFileSync(sqlFile, 'ascii');
 		content = transformContent(content);
 
 		let queries: string[] = getQueries(content);
@@ -134,6 +135,16 @@ export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
 			uniqueQueries.add(queryLowerCase);
 			if (oldUniqueQueriesSize === uniqueQueries.size) {
 				totalDuplicateQueries++;
+				return;
+			}
+
+			if (
+				!/^[a-z-!@#$%^&*()_+ \/\|><\.,а-яА-Я\n\;='0-9%:{}`\[\]\"\\\t&?~]+$/i.test(
+					queryFormatted
+				)
+			) {
+				console.log('invalid characters');
+				invalidCharactersQueries.push(queryFormatted);
 				return;
 			}
 
@@ -160,6 +171,11 @@ export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
 			console.log('scans left:', fileNames.length - index + 1);
 		}
 	});
+	console.log('total invalid chars', invalidCharactersQueries.length);
+	writeFileSync(
+		'invalid-chars.json',
+		JSON.stringify(invalidCharactersQueries, null, 2)
+	);
 	console.log('total duplicate queries', totalDuplicateQueries);
 	return queriesByTypeMap;
 }
