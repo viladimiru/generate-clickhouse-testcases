@@ -1,0 +1,312 @@
+{
+  "select": {
+    "noViableAlternative": 3067,
+    "mismatchedInput": 727,
+    "extraneousInput": 0,
+    "missing": 3,
+    "unknown": 0,
+    "totalCases": 35996,
+    "successCases": 32202,
+    "errorPercentage": 10.540060006667408
+  },
+  "create": {
+    "noViableAlternative": 2783,
+    "mismatchedInput": 60,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 7656,
+    "successCases": 4813,
+    "errorPercentage": 37.13427377220481
+  },
+  "insert": {
+    "noViableAlternative": 923,
+    "mismatchedInput": 10,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 6687,
+    "successCases": 5754,
+    "errorPercentage": 13.95244504262001
+  },
+  "drop": {
+    "noViableAlternative": 754,
+    "mismatchedInput": 186,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 5596,
+    "successCases": 4656,
+    "errorPercentage": 16.79771265189421
+  },
+  "set": {
+    "noViableAlternative": 85,
+    "mismatchedInput": 10,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 1269,
+    "successCases": 1174,
+    "errorPercentage": 7.486209613869188
+  },
+  "alter": {
+    "noViableAlternative": 364,
+    "mismatchedInput": 132,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 1237,
+    "successCases": 745,
+    "errorPercentage": 39.773645917542446
+  },
+  "explain": {
+    "noViableAlternative": 268,
+    "mismatchedInput": 52,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 945,
+    "successCases": 625,
+    "errorPercentage": 33.86243386243386
+  },
+  "with": {
+    "noViableAlternative": 154,
+    "mismatchedInput": 17,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 839,
+    "successCases": 668,
+    "errorPercentage": 20.38140643623361
+  },
+  "other": {
+    "noViableAlternative": 17,
+    "mismatchedInput": 810,
+    "extraneousInput": 10,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 833,
+    "successCases": 5,
+    "errorPercentage": 99.39975990396158
+  },
+  "show": {
+    "noViableAlternative": 62,
+    "mismatchedInput": 194,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 588,
+    "successCases": 332,
+    "errorPercentage": 43.53741496598639
+  },
+  "system": {
+    "noViableAlternative": 54,
+    "mismatchedInput": 34,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 375,
+    "successCases": 287,
+    "errorPercentage": 23.466666666666665
+  },
+  "optimize": {
+    "noViableAlternative": 13,
+    "mismatchedInput": 29,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 319,
+    "successCases": 277,
+    "errorPercentage": 13.166144200626958
+  },
+  "desc": {
+    "noViableAlternative": 66,
+    "mismatchedInput": 28,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 316,
+    "successCases": 222,
+    "errorPercentage": 29.746835443037973
+  },
+  "describe": {
+    "noViableAlternative": 68,
+    "mismatchedInput": 5,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 226,
+    "successCases": 153,
+    "errorPercentage": 32.30088495575221
+  },
+  "attach": {
+    "noViableAlternative": 18,
+    "mismatchedInput": 4,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 176,
+    "successCases": 154,
+    "errorPercentage": 12.5
+  },
+  "detach": {
+    "noViableAlternative": 14,
+    "mismatchedInput": 17,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 171,
+    "successCases": 140,
+    "errorPercentage": 18.128654970760234
+  },
+  "truncate": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 7,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 70,
+    "successCases": 63,
+    "errorPercentage": 10
+  },
+  "delete": {
+    "noViableAlternative": 8,
+    "mismatchedInput": 5,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 60,
+    "successCases": 47,
+    "errorPercentage": 21.666666666666668
+  },
+  "rename": {
+    "noViableAlternative": 21,
+    "mismatchedInput": 1,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 58,
+    "successCases": 36,
+    "errorPercentage": 37.93103448275862
+  },
+  "grant": {
+    "noViableAlternative": 5,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 38,
+    "successCases": 33,
+    "errorPercentage": 13.157894736842104
+  },
+  "use": {
+    "noViableAlternative": 8,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 25,
+    "successCases": 17,
+    "errorPercentage": 32
+  },
+  "check": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 15,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 22,
+    "successCases": 7,
+    "errorPercentage": 68.18181818181817
+  },
+  "exists": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 5,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 20,
+    "successCases": 15,
+    "errorPercentage": 25
+  },
+  "revoke": {
+    "noViableAlternative": 1,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 17,
+    "successCases": 16,
+    "errorPercentage": 5.88235294117647
+  },
+  "replace": {
+    "noViableAlternative": 1,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 11,
+    "successCases": 10,
+    "errorPercentage": 9.090909090909092
+  },
+  "exchange": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 10,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 10,
+    "successCases": 0,
+    "errorPercentage": 100
+  },
+  "undrop": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 9,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 9,
+    "successCases": 0,
+    "errorPercentage": 100
+  },
+  "begin": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 2,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 2,
+    "successCases": 0,
+    "errorPercentage": 100
+  },
+  "rollback": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 1,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 1,
+    "successCases": 0,
+    "errorPercentage": 100
+  },
+  "kill": {
+    "noViableAlternative": 1,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 1,
+    "successCases": 0,
+    "errorPercentage": 100
+  },
+  "update": {
+    "noViableAlternative": 0,
+    "mismatchedInput": 0,
+    "extraneousInput": 0,
+    "missing": 0,
+    "unknown": 0,
+    "totalCases": 0,
+    "successCases": 0,
+    "errorPercentage": null
+  }
+}
