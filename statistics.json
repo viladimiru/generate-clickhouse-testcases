@@ -10,24 +10,24 @@
     "errorPercentage": 9.714968329814424
   },
   "create": {
-    "noViableAlternative": 2385,
-    "mismatchedInput": 57,
+    "noViableAlternative": 2358,
+    "mismatchedInput": 59,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 7656,
-    "successCases": 5214,
-    "errorPercentage": 31.896551724137932
+    "successCases": 5239,
+    "errorPercentage": 31.570010449320797
   },
   "insert": {
-    "noViableAlternative": 630,
+    "noViableAlternative": 615,
     "mismatchedInput": 10,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 6687,
-    "successCases": 6047,
-    "errorPercentage": 9.570809032451026
+    "successCases": 6062,
+    "errorPercentage": 9.346493195752952
   },
   "drop": {
     "noViableAlternative": 341,
@@ -60,14 +60,14 @@
     "errorPercentage": 37.752627324171385
   },
   "explain": {
-    "noViableAlternative": 254,
+    "noViableAlternative": 253,
     "mismatchedInput": 52,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 945,
-    "successCases": 639,
-    "errorPercentage": 32.38095238095238
+    "successCases": 640,
+    "errorPercentage": 32.27513227513227
   },
   "with": {
     "noViableAlternative": 152,
