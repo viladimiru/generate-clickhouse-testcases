@@ -10,14 +10,14 @@
     "errorPercentage": 9.714968329814424
   },
   "create": {
-    "noViableAlternative": 1356,
+    "noViableAlternative": 1355,
     "mismatchedInput": 59,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 7656,
-    "successCases": 6241,
-    "errorPercentage": 18.482236154649947
+    "successCases": 6242,
+    "errorPercentage": 18.469174503657264
   },
   "insert": {
     "noViableAlternative": 615,
