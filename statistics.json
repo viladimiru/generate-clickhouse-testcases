@@ -11,13 +11,13 @@
   },
   "create": {
     "noViableAlternative": 1290,
-    "mismatchedInput": 71,
+    "mismatchedInput": 70,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 7656,
-    "successCases": 6295,
-    "errorPercentage": 17.776907001044933
+    "successCases": 6296,
+    "errorPercentage": 17.763845350052247
   },
   "insert": {
     "noViableAlternative": 526,
