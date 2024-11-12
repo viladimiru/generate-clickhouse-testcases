@@ -1,13 +1,13 @@
 {
   "select": {
-    "noViableAlternative": 2849,
+    "noViableAlternative": 2841,
     "mismatchedInput": 579,
     "extraneousInput": 0,
     "missing": 3,
     "unknown": 0,
     "totalCases": 35996,
-    "successCases": 32568,
-    "errorPercentage": 9.523280364484943
+    "successCases": 32576,
+    "errorPercentage": 9.501055672852539
   },
   "create": {
     "noViableAlternative": 1290,
