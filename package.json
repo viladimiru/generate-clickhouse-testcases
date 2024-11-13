@@ -5,9 +5,9 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"analyze": "ts-node test-queries && npm run read-results && npm run group-results",
-		"read-results": "ts-node read-results",
-		"group-results": "ts-node group-test-results-by-error-type",
+		"analyze": "npx ts-node test-queries && npm run read-results && npm run group-results",
+		"read-results": "npx ts-node read-results",
+		"group-results": "npx ts-node group-test-results-by-error-type",
 		"generate-tests": "npx ts-node -e \"require('./generate-tests').main\""
 	},
 	"author": "",
@@ -17,7 +17,6 @@
 		"@gravity-ui/websql-autocomplete": "^11.0.0",
 		"@types/node": "^22.5.2",
 		"esbuild": "^0.23.1",
-		"eslint": "^9.9.1",
 		"eslint-plugin-filenames": "^1.3.2",
 		"eslint-plugin-import": "^2.30.0",
 		"glob": "^11.0.0",
