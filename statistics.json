@@ -1,33 +1,33 @@
 {
   "select": {
-    "noViableAlternative": 2835,
+    "noViableAlternative": 2747,
     "mismatchedInput": 583,
     "extraneousInput": 0,
     "missing": 3,
     "unknown": 0,
     "totalCases": 35996,
-    "successCases": 32578,
-    "errorPercentage": 9.495499499944438
+    "successCases": 32666,
+    "errorPercentage": 9.251027891987999
   },
   "create": {
-    "noViableAlternative": 1290,
+    "noViableAlternative": 1277,
     "mismatchedInput": 70,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 7656,
-    "successCases": 6296,
-    "errorPercentage": 17.763845350052247
+    "successCases": 6309,
+    "errorPercentage": 17.594043887147333
   },
   "insert": {
-    "noViableAlternative": 526,
+    "noViableAlternative": 522,
     "mismatchedInput": 4,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 6687,
-    "successCases": 6157,
-    "errorPercentage": 7.9258262299985045
+    "successCases": 6161,
+    "errorPercentage": 7.866008673545685
   },
   "drop": {
     "noViableAlternative": 341,
