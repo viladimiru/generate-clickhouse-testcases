@@ -2,7 +2,7 @@ import { mkdirSync, rmdirSync, writeFileSync } from 'fs';
 import { getQueriesByTypeMap, QueryType, queryTypes } from './shared';
 
 const maxTestCasesForFile = 7000;
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
 	const queriesByTypeMap = await getQueriesByTypeMap();
 	const path = './generated';
 	rmdirSync(path, {

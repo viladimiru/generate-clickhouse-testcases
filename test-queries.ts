@@ -2,7 +2,7 @@ import { existsSync, writeFileSync, mkdirSync } from 'fs';
 import { parseClickHouseQueryWithoutCursor } from '@gravity-ui/websql-autocomplete/clickhouse';
 import { getQueriesByTypeMap, queryTypes } from './shared';
 
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
 	const queriesByTypeMap = await getQueriesByTypeMap();
 	queryTypes.forEach((queryType) => {
 		const queryPayloads = queriesByTypeMap[queryType];
@@ -45,5 +45,3 @@ async function main(): Promise<void> {
 		);
 	});
 }
-
-main();

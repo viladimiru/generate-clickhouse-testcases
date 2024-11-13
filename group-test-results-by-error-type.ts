@@ -11,7 +11,7 @@ import {
 
 type ErrorType = (typeof errorTypes)[number];
 
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
 	const resultFiles = await getResultFiles();
 	const contents = resultFiles.map((resultFile) => {
 		const queryType = getQueryTypeFromResultFile(resultFile);

@@ -9,7 +9,7 @@ import {
 
 type ErrorStats = Record<(typeof errorTypes)[number], number>;
 
-async function main(): Promise<void> {
+export async function main(): Promise<void> {
 	const resultFiles = await getResultFiles();
 
 	const result = resultFiles
