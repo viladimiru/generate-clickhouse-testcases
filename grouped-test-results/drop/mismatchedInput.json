@@ -1,0 +1,1062 @@
+[
+  {
+    "query": "drop database db_01530_atomic sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01530_drop_database_atomic_sync.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP DATABASE IF EMPTY {CLICKHOUSE_DATABASE_1:Identifier}; -- { serverError NOT_IMPLEMENTED } SELECT count() FROM system.tables WHERE database = {CLICKHOUSE_DATABASE_1:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02716_drop_if_empty.sql",
+    "error": "mismatched input 'EMPTY' expecting <EOF>"
+  },
+  {
+    "query": "drop database if exists db_01530_atomic sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01530_drop_database_atomic_sync.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP DATABASE IF EXISTS sqllt SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP DATABASE IF EXISTS test_01676 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01676_dictget_in_default_expression.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP DATABASE test1601_detach_permanently_atomic SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01601_detach_permanently.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02417_test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02417_keeper_map_create_drop.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02417_test_another SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02417_keeper_map_create_drop.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02418_test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02418_keeper_map_keys_limit.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02418_test_another SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02418_keeper_map_keys_limit.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_detach sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_distributed sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_log sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_mergetree sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_no_uuid_on_cluster on cluster test_shard_localhost sync format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_replicatedmergetree sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table 02681_undrop_uuid_on_cluster sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02961_db1.02961_tb1, 02961_db1.02961_tb2, 02961_db2.02961_tb3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02961_drop_tables.sql",
+    "error": "mismatched input ',' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE 02961_db2.02961_tb4, 02961_db1.02961_tb1, 02961_db2.02961_tb5; -- { serverError UNKNOWN_TABLE } SELECT '-- check which tables exist in 02961_db1';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02961_drop_tables.sql",
+    "error": "mismatched input ',' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE alter_00121 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00121_drop_column_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE ANIMAL SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement_2.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE checks SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_reverse_in_order.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table db_01517_atomic.source sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01517_drop_mv_with_inner_table.sql",
+    "error": "mismatched input '.' expecting <EOF>"
+  },
+  {
+    "query": "drop table db_01517_atomic_sync.mv sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01517_drop_mv_with_inner_table.sql",
+    "error": "mismatched input '.' expecting <EOF>"
+  },
+  {
+    "query": "drop table db_01517_ordinary.mv sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01517_drop_mv_with_inner_table.sql",
+    "error": "mismatched input '.' expecting <EOF>"
+  },
+  {
+    "query": "drop table db_01527_ranges.data sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01527_dist_sharding_key_dictGet_reload.sql",
+    "error": "mismatched input '.' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE execute_on_single_replica_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_execute_merges_on_single_replica_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE execute_on_single_replica_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_execute_merges_on_single_replica_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE i20203_1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01715_background_checker_blather_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE i20203_2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01715_background_checker_blather_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EMPTY data_02716_1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02716_drop_if_empty.sql",
+    "error": "mismatched input 'EMPTY' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EMPTY data_02716_1; -- { serverError TABLE_NOT_EMPTY } TRUNCATE TABLE data_02716_1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02716_drop_if_empty.sql",
+    "error": "mismatched input 'EMPTY' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EMPTY data_02716_2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02716_drop_if_empty.sql",
+    "error": "mismatched input 'EMPTY' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EMPTY tab1, tab2, tab3; -- { serverError TABLE_NOT_EMPTY } SELECT 'Test when deletion of not empty table fails';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02961_drop_tables.sql",
+    "error": "mismatched input 'EMPTY' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS 02416_test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02416_keeper_map.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS 02417_test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02417_keeper_map_create_drop.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS 02418_test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02418_keeper_map_keys_limit.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_detach sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_distributed sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_log sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_mergetree sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_multiple sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_no_uuid_on_cluster on cluster test_shard_localhost sync format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_replicatedmergetree sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists 02681_undrop_uuid_on_cluster on cluster test_shard_localhost sync format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS 02706_keeper_map_insert_strict SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02706_keeper_map_insert_strict.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS 02725_memory_for_merges SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02725_memory-for-merges.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS a SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS alter_00121 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00121_drop_column_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS ANIMAL SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement_2.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists cc sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02454_compressed_marks_in_compact_part.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS checks SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_reverse_in_order.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS combinator_argMin_table_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03128_argMin_combinator_projection.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS combinator_argMin_table_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03128_argMin_combinator_projection.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists data_rep_02228 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02228_merge_tree_insert_memory_usage.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS default_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01135_default_and_alter_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists distinct_cardinality_low sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02317_distinct_in_order_optimization.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists distinct_in_order sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02317_distinct_in_order_optimization.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS ds SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03001_insert_threads_deduplication.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS execute_on_single_replica_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_execute_merges_on_single_replica_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS execute_on_single_replica_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_execute_merges_on_single_replica_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS i20203_1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01715_background_checker_blather_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS i20203_2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01715_background_checker_blather_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS ignore_auto_increment SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02293_compatibility_ignore_auto_increment_in_create_table.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS insert_dedup_token SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS insert_dedup_token1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_replica.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS insert_dedup_token2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_replica.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS join_inner_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02731_parallel_replicas_join_subquery.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS join_outer_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02731_parallel_replicas_join_subquery.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS keeper_retries_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_keeper_retries_during_insert.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS keeper_retries_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_keeper_retries_during_insert.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS landing SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03001_insert_threads_deduplication.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS landing_dist SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03001_insert_threads_deduplication.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS merge_tree_pk SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_primary_key_without_order_by_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS merge_tree_pk_sql SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_primary_key_without_order_by_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS mt_without_pk SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01037_zookeeper_check_table_empty_pk.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS mutations_and_quorum1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01090_zookeeper_mutations_and_insert_quorum_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS mutations_and_quorum2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01090_zookeeper_mutations_and_insert_quorum_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS mv SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02912_ingestion_mv_deduplication.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS not_partitioned_replica1_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS not_partitioned_replica2_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS null_before SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02302_column_decl_null_before_defaul_value.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS order_by_all SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03209_parallel_replicas_order_by_all.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists ordinary_distinct sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02317_distinct_in_order_optimization.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS part_log_profile_events_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02378_part_log_profile_events_replicated.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS part_log_profile_events_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02378_part_log_profile_events_replicated.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partition_by_ignore SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00175_partition_by_ignore.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_string_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_string_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_tuple_replica1_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_tuple_replica1_00661 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00661_optimize_final_replicated_without_partition_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_tuple_replica2_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_tuple_replica2_00661 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00661_optimize_final_replicated_without_partition_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_week_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_by_week_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS partitioned_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01650_drop_part_and_deduplication_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS quorum1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS quorum2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS quorum3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01509_parallel_quorum_insert_no_replicas_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01509_parallel_quorum_insert_no_replicas_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_deduplicate_by_columns_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01581_deduplicate_by_columns_replicated_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_deduplicate_by_columns_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01581_deduplicate_by_columns_replicated_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_merge_tree_pk_sql SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01532_primary_key_without_order_by_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_mt_without_pk SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01037_zookeeper_check_table_empty_pk.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_mutations_empty_partitions SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01586_replicated_mutations_empty_partition.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_table_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS replicated_table_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists rmt sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01149_zookeeper_mutation_stuck_after_replace_partition.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_parallel_replicas_force_primary_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists t1_r1 sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02442_auxiliary_zookeeper_endpoint_id.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists t1_r2 sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02442_auxiliary_zookeeper_endpoint_id.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_parallel_replicas_force_primary_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_parallel_replicas_force_primary_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_03209 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03209_parallel_replicas_lost_decimal_conversion.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_async_insert_skip_settings SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02884_async_insert_skip_settings.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_light_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_light_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_light_sync_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_light_sync_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_on_replicated_merge_tree.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_merge_tree SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_in_partition.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_mutations_nondeterministic SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02842_mutations_replace_non_deterministic.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_obj SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_and_object_column.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS t_replicated_merge_tree SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_in_partition.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS tab SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02864_statistics_create_materialize_drop.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS tab1, tab2, tab3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02961_drop_tables.sql",
+    "error": "mismatched input ',' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS table1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS table2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS table3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS table4 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists test  sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01346_alter_enum_partition_key_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS test2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01346_alter_enum_partition_key_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS test__fuzz_22 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03223_parallel_replicas_read_task_size_overflow_bug.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists test_mv_a sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists test_mv_b sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table if exists test_mv_c sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS test_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS test_table_for_in SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS tlc SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02867_null_lc_in_bug.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS tnul SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02867_null_lc_in_bug.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS trailing_comma_1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02345_create_table_allow_trailing_comma.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS trailing_comma_2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02345_create_table_allow_trailing_comma.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS trailing_comma_3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02345_create_table_allow_trailing_comma.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS without_fixed_size_columns_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS without_fixed_size_columns_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE IF EXISTS wv SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01051_window_view_parser_hop.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE insert_dedup_token SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE insert_dedup_token1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_replica.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE insert_dedup_token2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_replica.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE keeper_retries_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_keeper_retries_during_insert.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE keeper_retries_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_keeper_retries_during_insert.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE mutate_and_zero_copy_replication1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02427_mutate_and_zero_copy_replication_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE mutation_1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_test_zero_copy_mutation.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE mv SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01153_attach_mv_uuid.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE not_partitioned_replica1_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE not_partitioned_replica2_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE order_by_all SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03209_parallel_replicas_order_by_all.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE part_log_profile_events_r1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02378_part_log_profile_events_replicated.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE part_log_profile_events_r2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02378_part_log_profile_events_replicated.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_string_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_string_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_tuple_replica1_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_tuple_replica1_00661 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00661_optimize_final_replicated_without_partition_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_tuple_replica2_00502 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_tuple_replica2_00661 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00661_optimize_final_replicated_without_partition_zookeeper.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_week_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE partitioned_by_week_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE quorum1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE quorum2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE quorum3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_count_without_select_sequence_consistency_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table rmt sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01158_zookeeper_log_long.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table rmt1 sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02485_zero_copy_commit_error.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE sqllt.table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "mismatched input '.' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02792_alter_table_modify_comment.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02898_parallel_replicas_progress_bar.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t1, t2, t3, t4, t5, t6;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01821_table_comment.sql",
+    "error": "mismatched input ',' expecting <EOF>"
+  },
+  {
+    "query": "drop table t1_r1 sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02442_auxiliary_zookeeper_endpoint_id.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table t1_r2 sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02442_auxiliary_zookeeper_endpoint_id.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_parallel_replicas_force_primary_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_parallel_replicas_force_primary_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_03209 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03209_parallel_replicas_lost_decimal_conversion.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_async_insert_skip_settings SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02884_async_insert_skip_settings.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_merge_tree SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_in_partition.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_mutations_nondeterministic SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02842_mutations_replace_non_deterministic.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_obj SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_and_object_column.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_replicated_merge_tree SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02352_lightweight_delete_in_partition.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE t_sparse_columns_clear SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02675_sparse_columns_clear_column.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE table1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE table2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE table3 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE table4 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01870_modulo_partition_key.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02714_local_object_storage.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01346_alter_enum_partition_key_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test__fuzz_22 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_parallel_replicas_min_marks_to_read_overflow.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_join settings ignore_drop_queries_probability=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03013_ignore_drop_queries_probability.sql",
+    "error": "mismatched input 'settings' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test_max_size_drop SETTINGS max_table_size_to_drop = 1; -- { serverError TABLE_SIZE_EXCEEDS_MAX_DROP_SIZE_LIMIT } DROP TABLE test_max_size_drop;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_query_settings_max_size_drop.sql",
+    "error": "mismatched input 'SETTINGS' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_memory settings ignore_drop_queries_probability=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03013_ignore_drop_queries_probability.sql",
+    "error": "mismatched input 'settings' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_merge_tree settings ignore_drop_queries_probability=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03013_ignore_drop_queries_probability.sql",
+    "error": "mismatched input 'settings' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_mv_a sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_mv_b sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "drop table test_mv_c sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_insert_deduplication_token_materialized_views.sql",
+    "error": "mismatched input 'sync' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test_table SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE test_table_for_in SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_pr_duplicate_announcement.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE tlc SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02867_null_lc_in_bug.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE tnul SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02867_null_lc_in_bug.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE without_fixed_size_columns_replica1 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "DROP TABLE without_fixed_size_columns_replica2 SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  }
+]

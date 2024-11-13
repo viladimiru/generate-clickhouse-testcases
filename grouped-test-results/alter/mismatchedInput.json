@@ -1,0 +1,167 @@
+[
+  {
+    "query": "ALTER QUOTA q1_01297, q2_01297 FOR 1 day TRACKING ONLY TO r1_01297;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01297_create_quota.sql",
+    "error": "mismatched input ',' expecting <EOF>"
+  },
+  {
+    "query": "alter table  ttl_test_02129 modify TTL (d + INTERVAL 1 MONTH) DELETE WHERE c=1 settings mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02129_add_column_add_ttl.sql",
+    "error": "mismatched input 'WHERE' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='b' WHERE id::UInt64 IN (SELECT (number*10 + 2)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "mismatched input ':' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 DEFAULT 2 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y Int64 MATERIALIZED 3 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 EPHEMERAL 4 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COMMENT '5' MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 CODEC(ZSTD) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 STATISTICS(tdigest) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 TTL toDate('2025-01-01') + toIntervalDay(x) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COLLATE binary MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 SETTINGS (some_setting = 2) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 PRIMARY KEY MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nSELECT 'RESET SETTING';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'MODIFY' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 DEFAULT 2 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y Int64 MATERIALIZED 3 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 EPHEMERAL 4 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COMMENT '5' REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 CODEC(ZSTD) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 STATISTICS(tdigest) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 TTL toDate('2025-01-01') + toIntervalDay(x) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COLLATE binary REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 SETTINGS (max_compress_block_size = 20000) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 PRIMARY KEY REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nSELECT 'MODIFY SETTING';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'REMOVE' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 DEFAULT 2 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y Int64 MATERIALIZED 3 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 EPHEMERAL 4 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COMMENT '5' RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 CODEC(ZSTD) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 STATISTICS(tdigest) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 TTL toDate('2025-01-01') + toIntervalDay(x) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 COLLATE binary RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 SETTINGS (some_setting = 2) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y Int64 PRIMARY KEY RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nSELECT 'All the above, but on server side';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'RESET' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y DEFAULT 2 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y MATERIALIZED 3 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y EPHEMERAL 4 MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y COMMENT '5' MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y CODEC(ZSTD) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y STATISTICS(tdigest) MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y PRIMARY KEY MODIFY SETTING max_compress_block_size = 20000; -- { clientError SYNTAX_ERROR }\nSELECT 'The same, but with type';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'MODIFY' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y DEFAULT 2 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y MATERIALIZED 3 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y EPHEMERAL 4 REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y COMMENT '5' REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y CODEC(ZSTD) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y STATISTICS(tdigest) REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y PRIMARY KEY REMOVE MATERIALIZED; -- { clientError SYNTAX_ERROR }\nSELECT 'The same, but with type';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'REMOVE' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE a MODIFY COLUMN y Int64 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR } ALTER TABLE a MODIFY COLUMN y DEFAULT 2 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y MATERIALIZED 3 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y EPHEMERAL 4 RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y COMMENT '5' RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y CODEC(ZSTD) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y STATISTICS(tdigest) RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nALTER TABLE a MODIFY COLUMN y PRIMARY KEY RESET SETTING max_compress_block_size; -- { clientError SYNTAX_ERROR }\nSELECT 'The same, but with type';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03231_alter_no_properties_before_remove_modify_reset.sql",
+    "error": "mismatched input 'RESET' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE alter_01355 ADD COLUMN Added1 UInt32 FIRST;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01355_alter_column_with_order.sql",
+    "error": "mismatched input 'FIRST' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE alter_01355 MODIFY COLUMN Added2 UInt32 FIRST;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01355_alter_column_with_order.sql",
+    "error": "mismatched input 'FIRST' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE alter_01355 MODIFY COLUMN Added3 UInt32 AFTER CounterID;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01355_alter_column_with_order.sql",
+    "error": "mismatched input 'AFTER' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE alter_index_test ADD INDEX index_b b type minmax granularity 1 FIRST;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01932_alter_index_with_order.sql",
+    "error": "mismatched input 'FIRST' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE attach_partition_t2 ATTACH PARTITION tuple() FROM attach_partition_t1; -- { serverError BAD_ARGUMENTS } CREATE TABLE attach_partition_t3 (\n\ta UInt32,\n\tb String,\nPROJECTION proj\n(\nSELECT\nb,\nsum(a)\nGROUP BY b\n)\n)\nENGINE = MergeTree\nORDER BY a;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02888_attach_partition_from_different_tables.sql",
+    "error": "mismatched input 'a' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE attach_partition_t4 ATTACH PARTITION tuple() FROM attach_partition_t3; -- { serverError BAD_ARGUMENTS } CREATE TABLE attach_partition_t5 (\n\ta UInt32,\n\tb String,\nPROJECTION proj\n(\nSELECT\nb,\nsum(a)\nGROUP BY b\n)\n)\nENGINE = MergeTree\nORDER BY a;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02888_attach_partition_from_different_tables.sql",
+    "error": "mismatched input 'a' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE collapsing MODIFY COLUMN sign String; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN } ALTER TABLE collapsing DROP COLUMN sign; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE collapsing RENAME COLUMN sign TO sign2; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE collapsing MODIFY COLUMN sign MODIFY SETTING max_compress_block_size = 123456; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nCREATE TABLE versioned_collapsing_wrong (key Int64, version UInt8, sign Int8) ENGINE = VersionedCollapsingMergeTree(sign, sign) ORDER BY key; -- { serverError BAD_ARGUMENTS }\nCREATE TABLE versioned_collapsing (key Int64, version UInt8, sign Int8) ENGINE = VersionedCollapsingMergeTree(sign, version) ORDER BY key;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03093_special_column_errors.sql",
+    "error": "mismatched input 'SETTING' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE nested_table ADD COLUMN third Nested(e Int8, f String) FIRST;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02916_addcolumn_nested.sql",
+    "error": "mismatched input 'FIRST' expecting <EOF>"
+  },
+  {
+    "query": "alter table per_table_ttl_02265 modify TTL date + interval 2 month group by key set value = argMax(value, date);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02265_per_table_ttl_mutation_on_change.sql",
+    "error": "mismatched input 'group' expecting <EOF>"
+  },
+  {
+    "query": "alter table per_table_ttl_02265 modify TTL date + interval 2 month recompress codec(ZSTD(17));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02265_per_table_ttl_mutation_on_change.sql",
+    "error": "mismatched input 'codec' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE recompression_table MODIFY TTL dt + INTERVAL 1 DAY RECOMPRESS CODEC(ZSTD(12)) SETTINGS mutations_sync = 2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01465_ttl_recompression.sql",
+    "error": "mismatched input 'CODEC' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE recompression_table_compact MODIFY TTL dt + INTERVAL 1 MONTH RECOMPRESS CODEC(ZSTD(12)) SETTINGS mutations_sync = 2; -- mutation affect all columns, so codec changes SELECT substring(name, 1, length(name) - 4), default_compression_codec FROM system.parts WHERE table = 'recompression_table_compact' and active = 1 and database = currentDatabase() ORDER BY name;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01465_ttl_recompression.sql",
+    "error": "mismatched input 'CODEC' expecting <EOF>"
+  },
+  {
+    "query": "alter table shard_0.from_0 on cluster test_cluster_two_shards_different_databases move partition tuple() to table shard_0.to format Null settings distributed_ddl_output_mode='never_throw', distributed_ddl_task_timeout = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02915_move_partition_inactive_replica.sql",
+    "error": "mismatched input 'settings' expecting <EOF>"
+  },
+  {
+    "query": "alter table shard_0.from_1 on cluster test_cluster_two_shards_different_databases move partition tuple() to table shard_0.to format Null settings distributed_ddl_output_mode='never_throw', distributed_ddl_task_timeout = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02916_another_move_partition_inactive_replica.sql",
+    "error": "mismatched input 'settings' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE t_mutations_nondeterministic UPDATE v = (SELECT groupArray(number) FROM numbers(10000)) WHERE 1; -- { serverError BAD_ARGUMENTS } SELECT command FROM system.mutations\nWHERE database = currentDatabase() AND table = 't_mutations_nondeterministic' AND is_done\nORDER BY command;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02842_mutations_replace_non_deterministic.sql",
+    "error": "mismatched input 'WHERE' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE tab MODIFY COLUMN long_string MODIFY SETTING min_compress_block_size = 8192;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02870_per_column_settings.sql",
+    "error": "mismatched input 'SETTING' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE tab MODIFY COLUMN long_string RESET SETTING min_compress_block_size;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02870_per_column_settings.sql",
+    "error": "mismatched input 'SETTING' expecting <EOF>"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN x Enum8('' = 1); -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN } ALTER TABLE test MODIFY COLUMN x Enum16('' = 1); -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test MODIFY COLUMN x UInt64; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test MODIFY COLUMN x String; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test MODIFY COLUMN x Nullable(Int64); -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test RENAME COLUMN x TO z; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test RENAME COLUMN y TO z; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE test DROP COLUMN x; -- { serverError UNKNOWN_IDENTIFIER }\nALTER TABLE test DROP COLUMN y; -- { serverError UNKNOWN_IDENTIFIER }\nDROP TABLE test SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01346_alter_enum_partition_key_replicated_zookeeper_long.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER test_user_01075 HOST REGEXP '.*\\\\.anothersite3\\\\.com' HOST REGEXP '.*\\\\.anothersite3\\\\.org';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01075_allowed_client_hosts.sql",
+    "error": "mismatched input 'HOST' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER test_user_01075_x RENAME TO test_user_01075_x@'192.168.23.15';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01075_allowed_client_hosts.sql",
+    "error": "mismatched input '@' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER test_user_01075_x@localhost RENAME TO test_user_01075_x@'%';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01075_allowed_client_hosts.sql",
+    "error": "mismatched input '@' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER u1_01292@'%' HOST LOCAL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01292_create_user.sql",
+    "error": "mismatched input '@' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER u2_01292 DEFAULT ROLE ALL EXCEPT r2_01292;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01292_create_user.sql",
+    "error": "mismatched input 'EXCEPT' expecting <EOF>"
+  },
+  {
+    "query": "ALTER USER u2_01292@'%.myhost.com' HOST ANY;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01292_create_user.sql",
+    "error": "mismatched input '@' expecting <EOF>"
+  }
+]

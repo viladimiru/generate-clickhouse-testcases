@@ -1,0 +1,977 @@
+[
+  {
+    "query": "ALTER POLICY p1_01295, p2_01295 ON db.table TO ALL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01295_create_row_policy.sql",
+    "error": "no viable alternative at input 'ALTER POLICY p1_01295,'"
+  },
+  {
+    "query": "ALTER POLICY p1_01296, p2_01296 ON table TO ALL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01296_create_row_policy_in_current_database.sql",
+    "error": "no viable alternative at input 'ALTER POLICY p1_01296,'"
+  },
+  {
+    "query": "ALTER PROFILE s1_01294 SETTINGS readonly=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s1_01294 TO u1_01294;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s1_01294, s2_01294 SETTINGS max_memory_usage=6000000;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s2_01294 SETTINGS readonly=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s2_01294 TO NONE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s2_01294, s3_01294, s4_01294 TO r1_01294;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER PROFILE s3_01294 SETTINGS NONE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER PROFILE'"
+  },
+  {
+    "query": "ALTER QUOTA q2_01297 RENAME TO 'q2_01297_renamed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01297_create_quota.sql",
+    "error": "no viable alternative at input 'ALTER QUOTA q2_01297 RENAME TO 'q2_01297_renamed''"
+  },
+  {
+    "query": "ALTER QUOTA q4_01297 FOR RANDOMIZED INTERVAL 2000 SECOND errors MAX 5;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01297_create_quota.sql",
+    "error": "no viable alternative at input 'ALTER QUOTA q4_01297 FOR RANDOMIZED INTERVAL 2000 SECOND errors'"
+  },
+  {
+    "query": "ALTER QUOTA q5_01297 FOR 1 YEAR MAX errors = 111;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01297_create_quota.sql",
+    "error": "no viable alternative at input 'ALTER QUOTA q5_01297 FOR 1'"
+  },
+  {
+    "query": "ALTER ROLE r2_01293 RENAME TO 'r2_01293_renamed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01293_create_role.sql",
+    "error": "no viable alternative at input 'ALTER ROLE r2_01293 RENAME TO 'r2_01293_renamed''"
+  },
+  {
+    "query": "ALTER ROLE r3_01293 SETTINGS NONE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01293_create_role.sql",
+    "error": "no viable alternative at input 'ALTER ROLE r3_01293 SETTINGS NONE;'"
+  },
+  {
+    "query": "ALTER ROW POLICY p2_01295 ON db.table RENAME TO 'p2_01295_renamed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01295_create_row_policy.sql",
+    "error": "no viable alternative at input 'ALTER ROW POLICY p2_01295 ON db.table RENAME TO 'p2_01295_renamed''"
+  },
+  {
+    "query": "ALTER SETTINGS PROFILE s2_01294 RENAME TO 's2_01294_renamed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01294_create_settings_profile.sql",
+    "error": "no viable alternative at input 'ALTER SETTINGS PROFILE s2_01294 RENAME TO 's2_01294_renamed''"
+  },
+  {
+    "query": "alter table  mt update n = n + (n not in m) in partition id '1' where 1 settings mutations_sync=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02399_merge_tree_mutate_in_partition.sql",
+    "error": "no viable alternative at input 'alter table  mt update n = n + (n not in m) in partition id '1''"
+  },
+  {
+    "query": "ALTER TABLE 02155_test_dictionary MODIFY COMMENT '02155_test_dictionary_comment_1';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_dictionary_comment.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02155_test_dictionary MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips DELETE                 WHERE id IN (SELECT (number*10 + 7)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips DELETE                 WHERE id IN (SELECT (number*10 + 7):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='1' WHERE id IN (SELECT (number*10+1)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='1' WHERE id IN (SELECT (number*10+1):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='2' WHERE id IN (SELECT (number*10+2)::UInt32 FROM numbers(10000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='2' WHERE id IN (SELECT (number*10+2):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='5' WHERE id IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='5' WHERE id IN (SELECT (number*10 + 5):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='6' WHERE id IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='6' WHERE id IN (SELECT (number*10 + 6):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='8' WHERE id IN (SELECT (number*10 + 8)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='8' WHERE id IN (SELECT (number*10 + 8):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10 + 1)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2, max_rows_in_set=1000;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10 + 1):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id IN (SELECT (number*10 + 4)::UInt32 FROM numbers(10000000))) OR\n(id2 IN (SELECT (number*10 + 4)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id IN (SELECT (number*10 + 4):'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id::UInt32 IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000))) OR\n((id2+1)::String IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id:'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id::UInt64 IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000))) OR\n(id2::UInt64 IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id:'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE id2 IN (SELECT (number*10 + 3)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE id2 IN (SELECT (number*10 + 3):'"
+  },
+  {
+    "query": "ALTER TABLE \\`.inner_id.00000510-1000-4000-8000-000000000001\\` DROP PARTITION ID 'all';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00510_materizlized_view_and_deduplication_zookeeper.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`.inner_id.00000510-1000-4000-8000-000000000002\\` DROP PARTITION ID 'all';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00510_materizlized_view_and_deduplication_zookeeper.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01746_buffer\\` DROP COLUMN n1; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_buffer\\`\nDROP COLUMN n2; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_buffer\\`\nDROP COLUMN n3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01746_forbid_drop_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01746_dist\\` DROP COLUMN n1; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_dist\\`\nDROP COLUMN n2; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_dist\\`\nDROP COLUMN n3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01746_forbid_drop_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01746_merge\\` DROP COLUMN n1; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_merge\\`\nDROP COLUMN n2; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_merge\\`\nDROP COLUMN n3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01746_forbid_drop_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01746_merge_tree\\` DROP COLUMN n3;  -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_merge_tree\\`\nDROP COLUMN n2;  -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_merge_tree\\`\nDROP COLUMN n4;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01746_forbid_drop_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01746_null\\` DROP COLUMN n1; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_null\\`\nDROP COLUMN n2; -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01746_null\\`\nDROP COLUMN n3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01746_forbid_drop_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01851_merge_tree\\` CLEAR COLUMN n2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01851_clear_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "ALTER TABLE \\`01851_merge_tree\\` DROP COLUMN n3;  -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01851_merge_tree\\`\nDROP COLUMN n2;  -- { serverError ALTER_OF_COLUMN_IS_FORBIDDEN }\nALTER TABLE \\`01851_merge_tree\\`\nDROP COLUMN n4;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01851_clear_column_referenced_by_mv.sql",
+    "error": "no viable alternative at input 'ALTER TABLE \\'"
+  },
+  {
+    "query": "alter table \\`table_00609\\` add column def UInt64 default val + 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00609_prewhere_and_default.sql",
+    "error": "no viable alternative at input 'alter table \\'"
+  },
+  {
+    "query": "alter table \\`table_00609\\` add column def UInt64;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00609_prewhere_and_default.sql",
+    "error": "no viable alternative at input 'alter table \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_00061 ADD COLUMN \\`n.d\\` Array(Date), MODIFY COLUMN s UInt32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00061_merge_tree_alter.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_00061 ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_00061 ADD COLUMN \\`n.d\\` Array(Date);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00061_merge_tree_alter.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_00061 ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_00061 DROP COLUMN \\`n.d\\`, MODIFY COLUMN s Int64;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00061_merge_tree_alter.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_00061 DROP COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_00394 ADD COLUMN \\`n.i8\\` Array(Int8) AFTER i32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00394_new_nested_column_keeps_offsets.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_00394 ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_00665 MODIFY COLUMN \\`boolean_false\\` Nullable(UInt8);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00665_alter_nullable_string_to_nullable_uint8.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_00665 MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_02834 MODIFY QUERY SELECT a FROM alter_02834; -- { serverError NOT_IMPLEMENTED } DROP TABLE alter_02834;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02834_alter_exception.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_02834 MODIFY QUERY'"
+  },
+  {
+    "query": "ALTER TABLE alter_column_02126 ALTER COLUMN x TYPE Float32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02126_alter_table_alter_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_column_02126 ALTER'"
+  },
+  {
+    "query": "ALTER TABLE alter_column_02126 ALTER COLUMN x TYPE Float64, MODIFY COLUMN y Float32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02126_alter_table_alter_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_column_02126 ALTER'"
+  },
+  {
+    "query": "ALTER TABLE alter_table MODIFY COLUMN \\`b\\` DateTime DEFAULT now(([NULL, NULL, NULL, [-2147483648], [NULL, NULL, NULL, NULL, NULL, NULL, NULL]] AND (1048576 AND NULL) AND (NULL AND 1048575 AND NULL AND -2147483649) AND NULL) IN (test_01103.t1_distr.id)); --{serverError UNKNOWN_IDENTIFIER}\nSELECT 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02041_test_fuzzy_alter.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_table MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_test MODIFY COLUMN \\`b\\` DateTime DEFAULT now();",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01846_alter_column_without_type_bugfix.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_test MODIFY COLUMN \\`b\\` DEFAULT now() + 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01846_alter_column_without_type_bugfix.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE alter_update_00806 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\\\' = 1, \\\\'bar\\\\' = 2)') WHERE d='2018-01-02' SETTINGS mutations_sync = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00806_alter_update.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_update_00806 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\'"
+  },
+  {
+    "query": "ALTER TABLE alter_update_00806 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\\\' = 1, \\\\'bar\\\\' = 2)') WHERE d='2018-01-02' SETTINGS mutations_sync = 2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00955_test_final_mark.sql",
+    "error": "no viable alternative at input 'ALTER TABLE alter_update_00806 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\'"
+  },
+  {
+    "query": "alter table cc attach part 'all_1_1_0';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02454_compressed_marks_in_compact_part.sql",
+    "error": "no viable alternative at input 'alter table cc attach part'"
+  },
+  {
+    "query": "ALTER TABLE compression_codec_on_alias ADD COLUMN \\`c3\\` ALIAS c2 CODEC(ZSTD) AFTER c2; -- { serverError BAD_ARGUMENTS } select 'alter table compression_codec_on_alias add column (NOT ALIAS type) with CODEC';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01462_test_codec_on_alias.sql",
+    "error": "no viable alternative at input 'ALTER TABLE compression_codec_on_alias ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\`n.lc2\\` Array(Array(LowCardinality(String)));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02835_nested_array_lowcardinality.sql",
+    "error": "no viable alternative at input 'ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\'"
+  },
+  {
+    "query": "ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\`n.lc2\\` Array(LowCardinality(String));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02835_nested_array_lowcardinality.sql",
+    "error": "no viable alternative at input 'ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\'"
+  },
+  {
+    "query": "ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\`n.lc2\\` Array(Map(LowCardinality(String), UInt64));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02835_nested_array_lowcardinality.sql",
+    "error": "no viable alternative at input 'ALTER TABLE cool_table ADD COLUMN IF NOT EXISTS \\'"
+  },
+  {
+    "query": "ALTER TABLE copied_table RENAME COLUMN \\`sipTimestamp\\` TO \\`timestamp\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03164_create_as_default.sql",
+    "error": "no viable alternative at input 'ALTER TABLE copied_table RENAME COLUMN \\'"
+  },
+  {
+    "query": "alter table data add column \\`features_legacy_Map.id\\` Array(UInt8), add column \\`features_legacy_Map.count\\` Array(UInt32);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02842_vertical_merge_after_add_drop_column.sql",
+    "error": "no viable alternative at input 'alter table data add column \\'"
+  },
+  {
+    "query": "alter table data attach part {part:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02960_alter_table_part_query_parameter.sql",
+    "error": "no viable alternative at input 'alter table data attach part'"
+  },
+  {
+    "query": "alter table data detach part {part:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02960_alter_table_part_query_parameter.sql",
+    "error": "no viable alternative at input 'alter table data detach part {'"
+  },
+  {
+    "query": "alter table data drop detached part {part:String} settings allow_drop_detached=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02960_alter_table_part_query_parameter.sql",
+    "error": "no viable alternative at input 'alter table data drop detached part {'"
+  },
+  {
+    "query": "alter table data drop part {part:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02960_alter_table_part_query_parameter.sql",
+    "error": "no viable alternative at input 'alter table data drop part {'"
+  },
+  {
+    "query": "ALTER TABLE defaults_on_defaults ADD COLUMN \\`Arr.C1\\` Array(UInt32) DEFAULT emptyArrayUInt32();",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_defaults_on_defaults_no_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE defaults_on_defaults ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE defaults_on_defaults ADD COLUMN \\`Arr.C2\\` Array(UInt32) DEFAULT arrayResize(emptyArrayUInt32(), length(Arr.C1));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_defaults_on_defaults_no_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE defaults_on_defaults ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE defaults_on_defaults ADD COLUMN \\`Arr.C3\\` Array(UInt32) ALIAS arrayResize(emptyArrayUInt32(), length(Arr.C2));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_defaults_on_defaults_no_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE defaults_on_defaults ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE defaults_on_defaults ADD COLUMN \\`Arr.C4\\` Array(UInt32) DEFAULT arrayResize(emptyArrayUInt32(), length(Arr.C3));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_defaults_on_defaults_no_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE defaults_on_defaults ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE defaults_on_defaults ADD COLUMN \\`ArrLen\\` UInt64 DEFAULT length(Arr.C4);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01513_defaults_on_defaults_no_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE defaults_on_defaults ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE elements UPDATE\n\\`nested.key\\` = arrayFilter((x, v) -> NOT (match(v, 'chocolatine')), \\`nested.key\\`, \\`nested.value\\` ),\n\\`nested.value\\` = arrayFilter((x, v) -> NOT (match(v, 'chocolatine')), \\`nested.value\\`, \\`nested.value\\`)\nWHERE id = 5555\nSETTINGS mutations_sync = 1 ;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03129_update_nested_materialized_column_check.sql",
+    "error": "no viable alternative at input 'ALTER TABLE elements UPDATE\\n\\'"
+  },
+  {
+    "query": "ALTER TABLE elements UPDATE\n\\`nested.value\\` = arrayMap(x -> concat(x, ' au chocolat'), \\`nested.value\\`)\nWHERE id = 5555\nSETTINGS mutations_sync = 1 ;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03129_update_nested_materialized_column_check.sql",
+    "error": "no viable alternative at input 'ALTER TABLE elements UPDATE\\n\\'"
+  },
+  {
+    "query": "ALTER TABLE eligible_test ADD COLUMN b String SETTINGS use_query_cache = true;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_eligible_queries.sql",
+    "error": "no viable alternative at input 'ALTER TABLE eligible_test ADD COLUMN b String SETTINGS use_query_cache = true'"
+  },
+  {
+    "query": "ALTER TABLE fx_1m ADD PROJECTION fx_5m (\nSELECT\nsymbol,\ntoStartOfInterval(dt_close, INTERVAL 300 SECOND) AS dt_close,\nargMin(open, dt_close),\nmax(high),\nmin(low),\nargMax(close, dt_close),\nsum(volume) volume\nGROUP BY symbol, dt_close\n);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02796_projection_date_filter_on_view.sql",
+    "error": "no viable alternative at input 'ALTER TABLE fx_1m ADD PROJECTION fx_5m (\\nSELECT\\nsymbol,\\ntoStartOfInterval(dt_close, INTERVAL 300 SECOND) AS dt_close,\\nargMin(open, dt_close),\\nmax(high),\\nmin(low),\\nargMax(close, dt_close),\\nsum(volume) volume'"
+  },
+  {
+    "query": "ALTER TABLE modify_sample_old MODIFY SAMPLE BY x; -- { serverError BAD_ARGUMENTS } DROP TABLE modify_sample;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01430_modify_sample_by_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE modify_sample_old MODIFY SAMPLE'"
+  },
+  {
+    "query": "ALTER TABLE modify_sample_replicated MODIFY SAMPLE BY d;  -- { serverError BAD_ARGUMENTS } ALTER TABLE modify_sample_replicated MODIFY SAMPLE BY y;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01430_modify_sample_by_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE modify_sample_replicated MODIFY SAMPLE'"
+  },
+  {
+    "query": "alter table mt update s = (select toString(groupArray((*,))) from system.zookeeper where path='/') where n=1 settings mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02436_system_zookeeper_context.sql",
+    "error": "no viable alternative at input 'alter table mt update s = (select toString(groupArray((*,)'"
+  },
+  {
+    "query": "ALTER TABLE mt_01451 ATTACH PART 'all_2_2_0';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_detach_drop_part.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mt_01451 ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE mt_01451 ATTACH PART 'all_4_4_0'; -- { serverError BAD_DATA_PART_NAME } SELECT v FROM mt_01451 ORDER BY v;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_detach_drop_part.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mt_01451 ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE mutations_and_escaping_1648 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\\\' = 1, \\\\'bar\\\\' = 2)') WHERE d='2018-01-02' and sleepEachRow(1) = 0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01648_mutations_and_escaping.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mutations_and_escaping_1648 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\'"
+  },
+  {
+    "query": "ALTER TABLE mutations_and_escaping_1648 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\\\' = 1, \\\\'bar\\\\' = 2)') WHERE d='2018-01-02' SETTINGS mutations_sync = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01648_mutations_and_escaping.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mutations_and_escaping_1648 UPDATE e = CAST('foo', 'Enum8(\\\\'foo\\'"
+  },
+  {
+    "query": "ALTER TABLE mv MODIFY QUERY SELECT a, b FROM src_table; -- { serverError NO_SUCH_COLUMN_IN_TABLE } DROP TABLE src_table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03022_alter_materialized_view_query_has_inner_table.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mv MODIFY QUERY'"
+  },
+  {
+    "query": "ALTER TABLE mv_03002 MODIFY QUERY WITH MY_CTE AS (SELECT ts FROM table_03002)\nSELECT * FROM MY_CTE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03002_modify_query_cte.sql",
+    "error": "no viable alternative at input 'ALTER TABLE mv_03002 MODIFY QUERY'"
+  },
+  {
+    "query": "ALTER TABLE nested_alter DROP COLUMN \\`n.d\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01062_alter_on_mutataion_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE nested_alter DROP COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE nested_test ADD COLUMN \\`nest.col3\\` Array(LowCardinality(String));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_nested_lc_defalut_bug.sql",
+    "error": "no viable alternative at input 'ALTER TABLE nested_test ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE null_before ALTER COLUMN id TYPE INT NULL; -- { clientError SYNTAX_ERROR } select 'modify column, NULL modifier is not allowed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02302_column_decl_null_before_defaul_value.sql",
+    "error": "no viable alternative at input 'ALTER TABLE null_before ALTER'"
+  },
+  {
+    "query": "ALTER TABLE null_before MODIFY COLUMN id NULL DEFAULT 1; -- { clientError SYNTAX_ERROR } DROP TABLE IF EXISTS null_before SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02302_column_decl_null_before_defaul_value.sql",
+    "error": "no viable alternative at input 'ALTER TABLE null_before MODIFY COLUMN id NULL'"
+  },
+  {
+    "query": "ALTER TABLE partition_all2 REPLACE PARTITION ALL FROM partition_all; -- { serverError SUPPORT_IS_DISABLED } ALTER TABLE partition_all MOVE PARTITION ALL TO TABLE partition_all2; -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE partition_all2 CLEAR INDEX p IN PARTITION ALL; -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE partition_all2 CLEAR COLUMN q IN PARTITION ALL; -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE partition_all2 UPDATE q = q + 1 IN PARTITION ALL where p = 1; -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE partition_all2 FREEZE PARTITION ALL; -- { serverError SUPPORT_IS_DISABLED }\nCHECK TABLE partition_all2 PARTITION ALL; -- { serverError SUPPORT_IS_DISABLED }\nOPTIMIZE TABLE partition_all2 PARTITION ALL; -- { serverError SUPPORT_IS_DISABLED }\nDROP TABLE partition_all;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00753_alter_attach.sql",
+    "error": "no viable alternative at input 'ALTER TABLE partition_all2 UPDATE q = q + 1 IN PARTITION ALL where p = 1;'"
+  },
+  {
+    "query": "ALTER TABLE pipe MODIFY QUERY SELECT v * 2 as v, 1 as v2 FROM src;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02931_alter_materialized_view_query_inconsistent.sql",
+    "error": "no viable alternative at input 'ALTER TABLE pipe MODIFY QUERY'"
+  },
+  {
+    "query": "ALTER TABLE pipe_01019 MODIFY QUERY\nSELECT\nv * 2 as v,\n1 as v2\nFROM src_01019;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01019_alter_materialized_view_query.sql",
+    "error": "no viable alternative at input 'ALTER TABLE pipe_01019 MODIFY QUERY'"
+  },
+  {
+    "query": "ALTER TABLE replica1 ATTACH PART 'all_3_3_0'; -- { serverError BAD_DATA_PART_NAME } SELECT v FROM replica1 ORDER BY v;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replica1 ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE replica2 ATTACH PART 'all_1_1_0' SETTINGS insert_keeper_fault_injection_probability=0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01451_replicated_detach_drop_part_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replica2 ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE replicated_alter1 ADD COLUMN \\`n.d\\` Array(Date), MODIFY COLUMN s UInt32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00062_replicated_merge_tree_alter_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replicated_alter1 ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE replicated_alter1 ADD COLUMN \\`n.d\\` Array(Date);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00062_replicated_merge_tree_alter_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replicated_alter1 ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE replicated_alter1 DROP COLUMN \\`n.d\\`, MODIFY COLUMN s Int64;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00062_replicated_merge_tree_alter_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replicated_alter1 DROP COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE replicated_constraints1 ADD CONSTRAINT b_constraint CHECK b > 10;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00988_constraints_replication_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replicated_constraints1 ADD CONSTRAINT'"
+  },
+  {
+    "query": "ALTER TABLE replicated_constraints2 ADD CONSTRAINT a_constraint CHECK a < 10;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00988_constraints_replication_zookeeper_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE replicated_constraints2 ADD CONSTRAINT'"
+  },
+  {
+    "query": "ALTER TABLE t ATTACH PART 'all_1_1_0';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02346_fulltext_index_detach_attach.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE t MODIFY COMMENT 'MergeTree Table';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02111_modify_table_comment.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE t MODIFY COMMENT 'World', MODIFY COLUMN x UInt16;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02792_alter_table_modify_comment.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE t MODIFY COMMENT 'World';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02792_alter_table_modify_comment.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE t0 (ADD COLUMN c1 JSON(c1 Variant(Int,JSON(c1 Int))));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03247_object_column_copy.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t0 ('"
+  },
+  {
+    "query": "ALTER TABLE t0 UPDATE c0 = EXISTS (SELECT 1 FROM t1 CROSS JOIN t0) WHERE 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03246_alter_update_dynamic_hung.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t0 UPDATE c0 = EXISTS (SELECT 1'"
+  },
+  {
+    "query": "ALTER TABLE t1 (MODIFY COLUMN \\`a\\` Float64 TTL toDateTime(b) + toIntervalMonth(viewExplain('EXPLAIN', 'actions = 1', (\nSELECT\ntoIntervalMonth(1),\n2\nFROM t1__fuzz_26\nGROUP BY\ntoFixedString('%Prewhere%', 10),\ntoNullable(12)\nWITH ROLLUP\n)), 1)) settings allow_experimental_parallel_reading_from_replicas = 1; -- { serverError INCORRECT_RESULT_OF_SCALAR_SUBQUERY }\nALTER TABLE t1\n(MODIFY COLUMN \\`a\\` Float64 TTL toDateTime(b) + toIntervalMonth(viewExplain('EXPLAIN', 'actions = 1', (\nSELECT\ntoIntervalMonth(1),\n2\nFROM t1__fuzz_26\nGROUP BY\ntoFixedString('%Prewhere%', 10),\ntoNullable(12)\nWITH ROLLUP\n)), 1)) settings allow_experimental_parallel_reading_from_replicas = 0; -- { serverError INCORRECT_RESULT_OF_SCALAR_SUBQUERY }\nDROP TABLE t1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03205_parallel_replicas_alter_select_ubsan.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t1 ('"
+  },
+  {
+    "query": "ALTER TABLE t_lwd_mutations APPLY DELETED MASK;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_lwd_and_mutations.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_lwd_mutations APPLY'"
+  },
+  {
+    "query": "ALTER TABLE t_materialize_column MATERIALIZE COLUMN s SETTINGS mutations_sync = 2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02131_materialize_column_cast.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_materialize_column MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "ALTER TABLE t_materialize_delete APPLY DELETED MASK IN PARTITION 5;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_apply_deleted_mask.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_materialize_delete APPLY'"
+  },
+  {
+    "query": "ALTER TABLE t_materialize_delete APPLY DELETED MASK;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_apply_deleted_mask.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_materialize_delete APPLY'"
+  },
+  {
+    "query": "ALTER TABLE t_merge MODIFY COMMENT 'Merge Table';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02111_modify_table_comment.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_merge MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE t_missed_subcolumns ADD COLUMN \\`n.b\\` Array(Nullable(String));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03203_fill_missed_subcolumns.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_missed_subcolumns ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE t_missed_subcolumns ADD COLUMN \\`y\\` Nullable(UInt32);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03203_fill_missed_subcolumns.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_missed_subcolumns ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE t_nested_modify MODIFY COLUMN \\`n.b\\` String;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02377_modify_column_from_nested.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_nested_modify MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE t_remove_sample_by REMOVE SAMPLE BY;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02097_remove_sample_by.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_remove_sample_by REMOVE SAMPLE'"
+  },
+  {
+    "query": "ALTER TABLE t_remove_sample_by REMOVE SAMPLE BY; -- { serverError BAD_ARGUMENTS } DROP TABLE t_remove_sample_by;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02097_remove_sample_by.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_remove_sample_by REMOVE SAMPLE'"
+  },
+  {
+    "query": "ALTER TABLE t_remove_sample_by REMOVE SAMPLE BY; -- { serverError BAD_ARGUMENTS } SELECT * FROM t_remove_sample_by SAMPLE 1 / 10; -- { serverError SAMPLING_NOT_SUPPORTED }\nDROP TABLE t_remove_sample_by;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02097_remove_sample_by.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_remove_sample_by REMOVE SAMPLE'"
+  },
+  {
+    "query": "ALTER TABLE t_update_empty_nested ADD COLUMN \\`nested.arr2\\` Array(UInt64);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02565_update_empty_nested.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_update_empty_nested ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE t_update_empty_nested UPDATE \\`nested.arr2\\` = \\`nested.arr1\\` WHERE 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02565_update_empty_nested.sql",
+    "error": "no viable alternative at input 'ALTER TABLE t_update_empty_nested UPDATE \\'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx vec TYPE vector_similarity('hnsw', 'L2Distance');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_experimental_setting.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx vec TYPE vector_similarity('hnsw', 'L2Distance');'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx vec TYPE vector_similarity('hnsw', 'L2Distance');  -- { serverError SUPPORT_IS_DISABLED } SET allow_experimental_vector_similarity_index = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_experimental_setting.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx vec TYPE vector_similarity('hnsw', 'L2Distance');'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx(vec) TYPE minmax;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_multiple_indexes.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx(vec) TYPE minmax;'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx(vec) TYPE vector_similarity('hnsw', 'L2Distance');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_default_granularity.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx(vec) TYPE vector_similarity('hnsw', 'L2Distance');'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02346_inverted_index_experimental_flag.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0);'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0);  -- { serverError SUPPORT_IS_DISABLED } ALTER TABLE tab ADD INDEX idx2 str TYPE inverted(0); -- { serverError SUPPORT_IS_DISABLED }\nDROP TABLE tab;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02346_inverted_index_experimental_flag.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0);'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0); -- { serverError SUPPORT_IS_DISABLED } ALTER TABLE tab ADD INDEX idx2 str TYPE inverted(0);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02346_inverted_index_experimental_flag.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx1 str TYPE full_text(0);'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX idx2 str TYPE inverted(0); -- { serverError SUPPORT_IS_DISABLED } DROP TABLE tab;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02346_inverted_index_experimental_flag.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX idx2 str TYPE inverted(0);'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX vec_idx1(vec) TYPE vector_similarity('hnsw', 'cosineDistance');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_multiple_indexes.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX vec_idx1(vec) TYPE vector_similarity('hnsw', 'cosineDistance');'"
+  },
+  {
+    "query": "ALTER TABLE tab ADD INDEX vec_idx2(vec) TYPE vector_similarity('hnsw', 'L2Distance'); -- silly but creating the same index also works for non-vector indexes ... DROP TABLE tab;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_multiple_indexes.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab ADD INDEX vec_idx2(vec) TYPE vector_similarity('hnsw', 'L2Distance');'"
+  },
+  {
+    "query": "ALTER TABLE tab MATERIALIZE COLUMN dflt2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_materialize_column_must_not_override_past_values.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "ALTER TABLE tab MATERIALIZE COLUMN dflt;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_materialize_column_must_not_override_past_values.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "ALTER TABLE tab MATERIALIZE COLUMN mtrl;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02946_materialize_column_must_not_override_past_values.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "ALTER TABLE tab MODIFY COLUMN long_string REMOVE SETTINGS;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02870_per_column_settings.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab MODIFY COLUMN long_string REMOVE SETTINGS;'"
+  },
+  {
+    "query": "ALTER TABLE tab MODIFY COLUMN long_string String SETTINGS (min_compress_block_size = 163840, max_compress_block_size = 163840);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02870_per_column_settings.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab MODIFY COLUMN long_string String SETTINGS ('"
+  },
+  {
+    "query": "ALTER TABLE tab1 ADD INDEX idx1(vec) TYPE vector_similarity('hnsw', 'L2Distance');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_unquoted_index_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab1 ADD INDEX idx1(vec) TYPE vector_similarity('hnsw', 'L2Distance');'"
+  },
+  {
+    "query": "ALTER TABLE tab2 ADD INDEX idx2(vec) TYPE vector_similarity(hnsw, L2Distance);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02354_vector_search_unquoted_index_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tab2 ADD INDEX idx2(vec) TYPE vector_similarity(hnsw, L2Distance);'"
+  },
+  {
+    "query": "ALTER TABLE table2 MODIFY COLUMN \\`Value\\` DEFAULT 'some_string'; --{serverError CANNOT_PARSE_TEXT} ALTER TABLE table2 ADD COLUMN \\`Value2\\` DEFAULT 'some_string'; --{serverError BAD_ARGUMENTS}\nDROP TABLE IF EXISTS table2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01522_validate_alter_default.sql",
+    "error": "no viable alternative at input 'ALTER TABLE table2 MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE table_01 ATTACH PART '20191001_1_1_0';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01015_attach_part.sql",
+    "error": "no viable alternative at input 'ALTER TABLE table_01 ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE table_rename_with_ttl materialize TTL settings mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01378_alter_rename_with_ttl_zookeeper.sql",
+    "error": "no viable alternative at input 'ALTER TABLE table_rename_with_ttl materialize TTL'"
+  },
+  {
+    "query": "ALTER TABLE tbl ADD COLUMN \\`id2\\` UInt32, MODIFY ORDER BY (id1, id2, id2);  -- { serverError BAD_ARGUMENTS } ALTER TABLE tbl ADD COLUMN \\`id2\\` UInt32, MODIFY ORDER BY (id1, id2, id1);  -- { serverError BAD_ARGUMENTS }\nALTER TABLE tbl ADD COLUMN \\`id2\\` UInt32, MODIFY ORDER BY (id1, id2, id2) SETTINGS allow_suspicious_indices = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02710_allow_suspicious_indices.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tbl ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE tbl ADD INDEX idx (id+1, id, id+1) TYPE minmax;  -- { serverError BAD_ARGUMENTS } ALTER TABLE tbl ADD INDEX idx (id+1, id, id+1) TYPE minmax SETTINGS allow_suspicious_indices = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02710_allow_suspicious_indices.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tbl ADD INDEX idx (id+1, id, id+1) TYPE minmax;'"
+  },
+  {
+    "query": "ALTER TABLE test ADD COLUMN \\`xx\\` UInt32 MATERIALIZED arr[1];",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01845_add_testcase_for_arrayElement.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test ADD PROJECTION d_order ( SELECT min(c_id) GROUP BY \\`d\\`);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02597_projection_materialize_and_replication.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test ADD PROJECTION d_order ( SELECT min(c_id) GROUP BY \\'"
+  },
+  {
+    "query": "ALTER TABLE test ATTACH PART 'all_1_1_1';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03013_test_part_level_is_reset_attach_from_disk_mt.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test ATTACH PART'"
+  },
+  {
+    "query": "ALTER TABLE test DROP COLUMN \\`abc\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION ('2023-10-09');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION ('"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION (('2023-10-09'));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION ('"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION ID {partition_id:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION ID {'"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION toMonday({partition:String}); --{clientError SYNTAX_ERROR} set param_partition_id = '20231009';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION toMonday({'"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION tuple(toMonday({partition:Date}));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION tuple(toMonday({'"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION {partition:Date};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION {'"
+  },
+  {
+    "query": "ALTER TABLE test DROP PARTITION {partition:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test DROP PARTITION {'"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN \\`abc.1\\` String AFTER \\`abc\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN \\`abc.2\\` String AFTER \\`abc\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN \\`abc\\` String AFTER \\`abc.1\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN \\`abc\\` String AFTER \\`abc.2\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test MODIFY COLUMN \\`abc\\` String AFTER \\`id\\`;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02320_alter_columns_with_dots.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test MODIFY COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test02910_second ADD COLUMN \\`tags_json\\` Tuple(Object('json')) DEFAULT jString;  -- { serverError SUPPORT_IS_DISABLED } ALTER TABLE test02910_second ADD COLUMN \\`tags_json\\` Tuple(Float64, Object('json'));  -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE test02910_second ADD COLUMN \\`tags_json\\` Tuple(Array(Tuple(Object('json')))) DEFAULT jString;  -- { serverError SUPPORT_IS_DISABLED }\nALTER TABLE test02910_second ADD COLUMN \\`tags_json\\` Object('json'); -- { serverError SUPPORT_IS_DISABLED }\nDROP TABLE IF EXISTS test02910;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02910_object-json-crash-add-column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test02910_second ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test2 DROP PARTITION (2, 4);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test2 DROP PARTITION ('"
+  },
+  {
+    "query": "ALTER TABLE test2 DROP PARTITION tuple({first:UInt32},{second:Int64});",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test2 DROP PARTITION tuple({'"
+  },
+  {
+    "query": "ALTER TABLE test3 DROP PARTITION {simple:String};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test3 DROP PARTITION {'"
+  },
+  {
+    "query": "ALTER TABLE test4 ON CLUSTER 'test_shard_localhost' DROP PARTITION {partition:String} FORMAT Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test4 ON CLUSTER 'test_shard_localhost' DROP PARTITION {'"
+  },
+  {
+    "query": "ALTER TABLE test5 DROP PARTITION ({f:UInt32}, 2);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test5 DROP PARTITION ('"
+  },
+  {
+    "query": "ALTER TABLE test6 DROP PARTITION {tuple:Tuple(UInt32, Int64)};",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02897_alter_partition_parameters.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test6 DROP PARTITION {'"
+  },
+  {
+    "query": "alter table test_02381 modify setting compress_marks=true, compress_primary_key=true;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02381_compress_marks_and_primary_key.sql",
+    "error": "no viable alternative at input 'alter table test_02381 modify setting compress_marks=true'"
+  },
+  {
+    "query": "alter table test_02381_compact modify setting compress_marks = true, compress_primary_key = true;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02381_compress_marks_and_primary_key.sql",
+    "error": "no viable alternative at input 'alter table test_02381_compact modify setting compress_marks = true'"
+  },
+  {
+    "query": "alter table test_02381_compress modify setting compress_marks=false, compress_primary_key=false;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02381_compress_marks_and_primary_key.sql",
+    "error": "no viable alternative at input 'alter table test_02381_compress modify setting compress_marks=false'"
+  },
+  {
+    "query": "ALTER TABLE test_move_partition_src MOVE PART '0_1_1_0' TO TABLE test_move_partition_dest;  -- { clientError SYNTAX_ERROR } SELECT count() FROM test_move_partition_src;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00975_move_partition_merge_tree.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_move_partition_src MOVE PART'"
+  },
+  {
+    "query": "ALTER TABLE test_nested ADD COLUMN \\`with_dot.bool\\` UInt8;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02017_columns_with_dot_2.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_nested ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test_new_col ADD COLUMN \\`csv_col3\\` String DEFAULT csv_as_array[3];",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01497_alias_on_default_array.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_new_col ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test_table_comment MODIFY COMMENT 'test comment';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03142_alter_comment_parameterized_view.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_table_comment MODIFY COMMENT'"
+  },
+  {
+    "query": "ALTER TABLE test_wide_nested ADD COLUMN \\`info2.id\\` Array(Int);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_wide_nested ADD COLUMN \\'"
+  },
+  {
+    "query": "ALTER TABLE test_wide_nested ADD COLUMN \\`info2.name\\` Array(String);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_wide_nested ADD COLUMN \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200,300], \\`info.age\\` = [10,20,30] where id = 1; -- { serverError UNFINISHED } kill mutation where table = 'test_wide_nested' and database = currentDatabase() format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200,300], \\`info.age\\` = [10,20,30], \\`info.name\\` = ['a','b','c'] where id = 2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200,300], \\`info.age\\` = \\`info.id\\`, \\`info.name\\` = ['a','b','c'] where id = 2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200] where id = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200], \\`info.age\\` = [10,20,30], \\`info.name\\` = ['a','b','c']  where id = 0; -- { serverError UNFINISHED } kill mutation where table = 'test_wide_nested' and database = currentDatabase() format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = [100,200], \\`info.age\\`=[68,72] where id = 3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "alter table test_wide_nested update \\`info.id\\` = \\`info.age\\` where id = 3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'alter table test_wide_nested update \\'"
+  },
+  {
+    "query": "ALTER table test_wide_nested update \\`info2.id\\` = \\`info.id\\`, \\`info2.name\\` = \\`info.name\\` where 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'ALTER table test_wide_nested update \\'"
+  },
+  {
+    "query": "ALTER TABLE test_wide_not_nested UPDATE \\`info.name\\` = 'bb' WHERE id = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01788_update_nested_type_subcolumn_check.sql",
+    "error": "no viable alternative at input 'ALTER TABLE test_wide_not_nested UPDATE \\'"
+  },
+  {
+    "query": "ALTER TABLE tmp MATERIALIZE COLUMN s;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02008_materialize_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tmp MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "ALTER TABLE tmp MATERIALIZE COLUMN x; -- { serverError BAD_ARGUMENTS } ALTER TABLE tmp ADD COLUMN s String DEFAULT toString(x);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02008_materialize_column.sql",
+    "error": "no viable alternative at input 'ALTER TABLE tmp MATERIALIZE COLUMN'"
+  },
+  {
+    "query": "alter table ttl materialize ttl settings mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01070_materialize_ttl.sql",
+    "error": "no viable alternative at input 'alter table ttl materialize ttl'"
+  },
+  {
+    "query": "alter table ttl materialize ttl;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01070_mutations_with_dependencies.sql",
+    "error": "no viable alternative at input 'alter table ttl materialize ttl'"
+  },
+  {
+    "query": "alter table ttl materialize ttl; -- { serverError INCORRECT_QUERY } alter table ttl modify ttl d + interval 1 day;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01070_materialize_ttl.sql",
+    "error": "no viable alternative at input 'alter table ttl materialize ttl'"
+  },
+  {
+    "query": "ALTER TABLE users_02534 ADD INDEX bf_idx(name) TYPE minmax;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02534_default_granularity.sql",
+    "error": "no viable alternative at input 'ALTER TABLE users_02534 ADD INDEX bf_idx(name) TYPE minmax;'"
+  },
+  {
+    "query": "alter table v modify query select NULL as x from src; -- {serverError DATA_TYPE_CANNOT_BE_USED_IN_TABLES} drop view v;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03243_check_for_nullable_nothing_in_alter.sql",
+    "error": "no viable alternative at input 'alter table v modify query'"
+  },
+  {
+    "query": "ALTER TEMPORARY TABLE alter_test ADD COLUMN Added2 UInt32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02918_alter_temporary_table.sql",
+    "error": "no viable alternative at input 'ALTER TEMPORARY'"
+  },
+  {
+    "query": "ALTER TEMPORARY TABLE alter_test COMMENT COLUMN b 'this is comment for log engine';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02919_alter_temporary_table_with_nondefault_engine.sql",
+    "error": "no viable alternative at input 'ALTER TEMPORARY'"
+  },
+  {
+    "query": "ALTER TEMPORARY TABLE alter_test MODIFY COLUMN b UInt8 FIRST;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02919_alter_temporary_table_with_nondefault_engine.sql",
+    "error": "no viable alternative at input 'ALTER TEMPORARY'"
+  },
+  {
+    "query": "ALTER USER 'test_01605' SETTINGS PROFILE 'test_01605';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01605_drop_settings_profile_while_assigned.sql",
+    "error": "no viable alternative at input 'ALTER USER 'test_01605''"
+  },
+  {
+    "query": "alter user \\`test 01119\\` rename to \" spaces \";",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01119_weird_user_names.sql",
+    "error": "no viable alternative at input 'alter user \\'"
+  },
+  {
+    "query": "ALTER USER test_user_01075 HOST REGEXP '.*\\\\.anothersite\\\\.com', '.*\\\\.anothersite\\\\.org';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01075_allowed_client_hosts.sql",
+    "error": "no viable alternative at input 'ALTER USER test_user_01075 HOST REGEXP '.*\\\\.anothersite\\\\.com', '.*\\\\.anothersite\\\\.org''"
+  },
+  {
+    "query": "ALTER USER u2_01292 RENAME TO 'u2_01292_renamed';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01292_create_user.sql",
+    "error": "no viable alternative at input 'ALTER USER u2_01292 RENAME TO 'u2_01292_renamed''"
+  },
+  {
+    "query": "ALTER USER u3_01292 SETTINGS NONE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01292_create_user.sql",
+    "error": "no viable alternative at input 'ALTER USER u3_01292 SETTINGS NONE;'"
+  }
+]

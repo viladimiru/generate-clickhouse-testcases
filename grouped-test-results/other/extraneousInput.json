@@ -1,0 +1,32 @@
+[
+  {
+    "query": "# Check table structure DESCRIBE system.certificates;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02294_system_certificates.sql",
+    "error": "extraneous input '#' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "# SELECT * should only return ordinary columns (x, z) - ephemeral is not stored in the table SELECT * FROM t_ephemeral_02205_1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02205_ephemeral_1.sql",
+    "error": "extraneous input '#' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "; insert into test select * from numbers(10, 10); -- { serverError CANNOT_APPEND_TO_FILE }\ninsert into test select * from numbers(10, 10) settings engine_file_allow_create_multiple_files=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_multiple_inserts_for_formats_with_suffix.sql",
+    "error": "extraneous input ';' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "; select lagInFrame(toNullable(1)) over ();",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01591_window_functions.sql",
+    "error": "extraneous input ';' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "FROM (FROM numbers(1) SELECT *) AS select SELECT number;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02417_from_select_syntax.sql",
+    "error": "extraneous input 'FROM' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "FROM (FROM numbers(1) SELECT *) SELECT number;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02417_from_select_syntax.sql",
+    "error": "extraneous input 'FROM' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  }
+]

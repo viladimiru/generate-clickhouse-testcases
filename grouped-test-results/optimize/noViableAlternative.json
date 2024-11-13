@@ -1,0 +1,22 @@
+[
+  {
+    "query": "OPTIMIZE TABLE partitioned_by_tuple PARTITION ('2000-01-01', 1) FINAL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_local.sql",
+    "error": "no viable alternative at input 'OPTIMIZE TABLE partitioned_by_tuple PARTITION ('"
+  },
+  {
+    "query": "OPTIMIZE TABLE partitioned_by_tuple PARTITION ('2000-01-02', 1) FINAL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_local.sql",
+    "error": "no viable alternative at input 'OPTIMIZE TABLE partitioned_by_tuple PARTITION ('"
+  },
+  {
+    "query": "OPTIMIZE TABLE partitioned_by_tuple_replica1_00502 PARTITION ('2000-01-01', 1) FINAL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "no viable alternative at input 'OPTIMIZE TABLE partitioned_by_tuple_replica1_00502 PARTITION ('"
+  },
+  {
+    "query": "OPTIMIZE TABLE partitioned_by_tuple_replica1_00502 PARTITION ('2000-01-02', 1) FINAL;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/00502_custom_partitioning_replicated_zookeeper_long.sql",
+    "error": "no viable alternative at input 'OPTIMIZE TABLE partitioned_by_tuple_replica1_00502 PARTITION ('"
+  }
+]

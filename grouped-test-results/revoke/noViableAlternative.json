@@ -1,0 +1,7 @@
+[
+  {
+    "query": "REVOKE SELECT ON team*.* FROM user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'REVOKE SELECT ON team*'"
+  }
+]

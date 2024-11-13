@@ -1,0 +1,7 @@
+[
+  {
+    "query": "REPLACE DICTIONARY 01913_db.test_dictionary (\nid UInt64,\nvalue_1 String\n)\nPRIMARY KEY id\nLAYOUT(HASHED())\nSOURCE(CLICKHOUSE(DB '01913_db' TABLE 'test_source_table_2'))\nLIFETIME(0);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01913_replace_dictionary.sql",
+    "error": "no viable alternative at input 'REPLACE DICTIONARY 01913'"
+  }
+]

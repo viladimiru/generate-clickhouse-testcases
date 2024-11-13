@@ -1,0 +1,47 @@
+[
+  {
+    "query": "undrop table 02681_undrop_detach; -- { serverError TABLE_ALREADY_EXISTS } attach table 02681_undrop_detach;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_distributed;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_log;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_mergetree;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_multiple;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_multiple; -- { serverError TABLE_ALREADY_EXISTS } drop table 02681_undrop_multiple sync;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_no_uuid_on_cluster on cluster test_shard_localhost format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_replicatedmergetree;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  },
+  {
+    "query": "undrop table 02681_undrop_uuid_on_cluster on cluster test_shard_localhost format Null;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02681_undrop_query.sql",
+    "error": "mismatched input 'undrop' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  }
+]

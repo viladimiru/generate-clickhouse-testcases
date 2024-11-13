@@ -1,0 +1,7 @@
+[
+  {
+    "query": "ROLLBACK;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02497_source_part_is_intact_when_mutation.sql",
+    "error": "mismatched input 'ROLLBACK' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, GRANT, REVOKE, '('}"
+  }
+]

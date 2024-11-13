@@ -1,0 +1,7 @@
+[
+  {
+    "query": "CREATE TABLE lol (n int) ENGINE=MergeTree ORDER BY n SETTINGS min_bytes_for_wide_part=123 SETTINGS log_queries=1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02184_default_table_engine.sql",
+    "error": "extraneous input 'log_queries' expecting '='"
+  }
+]

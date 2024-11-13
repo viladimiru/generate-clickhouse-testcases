@@ -1,0 +1,137 @@
+[
+  {
+    "query": "GRANT DELETE ON *.* TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT DROP ON sqllt.view TO sqllt_user;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT INSERT ON *.* TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT INSERT ON foo* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT INSERT ON foobar* TO user_03141 WITH GRANT OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT INSERT ON team*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON *.* TO test_user_01074 WITH GRANT OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01074_partial_revokes.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON *.* TO test_user_01074;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01074_partial_revokes.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON all.* TO test_user_01999 WITH REPLACE OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db.* TO test_user_01074 WITH GRANT OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01074_partial_revokes.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db.* TO test_user_01074;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01074_partial_revokes.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db.table TO test_user_01074;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01074_partial_revokes.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db1.* TO test_role_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db1.* TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db1.* TO test_user_01999;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db1.tb1 TO test_user_01999;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON db2.table TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON sqllt.table TO sqllt_user;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON team*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT ON test*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT(col1) ON db3.table TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT(col1) ON db3.table TO test_user_01999 WITH REPLACE OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT(col1, col2) ON db4.table TO test_user_01073;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01073_grant_and_revoke.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT(col3) ON db3.table3, SELECT(col1, col2) ON db4.table4 TO test_user_01999 WITH REPLACE OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SELECT(cola) ON db5.table, INSERT(colb) ON db6.tb61, SHOW ON db7.* TO test_user_01999 WITH REPLACE OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SHOW ON db2.tb2 TO test_user_01999;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  },
+  {
+    "query": "GRANT SHOW ON db8.* TO test_user_01999;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01999_grant_with_replace.sql",
+    "error": "extraneous input 'GRANT' expecting {<EOF>, ALTER, ATTACH, CHECK, CREATE, DELETE, DESC, DESCRIBE, DETACH, DROP, EXISTS, EXPLAIN, INSERT, KILL, OPTIMIZE, RENAME, REPLACE, SELECT, SET, SHOW, SYSTEM, TRUNCATE, USE, WATCH, WITH, '('}"
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "query": "insert into m values (1); -- { serverError NOT_IMPLEMENTED } select * from m; -- { serverError INVALID_TRANSACTION }\ncommit; -- { serverError INVALID_TRANSACTION } -- after 48\nrollback;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01173_transaction_control_queries.sql",
+    "error": "mismatched input 'commit' expecting <EOF>"
+  },
+  {
+    "query": "INSERT INTO t2(conversation) VALUES (42); -- { serverError UNKNOWN_TABLE } CREATE TABLE t1 (\n\\`id\\` UInt64\n)\nENGINE = MergeTree ORDER BY id;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02841_not_ready_set_constraints.sql",
+    "error": "mismatched input '\\' expecting <EOF>"
+  },
+  {
+    "query": "INSERT INTO table_that_do_not_exists VALUES (42); -- { serverError UNKNOWN_TABLE } SELECT current_value - previous_value\nFROM (\nSELECT event, value as current_value FROM system.events WHERE event like 'FailedInsertQuery'\n) AS previous\nALL LEFT JOIN (\nSELECT event, value as previous_value FROM current_failed_query_metrics\n) AS current\non previous.event = current.event;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01281_unsucceeded_insert_select_queries_counter.sql",
+    "error": "mismatched input 'FROM' expecting <EOF>"
+  },
+  {
+    "query": "INSERT INTO test_tz_setting VALUES ('2000-01-01 01:00:00'); -- this is parsed using timezone from \\`d\\` column INSERT INTO test_tz_setting VALUES (toDateTime('2000-01-02 02:00:00')); -- this is parsed using \\`session_timezone\\`\nSELECT d FROM test_tz_setting WHERE d == '2000-01-01 01:00:00'; -- 1 row expected\nSELECT d FROM test_tz_setting WHERE d == toDateTime('2000-01-01 02:00:00'); -- 0 rows expected\nDROP TABLE test_tz_setting SYNC;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02737_session_timezone.sql",
+    "error": "mismatched input 'SYNC' expecting <EOF>"
+  }
+]

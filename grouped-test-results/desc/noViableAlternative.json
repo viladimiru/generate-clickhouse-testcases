@@ -1,0 +1,297 @@
+[
+  {
+    "query": "desc format(CSV, '\"[[\\\\'2020-01-01\\\\', null, \\\\'1234\\\\'], [\\\\'abcd\\\\']]\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02497_schema_inference_nulls.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01 00:00:00\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\']\"\\\\n\"[\\\\'2020-01-01\\\\', \\\\'Some string\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\']\"\\\\n\"[\\\\'2020-01-01\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01 00:00:00\\\\', \\\\'Some string\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01 00:00:00\\\\']\"\\\\n\"[\\\\'2020-01-01\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01\\\\', \\\\'2020-01-01 00:00:00\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'2020-01-01\\\\', \\\\'2020-01-02\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'2020'"
+  },
+  {
+    "query": "desc format(CSV, '\"[\\\\'abc\\\\\\\\\\\\'\\\\']\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02499_escaped_quote_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[\\\\'abc'"
+  },
+  {
+    "query": "desc format(CSV, '\"[{\\\\'a\\\\' : null}, {\\\\'b\\\\' : 1}]\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02497_schema_inference_nulls.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"[{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'a\\\\' : [123, 123]}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'a\\\\' : [123, 123]}\"\\\\n\"{\\\\'b\\\\' : [321, 321]}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'a\\\\' : [123, 123]}\"\\\\n\"{\\\\'b\\\\' : [321.321, 123]}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'a\\\\' : null}\"\\\\n\"{\\\\'b\\\\' : 1}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02497_schema_inference_nulls.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'date1\\\\' : \\\\'2020-01-01 00:00:00\\\\', \\\\'date2\\\\' : \\\\'2020-01-01\\\\'}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'date1'"
+  },
+  {
+    "query": "desc format(CSV, '\"{\\\\'key1\\\\' : [[\\\\'2020-01-01 00:00:00\\\\']], \\\\'key2\\\\' : [[\\\\'2020-01-01\\\\']]}\"\\\\n\"{\\\\'key1\\\\' : [[\\\\'2020-01-01\\\\']], \\\\'key2\\\\' : [[\\\\'Some string\\\\']]}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{\\\\'key1'"
+  },
+  {
+    "query": "desc format(CSV, '\"{}\"\\\\n\"{\\\\'a\\\\' : 1}\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02497_schema_inference_nulls.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '\"{}\"\\\\n\"{\\\\'a'"
+  },
+  {
+    "query": "desc format(CSV, '1,2,\"[1,2,3]\",\"[[\\\\'abc\\\\'], [], [\\\\'d\\\\', \\\\'e\\\\']]\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02542_table_function_format.sql",
+    "error": "no viable alternative at input 'desc format(CSV, '1,2,\"[1,2,3]\",\"[[\\\\'abc'"
+  },
+  {
+    "query": "desc format(CSV, 'a1 Int32, a2 UInt64, a3 Array(Int32), a4 Array(Array(String))', '1,2,\"[1,2,3]\",\"[[\\\\'abc\\\\'], [], [\\\\'d\\\\', \\\\'e\\\\']]\"');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02542_table_function_format.sql",
+    "error": "no viable alternative at input 'desc format(CSV, 'a1 Int32, a2 UInt64, a3 Array(Int32), a4 Array(Array(String))', '1,2,\"[1,2,3]\",\"[[\\\\'abc'"
+  },
+  {
+    "query": "desc format(JSONEachRow,  \\$\\$\n{\"a\": \"Hello\", \"b\": 111}\n{\"a\": \"World\", \"b\": 123}\n{\"a\": \"Hello\", \"b\": 111}\n{\"a\": \"World\", \"b\": 123}\n\\$\\$);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02542_table_function_format.sql",
+    "error": "no viable alternative at input 'desc format(JSONEachRow,  \\'"
+  },
+  {
+    "query": "desc format(JSONEachRow, 'a String, b Int64', \\$\\$\n{\"a\": \"Hello\", \"b\": 111}\n{\"a\": \"World\", \"b\": 123}\n{\"a\": \"Hello\", \"b\": 111}\n{\"a\": \"World\", \"b\": 123}\n\\$\\$);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02542_table_function_format.sql",
+    "error": "no viable alternative at input 'desc format(JSONEachRow, 'a String, b Int64', \\'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01 00:00:00\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\']\\\\n[\\\\'2020-01-01\\\\', \\\\'Some string\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\']\\\\n[\\\\'2020-01-01\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01 00:00:00\\\\', \\\\'Some string\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01 00:00:00\\\\']\\\\n[\\\\'2020-01-01\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01\\\\', \\\\'2020-01-01 00:00:00\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '[\\\\'2020-01-01\\\\', \\\\'2020-01-02\\\\']');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '[\\\\'2020'"
+  },
+  {
+    "query": "desc format(TSV, '{\\\\'a\\\\' : [123, 123]}');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '{\\\\'a'"
+  },
+  {
+    "query": "desc format(TSV, '{\\\\'a\\\\' : [123, 123]}\\\\n{\\\\'b\\\\' : [321, 321]}');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '{\\\\'a'"
+  },
+  {
+    "query": "desc format(TSV, '{\\\\'a\\\\' : [123, 123]}\\\\n{\\\\'b\\\\' : [321.321, 123]}');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '{\\\\'a'"
+  },
+  {
+    "query": "desc format(TSV, '{\\\\'date1\\\\' : \\\\'2020-01-01 00:00:00\\\\', \\\\'date2\\\\' : \\\\'2020-01-01\\\\'}');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '{\\\\'date1'"
+  },
+  {
+    "query": "desc format(TSV, '{\\\\'key1\\\\' : [[\\\\'2020-01-01 00:00:00\\\\']], \\\\'key2\\\\' : [[\\\\'2020-01-01\\\\']]}\\\\n{\\\\'key1\\\\' : [[\\\\'2020-01-01\\\\']], \\\\'key2\\\\' : [[\\\\'Some string\\\\']]}');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(TSV, '{\\\\'key1'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01 00:00:00\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\'])\\\\n([\\\\'2020-01-01\\\\', \\\\'Some string\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01 00:00:00\\\\', \\\\'2020-01-01\\\\'])\\\\n([\\\\'2020-01-01\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01 00:00:00\\\\', \\\\'Some string\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01 00:00:00\\\\']), ([\\\\'2020-01-01\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01\\\\', \\\\'2020-01-01 00:00:00\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '([\\\\'2020-01-01\\\\', \\\\'2020-01-02\\\\'])');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '([\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'2020-01-01 00:00:00.00000\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'2020-01-01 00:00:00\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'2020-01-01 00:00:00\\\\')\\\\n(\\\\'2020-01-01\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'2020-01-01 00:00:00\\\\')\\\\n(\\\\'Some string\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'2020-01-01\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'2020'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'abc)'); -- { serverError CANNOT_EXTRACT_TABLE_STRUCTURE } ",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02502_bad_values_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'abc'"
+  },
+  {
+    "query": "desc format(Values, '(\\\\'abc\\\\\\\\\\\\'\\\\')');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02499_escaped_quote_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '(\\\\'abc'"
+  },
+  {
+    "query": "desc format(Values, '({\\\\'a\\\\' : [123, 123]})');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '({\\\\'a'"
+  },
+  {
+    "query": "desc format(Values, '({\\\\'a\\\\' : [123, 123]}), ({\\\\'b\\\\' : [321, 321]})');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '({\\\\'a'"
+  },
+  {
+    "query": "desc format(Values, '({\\\\'a\\\\' : [123, 123]}), ({\\\\'b\\\\' : [321.321, 123]})');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02327_try_infer_integers_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '({\\\\'a'"
+  },
+  {
+    "query": "desc format(Values, '({\\\\'date1\\\\' : \\\\'2020-01-01 00:00:00\\\\', \\\\'date2\\\\' : \\\\'2020-01-01\\\\'})');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '({\\\\'date1'"
+  },
+  {
+    "query": "desc format(Values, '({\\\\'key1\\\\' : [[\\\\'2020-01-01 00:00:00\\\\']], \\\\'key2\\\\' : [[\\\\'2020-01-01\\\\']]})\\\\n({\\\\'key1\\\\' : [[\\\\'2020-01-01\\\\']], \\\\'key2\\\\' : [[\\\\'Some string\\\\']]})');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02325_dates_schema_inference.sql",
+    "error": "no viable alternative at input 'desc format(Values, '({\\\\'key1'"
+  },
+  {
+    "query": "desc s3Cluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', 'auto', headers(MyCustomHeader = 'SomeValue'), 'auto');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_s3_cluster_schema_inference.sql",
+    "error": "no viable alternative at input 'desc s3Cluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', 'auto', headers(MyCustomHeader ='"
+  },
+  {
+    "query": "desc s3Cluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', headers(MyCustomHeader = 'SomeValue'));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_s3_cluster_schema_inference.sql",
+    "error": "no viable alternative at input 'desc s3Cluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', headers(MyCustomHeader ='"
+  },
+  {
+    "query": "desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'auto', headers('X-ClickHouse-Database'='default'));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02721_url_cluster.sql",
+    "error": "no viable alternative at input 'desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'auto', headers('X-ClickHouse-Database'='"
+  },
+  {
+    "query": "desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', 'auto', headers('X-ClickHouse-Database'='default'));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02721_url_cluster.sql",
+    "error": "no viable alternative at input 'desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', 'auto', headers('X-ClickHouse-Database'='"
+  },
+  {
+    "query": "desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', headers('X-ClickHouse-Database'='default'), 'auto', 'auto');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02721_url_cluster.sql",
+    "error": "no viable alternative at input 'desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', 'TSV', headers('X-ClickHouse-Database'='"
+  },
+  {
+    "query": "desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', headers('X-ClickHouse-Database'='default'), 'TSV');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02721_url_cluster.sql",
+    "error": "no viable alternative at input 'desc urlCluster('test_cluster_one_shard_three_replicas_localhost', 'http://localhost:11111/test/{a,b}.tsv', headers('X-ClickHouse-Database'='"
+  },
+  {
+    "query": "desc urlCluster('test_cluster_one_shard_three_replicas_localhost', headers('X-ClickHouse-Database'='default'), 'http://localhost:11111/test/{a,b}.tsv');",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02721_url_cluster.sql",
+    "error": "no viable alternative at input 'desc urlCluster('test_cluster_one_shard_three_replicas_localhost', headers('X-ClickHouse-Database'='"
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "query": "GRANT INSERT ON foo* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'GRANT INSERT ON foo*'"
+  },
+  {
+    "query": "GRANT INSERT ON foobar* TO user_03141 WITH GRANT OPTION;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'GRANT INSERT ON foobar*'"
+  },
+  {
+    "query": "GRANT INSERT ON team*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'GRANT INSERT ON team*'"
+  },
+  {
+    "query": "GRANT SELECT ON team*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'GRANT SELECT ON team*'"
+  },
+  {
+    "query": "GRANT SELECT ON test*.* TO user_03141;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_wildcard_grants.sql",
+    "error": "no viable alternative at input 'GRANT SELECT ON test*'"
+  }
+]

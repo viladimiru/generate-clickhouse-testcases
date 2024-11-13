@@ -1,0 +1,262 @@
+[
+  {
+    "query": "system disable failpoint replicated_commit_zk_fail_after_op;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02718_insert_meet_hardware_error.sql",
+    "error": "no viable alternative at input 'system disable'"
+  },
+  {
+    "query": "system disable failpoint replicated_merge_tree_commit_zk_fail_when_recovering_from_hw_fault;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02919_insert_meet_eternal_hardware_error.sql",
+    "error": "no viable alternative at input 'system disable'"
+  },
+  {
+    "query": "system disable failpoint replicated_sends_failpoint;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_fetches_errors_stress.sql",
+    "error": "no viable alternative at input 'system disable'"
+  },
+  {
+    "query": "SYSTEM DISABLE FAILPOINT use_delayed_remote_source;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02863_delayed_source_with_totals_and_extremes.sql",
+    "error": "no viable alternative at input 'SYSTEM DISABLE'"
+  },
+  {
+    "query": "SYSTEM DROP COMPILED EXPRESSION CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02723_jit_aggregation_bug_48120.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP DNS CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01083_expressions_in_engine_arguments.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP FILESYSTEM CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02240_filesystem_query_cache.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP MARK CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03198_dynamic_read_subcolumns.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP MMAP CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01778_mmap_cache_infra.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP QUERY CACHE TAG '';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_drop_cache.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP QUERY CACHE TAG 'abc';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_drop_cache.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP QUERY CACHE TAG 'def';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_drop_cache.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP QUERY CACHE TAG 'tag';",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_drop_cache.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "SYSTEM DROP QUERY CACHE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_user_quotas_after_drop.sql",
+    "error": "no viable alternative at input 'SYSTEM DROP'"
+  },
+  {
+    "query": "system drop schema cache for file;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02375_system_schema_inference_cache.sql",
+    "error": "no viable alternative at input 'system drop'"
+  },
+  {
+    "query": "SYSTEM ENABLE FAILPOINT prefetched_reader_pool_failpoint;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02910_prefetch_unexpceted_exception.sql",
+    "error": "no viable alternative at input 'SYSTEM ENABLE'"
+  },
+  {
+    "query": "system enable failpoint replicated_merge_tree_commit_zk_fail_after_op;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02919_insert_meet_eternal_hardware_error.sql",
+    "error": "no viable alternative at input 'system enable'"
+  },
+  {
+    "query": "system enable failpoint replicated_merge_tree_commit_zk_fail_when_recovering_from_hw_fault;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02919_insert_meet_eternal_hardware_error.sql",
+    "error": "no viable alternative at input 'system enable'"
+  },
+  {
+    "query": "system enable failpoint replicated_merge_tree_insert_quorum_fail_0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02887_insert_quorum_wo_keeper_retries.sql",
+    "error": "no viable alternative at input 'system enable'"
+  },
+  {
+    "query": "system enable failpoint replicated_sends_failpoint;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03141_fetches_errors_stress.sql",
+    "error": "no viable alternative at input 'system enable'"
+  },
+  {
+    "query": "SYSTEM ENABLE FAILPOINT slowdown_index_analysis;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03176_check_timeout_in_index_analysis.sql",
+    "error": "no viable alternative at input 'SYSTEM ENABLE'"
+  },
+  {
+    "query": "SYSTEM ENABLE FAILPOINT use_delayed_remote_source;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02863_delayed_source_with_totals_and_extremes.sql",
+    "error": "no viable alternative at input 'SYSTEM ENABLE'"
+  },
+  {
+    "query": "SYSTEM FLUSH ASYNC INSERT QUEUE;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03229_async_insert_alter.sql",
+    "error": "no viable alternative at input 'SYSTEM FLUSH ASYNC'"
+  },
+  {
+    "query": "SYSTEM RELOAD ASYNCHRONOUS METRICS;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_asynchronous_metrics.sql",
+    "error": "no viable alternative at input 'SYSTEM RELOAD ASYNCHRONOUS'"
+  },
+  {
+    "query": "SYSTEM RELOAD DICTIONARY \\`foo 1234\\`.dict;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01036_no_superfluous_dict_reload_on_create_database_2.sql",
+    "error": "no viable alternative at input 'SYSTEM RELOAD DICTIONARY \\'"
+  },
+  {
+    "query": "SYSTEM RELOAD DICTIONARY {CLICKHOUSE_DATABASE:Identifier}.dict3; -- {serverError UNKNOWN_TABLE} SELECT dictGetString({CLICKHOUSE_DATABASE:String} || '.dict3', 'some_column', toUInt64(12));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01018_ddl_dictionaries_select.sql",
+    "error": "no viable alternative at input 'SYSTEM RELOAD DICTIONARY {'"
+  },
+  {
+    "query": "system restart replica rmt;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02487_create_index_normalize_functions.sql",
+    "error": "no viable alternative at input 'system restart'"
+  },
+  {
+    "query": "system restart replica shard_0.to;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02916_another_move_partition_inactive_replica.sql",
+    "error": "no viable alternative at input 'system restart'"
+  },
+  {
+    "query": "SYSTEM RESTART REPLICA test_alter_r1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01267_alter_default_key_columns_zookeeper_long.sql",
+    "error": "no viable alternative at input 'SYSTEM RESTART'"
+  },
+  {
+    "query": "SYSTEM RESTART REPLICA test_alter_r2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01267_alter_default_key_columns_zookeeper_long.sql",
+    "error": "no viable alternative at input 'SYSTEM RESTART'"
+  },
+  {
+    "query": "SYSTEM RESTART REPLICA test_table_replicated_second;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02989_replicated_merge_tree_invalid_metadata_version.sql",
+    "error": "no viable alternative at input 'SYSTEM RESTART'"
+  },
+  {
+    "query": "SYSTEM RESTART REPLICAS;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01646_system_restart_replicas_smoke.sql",
+    "error": "no viable alternative at input 'SYSTEM RESTART'"
+  },
+  {
+    "query": "SYSTEM START MOVES sqllt.table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "no viable alternative at input 'SYSTEM START MOVES'"
+  },
+  {
+    "query": "SYSTEM START REPLICATION QUEUES checksums_r2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02882_replicated_fetch_checksums_doesnt_match.sql",
+    "error": "no viable alternative at input 'SYSTEM START REPLICATION'"
+  },
+  {
+    "query": "SYSTEM START REPLICATION QUEUES checksums_r3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02882_replicated_fetch_checksums_doesnt_match.sql",
+    "error": "no viable alternative at input 'SYSTEM START REPLICATION'"
+  },
+  {
+    "query": "SYSTEM START REPLICATION QUEUES wikistat2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_zero_copy_and_projection_and_mutation_work_together.sql",
+    "error": "no viable alternative at input 'SYSTEM START REPLICATION'"
+  },
+  {
+    "query": "SYSTEM START REPLICATION QUEUES wrong_metadata;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02538_alter_rename_sequence.sql",
+    "error": "no viable alternative at input 'SYSTEM START REPLICATION'"
+  },
+  {
+    "query": "SYSTEM START REPLICATION QUEUES wrong_metadata_wide;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02538_alter_rename_sequence.sql",
+    "error": "no viable alternative at input 'SYSTEM START REPLICATION'"
+  },
+  {
+    "query": "system stop cleanup rmt1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02485_zero_copy_commit_error.sql",
+    "error": "no viable alternative at input 'system stop cleanup'"
+  },
+  {
+    "query": "system stop cleanup rmt3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02486_truncate_and_unexpected_parts.sql",
+    "error": "no viable alternative at input 'system stop cleanup'"
+  },
+  {
+    "query": "system stop cleanup rmt;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02486_truncate_and_unexpected_parts.sql",
+    "error": "no viable alternative at input 'system stop cleanup'"
+  },
+  {
+    "query": "SYSTEM STOP MOVES sqllt.table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01702_system_query_log.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP MOVES'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES checksums_r2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02882_replicated_fetch_checksums_doesnt_match.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES checksums_r3;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02882_replicated_fetch_checksums_doesnt_match.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES mutation_2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02456_test_zero_copy_mutation.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES wikistat2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_zero_copy_and_projection_and_mutation_work_together.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES wrong_metadata;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02538_alter_rename_sequence.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "SYSTEM STOP REPLICATION QUEUES wrong_metadata_wide;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02538_alter_rename_sequence.sql",
+    "error": "no viable alternative at input 'SYSTEM STOP REPLICATION'"
+  },
+  {
+    "query": "system sync file cache;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02536_system_sync_file_cache.sql",
+    "error": "no viable alternative at input 'system sync file'"
+  },
+  {
+    "query": "SYSTEM UNLOAD PRIMARY KEY {CLICKHOUSE_DATABASE:Identifier}.test2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03127_system_unload_primary_key_table.sql",
+    "error": "no viable alternative at input 'SYSTEM UNLOAD'"
+  },
+  {
+    "query": "SYSTEM UNLOAD PRIMARY KEY {CLICKHOUSE_DATABASE:Identifier}.test;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03127_system_unload_primary_key_table.sql",
+    "error": "no viable alternative at input 'SYSTEM UNLOAD'"
+  },
+  {
+    "query": "SYSTEM UNLOAD PRIMARY KEY;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03128_system_unload_primary_key.sql",
+    "error": "no viable alternative at input 'SYSTEM UNLOAD'"
+  }
+]

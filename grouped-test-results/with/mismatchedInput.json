@@ -1,0 +1,72 @@
+[
+  {
+    "query": "WITH ( SELECT sleep(0.0001) FROM system.one ) as a1,\n( SELECT sleep(0.0001) FROM system.one ) as a2,\n( SELECT sleep(0.0001) FROM system.one ) as a3,\n( SELECT sleep(0.0001) FROM system.one ) as a4,\n( SELECT sleep(0.0001) FROM system.one ) as a5\nSELECT '02177_CTE_GLOBAL_OFF', a1, a2, a3, a4, a5 FROM system.numbers LIMIT 100\nFORMAT Null\nSETTINGS enable_global_with_statement = 0;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02174_cte_scalar_cache.sql",
+    "error": "mismatched input 'SETTINGS' expecting <EOF>"
+  },
+  {
+    "query": "WITH ( SELECT sleep(0.0001) FROM system.one ) as a1,\n( SELECT sleep(0.0001) FROM system.one ) as a2,\n( SELECT sleep(0.0001) FROM system.one ) as a3,\n( SELECT sleep(0.0001) FROM system.one ) as a4,\n( SELECT sleep(0.0001) FROM system.one ) as a5\nSELECT '02177_CTE_GLOBAL_ON', a1, a2, a3, a4, a5 FROM system.numbers LIMIT 100\nFORMAT Null\nSETTINGS enable_global_with_statement = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02174_cte_scalar_cache.sql",
+    "error": "mismatched input 'SETTINGS' expecting <EOF>"
+  },
+  {
+    "query": "WITH ( SELECT sleep(0.0001) FROM system.one ) as a1,\n( SELECT sleep(0.0001) FROM system.one ) as a2,\n( SELECT sleep(0.0001) FROM system.one ) as a3,\n( SELECT sleep(0.0001) FROM system.one ) as a4,\n( SELECT sleep(0.0001) FROM system.one ) as a5\nSELECT '02177_CTE_NEW_ANALYZER', a1, a2, a3, a4, a5 FROM system.numbers LIMIT 100\nFORMAT Null\nSETTINGS enable_analyzer = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02174_cte_scalar_cache.sql",
+    "error": "mismatched input 'SETTINGS' expecting <EOF>"
+  },
+  {
+    "query": "WITH 1 as a SELECT a, FROM numbers(1);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02676_trailing_commas.sql",
+    "error": "mismatched input '(' expecting <EOF>"
+  },
+  {
+    "query": "WITH 1 as from SELECT from, from + from, from in [0], FROM numbers(1);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02676_trailing_commas.sql",
+    "error": "mismatched input '(' expecting <EOF>"
+  },
+  {
+    "query": "WITH 7204436857747984384 AS sf,\n0 AS epoch, -- default epoch\nmaterialize('Asia/Shanghai') AS tz\nSELECT\nsf,\nsnowflakeIDToDateTime(sf, epoch, tz) as dt,\nsnowflakeIDToDateTime64(sf, epoch, tz) as dt64\nFORMAT\nVertical\nSETTINGS\nallow_nonconst_timezone_arguments = 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01942_snowflakeIDToDateTime.sql",
+    "error": "mismatched input 'SETTINGS' expecting <EOF>"
+  },
+  {
+    "query": "WITH [3,4,5] AS x SELECT x[1]::Int32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
+    "error": "mismatched input ':' expecting <EOF>"
+  },
+  {
+    "query": "WITH CAST(tuple(1), 'Tuple (value UInt64)') AS compound_value SELECT id, test_table.* APPLY x -> compound_value.*\nFROM test_table\nWHERE arrayMap(x -> toString(x) AS lambda, [NULL, 256, 257, NULL, NULL])\nSETTINGS convert_query_to_cnf = true, optimize_using_constraints = true, optimize_substitute_columns = true; -- { serverError ILLEGAL_TYPE_OF_COLUMN_FOR_FILTER }\nDESCRIBE TABLE (SELECT test_table.COLUMNS(id) FROM test_table WHERE '2147483647'); -- { serverError ILLEGAL_TYPE_OF_COLUMN_FOR_FILTER }\nDROP TABLE test_table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03144_invalid_filter.sql",
+    "error": "mismatched input '->' expecting <EOF>"
+  },
+  {
+    "query": "WITH cast(tuple(1), 'Tuple (value UInt64)') AS compound_value SELECT id, test_table.* APPLY x -> compound_value.* FROM test_table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02343_analyzer_lambdas.sql",
+    "error": "mismatched input '->' expecting <EOF>"
+  },
+  {
+    "query": "WITH cast(tuple(1, 1), 'Tuple (value_1 UInt64, value_2 UInt64)') AS compound_value SELECT id, test_table.* APPLY x -> compound_value.* FROM test_table; -- { serverError UNSUPPORTED_METHOD } WITH cast(tuple(1, 1), 'Tuple (value_1 UInt64, value_2 UInt64)') AS compound_value SELECT id, test_table.* APPLY x -> plus(compound_value.*) FROM test_table;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02343_analyzer_lambdas.sql",
+    "error": "mismatched input '->' expecting <EOF>"
+  },
+  {
+    "query": "WITH pow(NULL, 256) AS four SELECT NULL AS two GROUP BY GROUPING SETS ((pow(two, 65536)));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02541_analyzer_grouping_sets_crash_fix.sql",
+    "error": "mismatched input '(' expecting <EOF>"
+  },
+  {
+    "query": "WITH toInt64(2) AS new_x SELECT * replace(new_x as x)  FROM (SELECT 1 AS x) t;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/03051_many_ctes.sql",
+    "error": "mismatched input 'replace' expecting <EOF>"
+  },
+  {
+    "query": "WITH toIPv4('127.0.0.10') AS ip SELECT\nip = 2130706442::UInt32,\nip = 0::UInt32,\nip < 2130706443::UInt32,\nip > 2130706441::UInt32,\nip <= 2130706442::UInt32,\nip >= 2130706442::UInt32,\nip != 2130706442::UInt32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02713_ip4_uint_compare.sql",
+    "error": "mismatched input ':' expecting <EOF>"
+  },
+  {
+    "query": "WITH tuple(3,4,5) AS x SELECT x.1::Int32;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
+    "error": "mismatched input ':' expecting <EOF>"
+  }
+]
