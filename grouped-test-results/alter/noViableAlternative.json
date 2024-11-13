@@ -92,62 +92,67 @@
   {
     "query": "ALTER TABLE 02581_trips DELETE                 WHERE id IN (SELECT (number*10 + 7)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips DELETE                 WHERE id IN (SELECT (number*10 + 7):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips DELETE                 WHERE id IN (SELECT (number*10 + 7)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='1' WHERE id IN (SELECT (number*10+1)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='1' WHERE id IN (SELECT (number*10+1):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='1' WHERE id IN (SELECT (number*10+1)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='2' WHERE id IN (SELECT (number*10+2)::UInt32 FROM numbers(10000)) SETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='2' WHERE id IN (SELECT (number*10+2):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='2' WHERE id IN (SELECT (number*10+2)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='5' WHERE id IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='5' WHERE id IN (SELECT (number*10 + 5):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='5' WHERE id IN (SELECT (number*10 + 5)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='6' WHERE id IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='6' WHERE id IN (SELECT (number*10 + 6):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='6' WHERE id IN (SELECT (number*10 + 6)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='8' WHERE id IN (SELECT (number*10 + 8)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='8' WHERE id IN (SELECT (number*10 + 8):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='8' WHERE id IN (SELECT (number*10 + 8)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10 + 1)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2, max_rows_in_set=1000;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10 + 1):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10 + 1)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='a' WHERE id IN (SELECT (number*10)::'"
+  },
+  {
+    "query": "ALTER TABLE 02581_trips UPDATE description='b' WHERE id::UInt64 IN (SELECT (number*10 + 2)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='b' WHERE id::UInt64 IN (SELECT (number*10 + 2)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id IN (SELECT (number*10 + 4)::UInt32 FROM numbers(10000000))) OR\n(id2 IN (SELECT (number*10 + 4)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id IN (SELECT (number*10 + 4):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id IN (SELECT (number*10 + 4)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id::UInt32 IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000))) OR\n((id2+1)::String IN (SELECT (number*10 + 6)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id:'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id::UInt32 IN (SELECT (number*10 + 6)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE\n(id::UInt64 IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000))) OR\n(id2::UInt64 IN (SELECT (number*10 + 5)::UInt32 FROM numbers(10000000)))\nSETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id:'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE\\n(id::UInt64 IN (SELECT (number*10 + 5)::'"
   },
   {
     "query": "ALTER TABLE 02581_trips UPDATE description='c' WHERE id2 IN (SELECT (number*10 + 3)::UInt32 FROM numbers(10000000)) SETTINGS mutations_sync=2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_mutation_tasks_long.sql",
-    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE id2 IN (SELECT (number*10 + 3):'"
+    "error": "no viable alternative at input 'ALTER TABLE 02581_trips UPDATE description='c' WHERE id2 IN (SELECT (number*10 + 3)::'"
   },
   {
     "query": "ALTER TABLE \\`.inner_id.00000510-1000-4000-8000-000000000001\\` DROP PARTITION ID 'all';",
@@ -368,6 +373,11 @@
     "query": "ALTER TABLE fx_1m ADD PROJECTION fx_5m (\nSELECT\nsymbol,\ntoStartOfInterval(dt_close, INTERVAL 300 SECOND) AS dt_close,\nargMin(open, dt_close),\nmax(high),\nmin(low),\nargMax(close, dt_close),\nsum(volume) volume\nGROUP BY symbol, dt_close\n);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02796_projection_date_filter_on_view.sql",
     "error": "no viable alternative at input 'ALTER TABLE fx_1m ADD PROJECTION fx_5m (\\nSELECT\\nsymbol,\\ntoStartOfInterval(dt_close, INTERVAL 300 SECOND) AS dt_close,\\nargMin(open, dt_close),\\nmax(high),\\nmin(low),\\nargMax(close, dt_close),\\nsum(volume) volume'"
+  },
+  {
+    "query": "ALTER TABLE minmax_compact ADD INDEX idx (i64, u64 * i64) TYPE minmax GRANULARITY 1;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01114_materialize_clear_index_compact_parts.sql",
+    "error": "no viable alternative at input 'ALTER TABLE minmax_compact ADD INDEX idx (i64, u64 * i64)'"
   },
   {
     "query": "ALTER TABLE modify_sample_old MODIFY SAMPLE BY x; -- { serverError BAD_ARGUMENTS } DROP TABLE modify_sample;",

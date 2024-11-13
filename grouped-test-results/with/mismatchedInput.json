@@ -32,7 +32,7 @@
   {
     "query": "WITH [3,4,5] AS x SELECT x[1]::Int32;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "WITH CAST(tuple(1), 'Tuple (value UInt64)') AS compound_value SELECT id, test_table.* APPLY x -> compound_value.*\nFROM test_table\nWHERE arrayMap(x -> toString(x) AS lambda, [NULL, 256, 257, NULL, NULL])\nSETTINGS convert_query_to_cnf = true, optimize_using_constraints = true, optimize_substitute_columns = true; -- { serverError ILLEGAL_TYPE_OF_COLUMN_FOR_FILTER }\nDESCRIBE TABLE (SELECT test_table.COLUMNS(id) FROM test_table WHERE '2147483647'); -- { serverError ILLEGAL_TYPE_OF_COLUMN_FOR_FILTER }\nDROP TABLE test_table;",
@@ -60,13 +60,8 @@
     "error": "mismatched input 'replace' expecting <EOF>"
   },
   {
-    "query": "WITH toIPv4('127.0.0.10') AS ip SELECT\nip = 2130706442::UInt32,\nip = 0::UInt32,\nip < 2130706443::UInt32,\nip > 2130706441::UInt32,\nip <= 2130706442::UInt32,\nip >= 2130706442::UInt32,\nip != 2130706442::UInt32;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02713_ip4_uint_compare.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "WITH tuple(3,4,5) AS x SELECT x.1::Int32;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   }
 ]

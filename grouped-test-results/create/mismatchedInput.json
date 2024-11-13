@@ -195,11 +195,6 @@
     "error": "mismatched input 'empty' expecting <EOF>"
   },
   {
-    "query": "create table t2 engine = MergeTree()\norder by tuple()\nas\nselect 1 as user_id, 'website' as event_source, '2023-01-01 00:00:00'::DateTime as timestamp;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03084_analyzer_join_column_alias.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "CREATE TABLE t_merge AS t ENGINE = Merge('02111_modify_table_comment', 't')\nCOMMENT 'this is a Merge table';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02111_modify_table_comment.sql",
     "error": "mismatched input 'COMMENT' expecting <EOF>"
@@ -238,11 +233,6 @@
     "query": "CREATE TABLE test_table_1 (\nid UInt64,\nvalue String\n) ENGINE=MergeTree ORDER BY id\nSETTINGS index_granularity = 16 # We have number of granules in the \\`EXPLAIN\\` output in reference file\n;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03130_convert_outer_join_to_inner_join.sql",
     "error": "mismatched input '#' expecting <EOF>"
-  },
-  {
-    "query": "CREATE TABLE test_table_string (\nkey String,\nvalue UInt16\n) ENGINE=Memory() AS SELECT 'foo' || number::String, number FROM numbers(1e5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02740_hashed_dictionary_load_factor_smoke.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "CREATE TABLE test_ttl_group_by01763 (key UInt32, ts DateTime, value UInt32, min_value UInt32 default value, max_value UInt32 default value)\nENGINE = MergeTree() PARTITION BY toYYYYMM(ts)\nORDER BY (key, toStartOfInterval(ts, toIntervalMinute(3)), ts) \nTTL ts + INTERVAL 5 MINUTE GROUP BY key, toStartOfInterval(ts, toIntervalMinute(3)) \nSET value = sum(value), min_value = min(min_value), max_value = max(max_value),  ts=min(toStartOfInterval(ts, toIntervalMinute(3)));",

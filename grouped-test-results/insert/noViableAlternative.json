@@ -327,7 +327,7 @@
   {
     "query": "INSERT INTO cool_table SELECT number, range(number), arrayMap(x -> (arrayMap(y -> 'k' || toString(y), range(x % 4)), range(x % 4))::Map(LowCardinality(String), UInt64), range(number)) FROM numbers(10);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02835_nested_array_lowcardinality.sql",
-    "error": "no viable alternative at input 'INSERT INTO cool_table SELECT number, range(number), arrayMap(x -> (arrayMap(y -> 'k' || toString(y), range(x % 4)), range(x % 4)):'"
+    "error": "no viable alternative at input 'INSERT INTO cool_table SELECT number, range(number), arrayMap(x -> (arrayMap(y -> 'k' || toString(y), range(x % 4)), range(x % 4))::'"
   },
   {
     "query": "INSERT INTO decimal (a, b, c, nest.a, nest.b, nest.c, tup) VALUES ([0.1, 0.2, 0.3], [0.4, 0.5, 0.6], [0.7, 0.8, 0.9], [1.1, 1.2], [2.1, 2.2], [3.1, 3.2], (9.1, 9.2, 9.3));",
@@ -377,12 +377,12 @@
   {
     "query": "INSERT INTO dynamic_test_1 VALUES ('str_1'), (42::UInt64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03163_dynamic_as_supertype.sql",
-    "error": "no viable alternative at input 'INSERT INTO dynamic_test_1 VALUES ('str_1'), (42:'"
+    "error": "no viable alternative at input 'INSERT INTO dynamic_test_1 VALUES ('str_1'), (42::'"
   },
   {
     "query": "INSERT INTO dynamic_test_2 VALUES ('str_2'), (43::UInt64), ('2020-01-01'::Date), ([1, 2, 3]);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03163_dynamic_as_supertype.sql",
-    "error": "no viable alternative at input 'INSERT INTO dynamic_test_2 VALUES ('str_2'), (43:'"
+    "error": "no viable alternative at input 'INSERT INTO dynamic_test_2 VALUES ('str_2'), (43::'"
   },
   {
     "query": "INSERT INTO elements (id,\\`nested.key\\`,\\`nested.value\\`) VALUES (5555, ['moto', 'hello'],['chocolatine', 'croissant']);",
@@ -410,104 +410,74 @@
     "error": "no viable alternative at input 'insert into function cluster('test_cluster_two_shards', currentDatabase(), dst_02224, key) select * from cluster('test_cluster_two_shards', currentDatabase(), src_02224, key)\\nsettings parallel_distributed_insert_select=1, max_distributed_depth=1; select'"
   },
   {
-    "query": "insert into function file('02841.parquet') select number,\nif(number%234 == 0, NULL, number) as sometimes_null,\ntoNullable(number) as never_null,\nif(number%345 == 0, number::String, NULL) as mostly_null,\ntoLowCardinality(if(number%234 == 0, NULL, number)) as sometimes_null_lc,\ntoLowCardinality(toNullable(number)) as never_null_lc,\ntoLowCardinality(if(number%345 == 0, number::String, NULL)) as mostly_null_lc\nfrom numbers(1000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02841_parquet_filter_pushdown.sql",
-    "error": "no viable alternative at input 'insert into function file('02841.parquet') select number,\\nif(number%234 == 0, NULL, number) as sometimes_null,\\ntoNullable(number) as never_null,\\nif(number%345 == 0, number:'"
-  },
-  {
     "query": "insert into function file('02841.parquet') with 5000 - number as n select\nnumber,\nintDiv(n, 11)::UInt8 as u8,\nn::UInt16 u16,\nn::UInt32 as u32,\nn::UInt64 as u64,\nintDiv(n, 11)::Int8 as i8,\nn::Int16 i16,\nn::Int32 as i32,\nn::Int64 as i64,\ntoDate32(n*500000) as date32,\ntoDateTime64(n*1e6, 3) as dt64_ms,\ntoDateTime64(n*1e6, 6) as dt64_us,\ntoDateTime64(n*1e6, 9) as dt64_ns,\ntoDateTime64(n*1e6, 0) as dt64_s,\ntoDateTime64(n*1e6, 2) as dt64_cs,\n(n/1000)::Float32 as f32,\n(n/1000)::Float64 as f64,\nn::String as s,\nn::String::FixedString(9) as fs,\nn::Decimal32(3)/1234 as d32,\nn::Decimal64(10)/12345678 as d64,\nn::Decimal128(20)/123456789012345 as d128,\nn::Decimal256(40)/123456789012345/678901234567890 as d256\nfrom numbers(10000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02841_parquet_filter_pushdown.sql",
-    "error": "no viable alternative at input 'insert into function file('02841.parquet') with 5000 - number as n select\\nnumber,\\nintDiv(n, 11):'"
-  },
-  {
-    "query": "insert into function file('02892.orc') select number,\nif(number%234 == 0, NULL, number) as sometimes_null,\ntoNullable(number) as never_null,\nif(number%345 == 0, number::String, NULL) as mostly_null,\ntoLowCardinality(if(number%234 == 0, NULL, number)) as sometimes_null_lc,\ntoLowCardinality(toNullable(number)) as never_null_lc,\ntoLowCardinality(if(number%345 == 0, number::String, NULL)) as mostly_null_lc\nfrom numbers(1000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02892_orc_filter_pushdown.sql",
-    "error": "no viable alternative at input 'insert into function file('02892.orc') select number,\\nif(number%234 == 0, NULL, number) as sometimes_null,\\ntoNullable(number) as never_null,\\nif(number%345 == 0, number:'"
+    "error": "no viable alternative at input 'insert into function file('02841.parquet') with 5000 - number as n select\\nnumber,\\nintDiv(n, 11)::'"
   },
   {
     "query": "insert into function file('02892.orc') with 5000 - number as n\nselect\nnumber,\nintDiv(n, 11)::Int8 as i8,\nn::Int16 i16,\nn::Int32 as i32,\nn::Int64 as i64,\ntoDate32(n*500000) as date32,\ntoDateTime64(n*1e6, 3) as dt64_ms,\ntoDateTime64(n*1e6, 6) as dt64_us,\ntoDateTime64(n*1e6, 9) as dt64_ns,\ntoDateTime64(n*1e6, 0) as dt64_s,\ntoDateTime64(n*1e6, 2) as dt64_cs,\n(n/1000)::Float32 as f32,\n(n/1000)::Float64 as f64,\nn::String as s,\nn::String::FixedString(9) as fs,\nn::Decimal32(3)/1234 as d32,\nn::Decimal64(10)/12345678 as d64,\nn::Decimal128(20)/123456789012345 as d128\nfrom numbers(10000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02892_orc_filter_pushdown.sql",
-    "error": "no viable alternative at input 'insert into function file('02892.orc') with 5000 - number as n\\nselect\\nnumber,\\nintDiv(n, 11):'"
-  },
-  {
-    "query": "insert into function file('02906.orc', 'ORC') select\nnumber::Int64 as int64_column,\nnumber::String as string_column,\nnumber::Float64 as float64_column,\ncast(if(number % 10 = 0, tuple(null, null, null), tuple(number::String, number::Float64, number::Int64)) as Tuple(a Nullable(String), b Nullable(Float64), c Nullable(Int64))) as tuple_column,\ncast(if(number % 10 = 0, array(tuple(null, null, null)), array(tuple(number::String, number::Float64, number::Int64))) as Array(Tuple(a Nullable(String), b Nullable(Float64), c Nullable(Int64)))) as array_tuple_column,\ncast(if(number % 10 = 0, map(number::String, tuple(null, null, null)), map(number::String, tuple(number::String, number::Float64, number::Int64))) as Map(String, Tuple(a Nullable(String), b Nullable(Float64), c Nullable(Int64)))) as map_tuple_column\nfrom numbers(100);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02906_orc_tuple_field_prune.sql",
-    "error": "no viable alternative at input 'insert into function file('02906.orc', 'ORC') select\\nnumber:'"
+    "error": "no viable alternative at input 'insert into function file('02892.orc') with 5000 - number as n\\nselect\\nnumber,\\nintDiv(n, 11)::'"
   },
   {
     "query": "insert into function file('i16.orc') select materialize(-32768)::Int16 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('i16.orc') select materialize(-32768):'"
+    "error": "no viable alternative at input 'insert into function file('i16.orc') select materialize(-32768)::'"
   },
   {
     "query": "insert into function file('i32.orc') select materialize(-2147483648)::Int32 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('i32.orc') select materialize(-2147483648):'"
+    "error": "no viable alternative at input 'insert into function file('i32.orc') select materialize(-2147483648)::'"
   },
   {
     "query": "insert into function file('i64.orc') select materialize(-9223372036854775808)::Int64 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('i64.orc') select materialize(-9223372036854775808):'"
+    "error": "no viable alternative at input 'insert into function file('i64.orc') select materialize(-9223372036854775808)::'"
   },
   {
     "query": "insert into function file('i8.orc') select materialize(-128)::Int8 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('i8.orc') select materialize(-128):'"
+    "error": "no viable alternative at input 'insert into function file('i8.orc') select materialize(-128)::'"
   },
   {
     "query": "insert into function file('u16.orc') select materialize(32768)::UInt16 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('u16.orc') select materialize(32768):'"
+    "error": "no viable alternative at input 'insert into function file('u16.orc') select materialize(32768)::'"
   },
   {
     "query": "insert into function file('u32.orc') select materialize(2147483648)::UInt32 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('u32.orc') select materialize(2147483648):'"
+    "error": "no viable alternative at input 'insert into function file('u32.orc') select materialize(2147483648)::'"
   },
   {
     "query": "insert into function file('u64.orc') select materialize(9223372036854775808)::UInt64 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('u64.orc') select materialize(9223372036854775808):'"
+    "error": "no viable alternative at input 'insert into function file('u64.orc') select materialize(9223372036854775808)::'"
   },
   {
     "query": "insert into function file('u8.orc') select materialize(128)::UInt8 as x;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03164_orc_signedness.sql",
-    "error": "no viable alternative at input 'insert into function file('u8.orc') select materialize(128):'"
+    "error": "no viable alternative at input 'insert into function file('u8.orc') select materialize(128)::'"
   },
   {
     "query": "insert into function file(02405_data.avro) select [(1, 'aa'), (2, 'bb')]::Nested(x UInt32, y String) as nested settings engine_file_truncate_on_insert=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02405_avro_read_nested.sql",
-    "error": "no viable alternative at input 'insert into function file(02405_data.avro) select [(1, 'aa'), (2, 'bb')]:'"
+    "error": "no viable alternative at input 'insert into function file(02405_data.avro) select [(1, 'aa'), (2, 'bb')]::'"
   },
   {
     "query": "insert into function file(02405_data.avro) select [(1, (2, ['aa', 'bb']), [(3, 'cc'), (4, 'dd')]), (5, (6, ['ee', 'ff']), [(7, 'gg'), (8, 'hh')])]::Nested(x UInt32, y Tuple(y1 UInt32, y2 Array(String)), z Nested(z1 UInt32, z2 String)) as nested settings engine_file_truncate_on_insert=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02405_avro_read_nested.sql",
-    "error": "no viable alternative at input 'insert into function file(02405_data.avro) select [(1, (2, ['aa', 'bb']), [(3, 'cc'), (4, 'dd')]), (5, (6, ['ee', 'ff']), [(7, 'gg'), (8, 'hh')])]:'"
-  },
-  {
-    "query": "insert into function file(02416_data.json) select number::UInt32 as n, 'Hello' as s, range(number) as a from numbers(3) settings engine_file_truncate_on_insert=1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02416_input_json_formats.sql",
-    "error": "no viable alternative at input 'insert into function file(02416_data.json) select number:'"
-  },
-  {
-    "query": "insert into function file(02416_data.jsonColumnsWithMetadata) select number::UInt32 as n, 'Hello' as s, range(number) as a from numbers(3) settings engine_file_truncate_on_insert=1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02416_input_json_formats.sql",
-    "error": "no viable alternative at input 'insert into function file(02416_data.jsonColumnsWithMetadata) select number:'"
-  },
-  {
-    "query": "insert into function file(02416_data.jsonCompact) select number::UInt32 as n, 'Hello' as s, range(number) as a from numbers(3) settings engine_file_truncate_on_insert=1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02416_input_json_formats.sql",
-    "error": "no viable alternative at input 'insert into function file(02416_data.jsonCompact) select number:'"
+    "error": "no viable alternative at input 'insert into function file(02405_data.avro) select [(1, (2, ['aa', 'bb']), [(3, 'cc'), (4, 'dd')]), (5, (6, ['ee', 'ff']), [(7, 'gg'), (8, 'hh')])]::'"
   },
   {
     "query": "insert into function file(data_02313.avro) select tuple(number, 'String')::Tuple(a UInt32, b String) as t from numbers(3) settings engine_file_truncate_on_insert=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02313_avro_records_and_maps.sql",
-    "error": "no viable alternative at input 'insert into function file(data_02313.avro) select tuple(number, 'String'):'"
+    "error": "no viable alternative at input 'insert into function file(data_02313.avro) select tuple(number, 'String')::'"
   },
   {
     "query": "insert into function file(data_02313.avro) select tuple(number, tuple(number + 1, number + 2), range(number))::Tuple(a UInt32, b Tuple(c UInt32, d UInt32), e Array(UInt32)) as t from numbers(3) settings engine_file_truncate_on_insert=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02313_avro_records_and_maps.sql",
-    "error": "no viable alternative at input 'insert into function file(data_02313.avro) select tuple(number, tuple(number + 1, number + 2), range(number)):'"
+    "error": "no viable alternative at input 'insert into function file(data_02313.avro) select tuple(number, tuple(number + 1, number + 2), range(number))::'"
   },
   {
     "query": "INSERT INTO function null('auto') SELECT 1;",
@@ -587,32 +557,32 @@
   {
     "query": "INSERT INTO grouparray Select groupArrayIntersectState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]::Array(UInt8));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]::'"
   },
   {
     "query": "INSERT INTO grouparray Select groupArrayIntersectState([10]::Array(UInt8));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([10]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([10]::'"
   },
   {
     "query": "INSERT INTO grouparray Select groupArrayIntersectState([2, 4, 6, 8, 10]::Array(UInt8));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([2, 4, 6, 8, 10]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([2, 4, 6, 8, 10]::'"
   },
   {
     "query": "INSERT INTO grouparray Select groupArrayIntersectState([2, 6, 10]::Array(UInt8));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([2, 6, 10]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([2, 6, 10]::'"
   },
   {
     "query": "INSERT INTO grouparray Select groupArrayIntersectState([]::Array(UInt8));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray Select groupArrayIntersectState([]::'"
   },
   {
     "query": "INSERT INTO grouparray_string Select groupArrayIntersectState([]::Array(Tuple(Array(String))));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03208_groupArrayIntersect_serialization.sql",
-    "error": "no viable alternative at input 'INSERT INTO grouparray_string Select groupArrayIntersectState([]:'"
+    "error": "no viable alternative at input 'INSERT INTO grouparray_string Select groupArrayIntersectState([]::'"
   },
   {
     "query": "insert into hilbert_numbers_03131 select n1.number, n2.number\nfrom numbers(pow(2, 32)-8,8) n1\ncross join numbers(pow(2, 32)-8, 8) n2\n;",
@@ -647,12 +617,12 @@
   {
     "query": "INSERT INTO join_inner_table SELECT\n'833c9e22-c245-4eb5-8745-117a9a1f26b1'::UUID as id,\nrowNumberInAllBlocks()::String as key,\n* FROM generateRandom('number Int64, value1 String, value2 String, time Int64', 1, 10, 2)\nLIMIT 100;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02731_parallel_replicas_join_subquery.sql",
-    "error": "no viable alternative at input 'INSERT INTO join_inner_table SELECT\\n'833c9e22-c245-4eb5-8745-117a9a1f26b1':'"
+    "error": "no viable alternative at input 'INSERT INTO join_inner_table SELECT\\n'833c9e22-c245-4eb5-8745-117a9a1f26b1'::UUID as id,\\nrowNumberInAllBlocks()::'"
   },
   {
     "query": "INSERT INTO join_outer_table SELECT\n'833c9e22-c245-4eb5-8745-117a9a1f26b1'::UUID as id,\n(rowNumberInAllBlocks() % 10)::String as key,\n* FROM generateRandom('otherValue1 String, otherValue2 String, time Int64', 1, 10, 2)\nLIMIT 100;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02731_parallel_replicas_join_subquery.sql",
-    "error": "no viable alternative at input 'INSERT INTO join_outer_table SELECT\\n'833c9e22-c245-4eb5-8745-117a9a1f26b1':'"
+    "error": "no viable alternative at input 'INSERT INTO join_outer_table SELECT\\n'833c9e22-c245-4eb5-8745-117a9a1f26b1'::UUID as id,\\n(rowNumberInAllBlocks() % 10)::'"
   },
   {
     "query": "INSERT INTO kql_table2 select * from kql(\\$\\$Customers|project FirstName,LastName,Age | filter FirstName=='Theodore'\\$\\$);",
@@ -987,7 +957,7 @@
   {
     "query": "INSERT INTO t (timestamp) VALUES ('2022-11-25 22:33:19'::DateTime), ('2022-11-25 22:33:19'::DateTime - INTERVAL 1 DAY), ('2022-11-25 22:33:19'::DateTime + INTERVAL 1 DAY), ('2022-11-25 22:33:19'::DateTime - INTERVAL 2 DAY), ('2022-11-25 22:33:19'::DateTime + INTERVAL 2 DAY);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02494_optimize_group_by_function_keys_and_alias_columns.sql",
-    "error": "no viable alternative at input 'INSERT INTO t (timestamp) VALUES ('2022-11-25 22:33:19':'"
+    "error": "no viable alternative at input 'INSERT INTO t (timestamp) VALUES ('2022-11-25 22:33:19'::'"
   },
   {
     "query": "INSERT INTO t SELECT number,\nif(number < (8129 * 1024), arrayStringConcat(arrayMap(x -> toString(x), range(number % 128)), ' '), '')\nFROM numbers_mt((8129 * 1024) * 3) settings max_insert_threads=8, max_rows_to_read=0, max_memory_usage='10Gi';",
@@ -997,27 +967,27 @@
   {
     "query": "INSERT INTO t VALUES ('00000000-0000-0000-0000-000000000000'::UUID);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ('00000000-0000-0000-0000-000000000000':'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ('00000000-0000-0000-0000-000000000000'::'"
   },
   {
     "query": "INSERT INTO t VALUES ('1'::LowCardinality(String)), ('1'::LowCardinality(String)), (0::LowCardinality(UInt16));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ('1':'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ('1'::'"
   },
   {
     "query": "INSERT INTO t VALUES ('2022-01-01'::Date), ('2022-01-01'::Date32), ('2022-01-01 01:01:01'::DateTime), ('2022-01-01 01:01:01.011'::DateTime64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03159_dynamic_type_all_types.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ('2022-01-01':'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ('2022-01-01'::'"
   },
   {
     "query": "INSERT INTO t VALUES ('dededdb6-7835-4ce4-8d11-b5de6f2820e9'::UUID);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ('dededdb6-7835-4ce4-8d11-b5de6f2820e9':'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ('dededdb6-7835-4ce4-8d11-b5de6f2820e9'::'"
   },
   {
     "query": "INSERT INTO t VALUES ('string'::String), ('1'::FixedString(1)), ('1'::FixedString(2)), ('1'::FixedString(10)); --(''::String), INSERT INTO t VALUES ('1'::Bool), (0::Bool);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ('string':'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ('string'::'"
   },
   {
     "query": "INSERT INTO t VALUES (()::Tuple(Dynamic)), ((())::Tuple(Tuple(Dynamic))), (((()))::Tuple(Tuple(Tuple(Dynamic))));",
@@ -1027,102 +997,102 @@
   {
     "query": "INSERT INTO t VALUES ((1.23, 4.56)::Point), (([(1.23, 4.56)::Point, (2.34, 5.67)::Point])::Ring);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ((1.23, 4.56):'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ((1.23, 4.56)::'"
   },
   {
     "query": "INSERT INTO t VALUES (-128::Int8), (-127::Int8), (-1::Int8), (0::Int8), (1::Int8), (126::Int8), (127::Int8);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-128:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-128::'"
   },
   {
     "query": "INSERT INTO t VALUES (-170141183460469231731687303715884105728::Int128), (-170141183460469231731687303715884105727::Int128), (-1::Int128), (0::Int128), (1::Int128), (170141183460469231731687303715884105726::Int128), (170141183460469231731687303715884105727::Int128);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-170141183460469231731687303715884105728:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-170141183460469231731687303715884105728::'"
   },
   {
     "query": "INSERT INTO t VALUES (-2147483648::Int32), (-2147483647::Int32), (-1::Int32), (0::Int32), (1::Int32), (2147483646::Int32), (2147483647::Int32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-2147483648:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-2147483648::'"
   },
   {
     "query": "INSERT INTO t VALUES (-32768::Int16), (-32767::Int16), (-1::Int16), (0::Int16), (1::Int16), (32766::Int16), (32767::Int16);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-32768:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-32768::'"
   },
   {
     "query": "INSERT INTO t VALUES (-57896044618658097711785492504343953926634992332820282019728792003956564819968::Int256), (-57896044618658097711785492504343953926634992332820282019728792003956564819967::Int256), (-1::Int256), (0::Int256), (1::Int256), (57896044618658097711785492504343953926634992332820282019728792003956564819966::Int256), (57896044618658097711785492504343953926634992332820282019728792003956564819967::Int256);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-57896044618658097711785492504343953926634992332820282019728792003956564819968:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-57896044618658097711785492504343953926634992332820282019728792003956564819968::'"
   },
   {
     "query": "INSERT INTO t VALUES (-9223372036854775808::Int64), (-9223372036854775807::Int64), (-1::Int64), (0::Int64), (1::Int64), (9223372036854775806::Int64), (9223372036854775807::Int64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-9223372036854775808:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-9223372036854775808::'"
   },
   {
     "query": "INSERT INTO t VALUES (-99999999.9::Decimal32(1));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03159_dynamic_type_all_types.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-99999999.9:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-99999999.9::'"
   },
   {
     "query": "INSERT INTO t VALUES (-999999999.9999::Decimal256(4));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03159_dynamic_type_all_types.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.9999:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.9999::'"
   },
   {
     "query": "INSERT INTO t VALUES (-999999999.999::Decimal128(3));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03159_dynamic_type_all_types.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.999:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.999::'"
   },
   {
     "query": "INSERT INTO t VALUES (-999999999.99::Decimal64(2));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03159_dynamic_type_all_types.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.99:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (-999999999.99::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt128), (1::UInt128), (340282366920938463463374607431768211454::UInt128), (340282366920938463463374607431768211455::UInt128);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt16), (1::UInt16), (65534::UInt16), (65535::UInt16);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt256), (1::UInt256), (115792089237316195423570985008687907853269984665640564039457584007913129639934::UInt256), (115792089237316195423570985008687907853269984665640564039457584007913129639935::UInt256);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt32), (1::UInt32), (4294967294::UInt32), (4294967295::UInt32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt64), (1::UInt64), (18446744073709551614::UInt64), (18446744073709551615::UInt64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (0::UInt8), (1::UInt8), (254::UInt8), (255::UInt8);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (0:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (0::'"
   },
   {
     "query": "INSERT INTO t VALUES (1.17549435e-38::Float32), (3.40282347e+38::Float32), (-3.40282347e+38::Float32), (-1.17549435e-38::Float32), (1.4e-45::Float32), (-1.4e-45::Float32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (1.17549435e-38:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (1.17549435e-38::'"
   },
   {
     "query": "INSERT INTO t VALUES (1.17549435e-38::Float64), (3.40282347e+38::Float64), (-3.40282347e+38::Float64), (-1.17549435e-38::Float64), (1.4e-45::Float64), (-1.4e-45::Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (1.17549435e-38:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (1.17549435e-38::'"
   },
   {
     "query": "INSERT INTO t VALUES (2.2250738585072014e-308::Float64), (1.7976931348623157e+308::Float64), (-1.7976931348623157e+308::Float64), (-2.2250738585072014e-308::Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (2.2250738585072014e-308:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (2.2250738585072014e-308::'"
   },
   {
     "query": "INSERT INTO t VALUES ([(1, 'aa'), (2, 'bb')]::Nested(x UInt32, y Dynamic)) ;",
@@ -1147,47 +1117,47 @@
   {
     "query": "INSERT INTO t VALUES ([1,2]::SimpleAggregateFunction(anyLast, Array(Int16)));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ([1,2]:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ([1,2]::'"
   },
   {
     "query": "INSERT INTO t VALUES ([[[(0, 0), (10, 0), (10, 10), (0, 10)]], [[(20, 20), (50, 20), (50, 50), (20, 50)],[(30, 30), (50, 50), (50, 30)]]]::MultiPolygon);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ([[[(0, 0), (10, 0), (10, 10), (0, 10)]], [[(20, 20), (50, 20), (50, 50), (20, 50)],[(30, 30), (50, 50), (50, 30)]]]:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ([[[(0, 0), (10, 0), (10, 10), (0, 10)]], [[(20, 20), (50, 20), (50, 50), (20, 50)],[(30, 30), (50, 50), (50, 30)]]]::'"
   },
   {
     "query": "INSERT INTO t VALUES ([]::Array(Dynamic)), ([[]]::Array(Array(Dynamic))), ([[[]]]::Array(Array(Array(Dynamic))));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES ([]:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES ([]::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::DOUBLE(12)), (-inf::DOUBLE(12)), (nan::DOUBLE(12));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::DOUBLE(15,22)), (-inf::DOUBLE(15,22)), (nan::DOUBLE(15,22));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::FLOAT(12)), (-inf::FLOAT(12)), (nan::FLOAT(12));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::FLOAT(15,22)), (-inf::FLOAT(15,22)), (nan::FLOAT(15,22));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::Float32), (-inf::Float32), (nan::Float32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (inf::Float64), (-inf::Float64), (nan::Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (inf::'"
   },
   {
     "query": "INSERT INTO t VALUES (interval '1' day), (interval '2' month), (interval '3' year);",
@@ -1197,7 +1167,7 @@
   {
     "query": "INSERT INTO t VALUES (map(11::Dynamic, 'v1'::Dynamic, '22'::Dynamic, 1::Dynamic));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "no viable alternative at input 'INSERT INTO t VALUES (map(11:'"
+    "error": "no viable alternative at input 'INSERT INTO t VALUES (map(11::'"
   },
   {
     "query": "insert into t values(-1317193174,false,0),(1929066636,false,0);",
@@ -1237,7 +1207,7 @@
   {
     "query": "INSERT INTO t0 (c0, c1) VALUES (2, '{\"c1\":1}'::JSON);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03247_object_column_copy.sql",
-    "error": "no viable alternative at input 'INSERT INTO t0 (c0, c1) VALUES (2, '{\"c1\":1}':'"
+    "error": "no viable alternative at input 'INSERT INTO t0 (c0, c1) VALUES (2, '{\"c1\":1}'::'"
   },
   {
     "query": "INSERT INTO t0(c0, c1) VALUES (\"1\",1) ; -- { clientError UNKNOWN_IDENTIFIER } INSERT INTO t0(c0, c1) VALUES ('1', 1) ;",
@@ -1322,12 +1292,12 @@
   {
     "query": "INSERT INTO t_json SELECT\nnumber,\n(\narrayMap(x -> 'col' || toString(x), range(number % 10)),\nrange(number % 10)\n)::Map(FixedString(4), UInt64)\nFROM numbers(1000000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01825_type_json_from_map.sql",
-    "error": "no viable alternative at input 'INSERT INTO t_json SELECT\\nnumber,\\n(\\narrayMap(x -> 'col' || toString(x), range(number % 10)),\\nrange(number % 10)\\n):'"
+    "error": "no viable alternative at input 'INSERT INTO t_json SELECT\\nnumber,\\n(\\narrayMap(x -> 'col' || toString(x), range(number % 10)),\\nrange(number % 10)\\n)::'"
   },
   {
     "query": "INSERT INTO t_json SELECT number, (range(number % 10), range(number % 10))::Map(UInt64, UInt64)\nFROM numbers(1000000); -- { serverError TYPE_MISMATCH }\nDROP TABLE IF EXISTS t_json;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01825_type_json_from_map.sql",
-    "error": "no viable alternative at input 'INSERT INTO t_json SELECT number, (range(number % 10), range(number % 10)):'"
+    "error": "no viable alternative at input 'INSERT INTO t_json SELECT number, (range(number % 10), range(number % 10))::'"
   },
   {
     "query": "INSERT INTO t_json_field VALUES (1, (10, 'a')::Tuple(a UInt32, s String));",
@@ -1507,7 +1477,7 @@
   {
     "query": "INSERT INTO t_map SELECT\nnumber,\n(\narrayMap(x -> 'col' || toString(x), range(number % 10)),\nrange(number % 10)\n)::Map(String, UInt64)\nFROM numbers(1000000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01825_type_json_from_map.sql",
-    "error": "no viable alternative at input 'INSERT INTO t_map SELECT\\nnumber,\\n(\\narrayMap(x -> 'col' || toString(x), range(number % 10)),\\nrange(number % 10)\\n):'"
+    "error": "no viable alternative at input 'INSERT INTO t_map SELECT\\nnumber,\\n(\\narrayMap(x -> 'col' || toString(x), range(number % 10)),\\nrange(number % 10)\\n)::'"
   },
   {
     "query": "INSERT INTO t_missed_subcolumns VALUES (2, ('aaa', 'bbb'));",
@@ -1522,7 +1492,7 @@
   {
     "query": "INSERT INTO t_mutations_nondeterministic VALUES (10, initializeAggregation('uniqExactState', 1::UInt64));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02842_mutations_replace_non_deterministic.sql",
-    "error": "no viable alternative at input 'INSERT INTO t_mutations_nondeterministic VALUES (10, initializeAggregation('uniqExactState', 1:'"
+    "error": "no viable alternative at input 'INSERT INTO t_mutations_nondeterministic VALUES (10, initializeAggregation('uniqExactState', 1::'"
   },
   {
     "query": "INSERT INTO t_nested_with_dots VALUES ((('a', 1), 'b'));",
@@ -1558,11 +1528,6 @@
     "query": "INSERT INTO t_parse_tuples VALUES (1, [[]]), (2, [[(500, -10)]]), (3, [[(500, '10')]]);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02381_parse_array_of_tuples.sql",
     "error": "no viable alternative at input 'INSERT INTO t_parse_tuples VALUES (1, [[]]), (2, [[(500, -10)]]), (3, [[(500, '10''"
-  },
-  {
-    "query": "INSERT INTO t_subcolumns_if SELECT number::Nullable(Int64) as number FROM numbers(10000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02969_functions_to_subcolumns_if_null.sql",
-    "error": "no viable alternative at input 'INSERT INTO t_subcolumns_if SELECT number:'"
   },
   {
     "query": "INSERT INTO t_subcolumns_local VALUES ([1, 2, 3], 'aaa', ('bbb', 'ccc'));",
@@ -1727,7 +1692,7 @@
   {
     "query": "insert into test select (number % 2 ? NULL : 'World')::LowCardinality(Nullable(String)) from numbers(2);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_null_as_default.sql",
-    "error": "no viable alternative at input 'insert into test select (number % 2 ? NULL : 'World'):'"
+    "error": "no viable alternative at input 'insert into test select (number % 2 ? NULL : 'World')::'"
   },
   {
     "query": "insert into test select c1 from input() format CSV 1,2; -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE} insert into test select x from input() format JSONEachRow {\"x\" : null, \"y\" : 42};",
@@ -1737,77 +1702,52 @@
   {
     "query": "insert into test select materialize('{\"a\" : 42}')::JSON(max_dynamic_paths=8) from numbers(5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03224_nested_json_merges_new_type_in_shared_data.sql",
-    "error": "no viable alternative at input 'insert into test select materialize('{\"a\" : 42}'):'"
+    "error": "no viable alternative at input 'insert into test select materialize('{\"a\" : 42}')::'"
   },
   {
     "query": "insert into test select materialize('{\"a\" : [{\"b\" : 42}]}')::JSON(max_dynamic_paths=8) from numbers(5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03223_nested_json_in_shared_data_merges.sql",
-    "error": "no viable alternative at input 'insert into test select materialize('{\"a\" : [{\"b\" : 42}]}'):'"
+    "error": "no viable alternative at input 'insert into test select materialize('{\"a\" : [{\"b\" : 42}]}')::'"
   },
   {
     "query": "insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"c\" : 42}]}')::JSON(max_dynamic_paths=8) from numbers(5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03224_nested_json_merges_new_type_in_shared_data.sql",
-    "error": "no viable alternative at input 'insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"c\" : 42}]}'):'"
+    "error": "no viable alternative at input 'insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"c\" : 42}]}')::'"
   },
   {
     "query": "insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"d\" : 42}]}')::JSON(max_dynamic_paths=8) from numbers(5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03224_nested_json_merges_new_type_in_shared_data.sql",
-    "error": "no viable alternative at input 'insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"d\" : 42}]}'):'"
+    "error": "no viable alternative at input 'insert into test select materialize('{\"a1\" : 42, \"a2\" : 42, \"a3\" : 42, \"a4\" : 42, \"a5\" : 42, \"a6\" : 42, \"a7\" : 42, \"a8\" : 42, \"a\" : [{\"d\" : 42}]}')::'"
   },
   {
     "query": "insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42, \"c\" : [1, 2, 3]}]}')::JSON(max_dynamic_paths=8), number < 3000, materialize('{\"a\" : [{\"d\" : \"2020-01-01\", \"e\" : \"Hello\"}]}')::JSON(max_dynamic_paths=8), materialize('{\"a\" : [{\"f\" : \"2020-01-01 00:00:00\", \"g\" : \"Hello2\"}]}')::JSON(max_dynamic_paths=8)) from numbers(20000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42, \"c\" : [1, 2, 3]}]}'):'"
+    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42, \"c\" : [1, 2, 3]}]}')::'"
   },
   {
     "query": "insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42}]}')::JSON(max_dynamic_paths=8), number < 3000, materialize('{\"a\" : [{\"d\" : \"2020-01-01\", \"e\" : \"Hello\"}]}')::JSON(max_dynamic_paths=8), materialize('{\"a\" : [{\"f\" : \"2020-01-01 00:00:00\"}]}')::JSON(max_dynamic_paths=8)) from numbers(20000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42}]}'):'"
+    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000,  materialize('{\"a\" : [{\"b\" : 42}]}')::'"
   },
   {
     "query": "insert into test select multiIf(number < 1000, 'Str'::Dynamic(max_types=1), number < 3000, range(number % 5)::Dynamic(max_types=1), number::Dynamic(max_types=1)) from numbers(100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03210_dynamic_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, 'Str':'"
-  },
-  {
-    "query": "insert into test select multiIf(number < 1000, '{\"a\" : 42, \"b\" : \"Hello\"}'::JSON(max_dynamic_paths=2), number < 3000, '{\"c\" : [1, 2, 3], \"d\" : \"2020-01-01\"}'::JSON(max_dynamic_paths=2), '{\"e\" : 43, \"f\" : [\"s1\", \"s2\", \"s3\"]}'::JSON(max_dynamic_paths=2)) from numbers(20000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{\"a\" : 42, \"b\" : \"Hello\"}':'"
-  },
-  {
-    "query": "insert into test select multiIf(number < 1000, '{\"a\" : 42, \"b\" : \"Hello\"}'::JSON, number < 3000, '{\"c\" : [1, 2, 3], \"d\" : \"2020-01-01\"}'::JSON, '{\"e\" : 43, \"f\" : [\"s1\", \"s2\", \"s3\"]}'::JSON) from numbers(20000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{\"a\" : 42, \"b\" : \"Hello\"}':'"
-  },
-  {
-    "query": "insert into test select multiIf(number < 1000, '{\"a\" : 42}'::JSON(max_dynamic_paths=2), number < 3000, '{\"b\" : \"Hello\", \"c\" : [1, 2, 3], \"d\" : \"2020-01-01\"}'::JSON(max_dynamic_paths=2), '{\"e\" : 43}'::JSON(max_dynamic_paths=2)) from numbers(20000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{\"a\" : 42}':'"
-  },
-  {
-    "query": "insert into test select multiIf(number < 1000, '{}'::JSON(max_dynamic_paths=2), number < 3000, '{\"a\" : 42, \"b\" : \"Hello\"}'::JSON(max_dynamic_paths=2), '{\"c\" : [1, 2, 3], \"d\" : \"2020-01-01\"}'::JSON(max_dynamic_paths=2)) from numbers(20000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{}':'"
+    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, 'Str'::Dynamic(max_types=1), number < 3000, range(number % 5)::'"
   },
   {
     "query": "insert into test select multiIf(number < 1000, '{}'::JSON(max_dynamic_paths=8), number < 3000, materialize('{\"a\" : [{\"b\" : 42, \"c\" : [1, 2, 3]}]}')::JSON(max_dynamic_paths=8), materialize('{\"a\" : [{\"d\" : \"2020-01-01\", \"e\" : \"Hello\"}]}')::JSON(max_dynamic_paths=8)) from numbers(20000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{}':'"
-  },
-  {
-    "query": "insert into test select multiIf(number < 1000, '{}'::JSON, number < 3000, '{\"a\" : 42, \"b\" : \"Hello\"}'::JSON, '{\"c\" : [1, 2, 3], \"d\" : \"2020-01-01\"}'::JSON) from numbers(20000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03222_json_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{}':'"
+    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, '{}'::JSON(max_dynamic_paths=8), number < 3000, materialize('{\"a\" : [{\"b\" : 42, \"c\" : [1, 2, 3]}]}')::'"
   },
   {
     "query": "insert into test select multiIf(number < 1000, NULL::Dynamic(max_types=1), number < 3000, range(number % 5)::Dynamic(max_types=1), number::Dynamic(max_types=1)) from numbers(100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03210_dynamic_squashing.sql",
-    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, NULL:'"
+    "error": "no viable alternative at input 'insert into test select multiIf(number < 1000, NULL::Dynamic(max_types=1), number < 3000, range(number % 5)::'"
   },
   {
     "query": "insert into test select number < 600000 ? number::Dynamic : ('str_' || number)::Dynamic from numbers(1000000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03249_dynamic_alter_consistency.sql",
-    "error": "no viable alternative at input 'insert into test select number < 600000 ? number::'"
+    "error": "no viable alternative at input 'insert into test select number < 600000 ? number::Dynamic : ('str_' || number)::'"
   },
   {
     "query": "INSERT INTO test SELECT number DIV 1024, number % 1024 FROM numbers(1048576);",
@@ -1827,137 +1767,72 @@
   {
     "query": "insert into test select number, [range((number % 10 + 1)::UInt64)]::Array(Array(Dynamic)) from numbers(100000, 100000) settings min_insert_block_size_rows=50000;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03036_dynamic_read_subcolumns_wide_merge_tree.sql",
-    "error": "no viable alternative at input 'insert into test select number, [range((number % 10 + 1):'"
-  },
-  {
-    "query": "INSERT INTO test SELECT number, argMaxState(number::String, '2023-04-12 16:23:01'::DateTime)\nFROM numbers(9)\nGROUP BY number;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02714_read_bytes_aggregateFunction.sql",
-    "error": "no viable alternative at input 'INSERT INTO test SELECT number, argMaxState(number:'"
-  },
-  {
-    "query": "INSERT INTO test SELECT number, argMaxState(number::String, '2023-04-12 16:23:01'::DateTime)\nFROM numbers(990)\nGROUP BY number;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02714_read_bytes_aggregateFunction.sql",
-    "error": "no viable alternative at input 'INSERT INTO test SELECT number, argMaxState(number:'"
+    "error": "no viable alternative at input 'insert into test select number, [range((number % 10 + 1)::'"
   },
   {
     "query": "insert into test select number, if (number % 5 == 1, ('str_' || number)::LowCardinality(String)::Dynamic, number::Dynamic) from numbers(100000, 100000) settings min_insert_block_size_rows=50000;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03036_dynamic_read_shared_subcolumns_wide_merge_tree.sql",
-    "error": "no viable alternative at input 'insert into test select number, if (number % 5 == 1, ('str_' || number):'"
+    "error": "no viable alternative at input 'insert into test select number, if (number % 5 == 1, ('str_' || number)::'"
   },
   {
     "query": "insert into test select number, if (number % 5 == 1, [range((number % 10 + 1)::UInt64)]::Array(Array(Dynamic)), number) from numbers(100000, 100000) settings min_insert_block_size_rows=50000;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03036_dynamic_read_shared_subcolumns_wide_merge_tree.sql",
-    "error": "no viable alternative at input 'insert into test select number, if (number % 5 == 1, [range((number % 10 + 1):'"
+    "error": "no viable alternative at input 'insert into test select number, if (number % 5 == 1, [range((number % 10 + 1)::'"
   },
   {
     "query": "insert into test select number, multiIf(number % 5 == 0, tuple(if(number % 3 == 0, toDateTime(number), toIPv4(number)))::Tuple(a Dynamic(max_types=2)), number % 5 == 1 or number % 5 == 2, number, 'str_' || number) from numbers(100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, multiIf(number % 5 == 0, tuple(if(number % 3 == 0, toDateTime(number), toIPv4(number))):'"
+    "error": "no viable alternative at input 'insert into test select number, multiIf(number % 5 == 0, tuple(if(number % 3 == 0, toDateTime(number), toIPv4(number)))::'"
   },
   {
     "query": "insert into test select number, number, [number % 2 ? number : 'str_' || toString(number)]::Array(Dynamic) from numbers(15, 3);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03040_dynamic_type_alters_2_wide_merge_tree.sql",
-    "error": "no viable alternative at input 'insert into test select number, number, [number % 2 ? number : 'str_' || toString(number)]:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.a1', number, 'a.a2', number, 'a.a3', number, 'a.a4', number, 'a.a5', number, 'a.a6', number, 'a.a7', number, 'a.a8', number, 'a.r', arrayMap(x -> map('b.c.d_' || toString(x), number::UInt32, 'c.d.e', range((number + x) % 5 + 1)), range(number % 5 + 1)))) from numbers(30000, 10000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03208_array_of_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.a1', number, 'a.a2', number, 'a.a3', number, 'a.a4', number, 'a.a5', number, 'a.a6', number, 'a.a7', number, 'a.a8', number, 'a.r', arrayMap(x -> map('b.c.d_' || toString(x), number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b', arrayMap(x -> map('b.c.d_' || toString(x), number::UInt32, 'c.d.e', range((number + x) % 5 + 1)), range(number % 5 + 1)))) from numbers(10000, 10000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03208_array_of_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b', arrayMap(x -> map('b.c.d_' || toString(x), number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number))) from numbers(20, 5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number))) from numbers(400000, 100000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number), 'b.b._' || toString(number % 5), number::UInt32)) from numbers(500000, 100000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number), 'b.b._' || toString(number), number::UInt32)) from numbers(25, 5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', number:'"
+    "error": "no viable alternative at input 'insert into test select number, number, [number % 2 ? number : 'str_' || toString(number)]::'"
   },
   {
     "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1)::Array(UInt32), 'a.b.e', 'str_' || toString(number), 'd.a', number::UInt32, 'd.c', toDate(number))) from numbers(30, 5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1):'"
+    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1)::'"
   },
   {
     "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1)::Array(UInt32), 'a.b.e', 'str_' || toString(number), 'd.a', number::UInt32, 'd.c', toDate(number))) from numbers(600000, 100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1):'"
+    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', range(number % + 1)::'"
   },
   {
     "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1)::Array(UInt32), 'd.b', number::UInt32)) from numbers(35, 5);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1):'"
+    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1)::'"
   },
   {
     "query": "insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1)::Array(UInt32), 'd.b', number::UInt32)) from numbers(700000, 100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1):'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number))) from numbers(10, 5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.b.d', number::UInt32, 'a.b.e', 'str_' || toString(number))) from numbers(200000, 100000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('a.r', arrayMap(x -> map('b.c.d_' || toString(x), number::UInt32, 'c.d.e', range((number + x) % 5 + 1)), range(number % 5 + 1)))) from numbers(20000, 10000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03208_array_of_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.r', arrayMap(x -> map('b.c.d_' || toString(x), number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('b.b.d', number::UInt32, 'b.b.e', 'str_' || toString(number))) from numbers(15, 5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_1_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('b.b.d', number:'"
-  },
-  {
-    "query": "insert into test select number, toJSONString(map('b.b.d', number::UInt32, 'b.b.e', 'str_' || toString(number))) from numbers(300000, 100000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03207_json_read_subcolumns_2_memory.sql",
-    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('b.b.d', number:'"
+    "error": "no viable alternative at input 'insert into test select number, toJSONString(map('a.b.c', number, 'a.b.d', toDateTime(number), 'a.b.e', 'str_' || toString(number), 'd.a', range(number % 5 + 1)::'"
   },
   {
     "query": "insert into test select number, tuple(if(number % 2 == 0, tuple(number), NULL))::Tuple(a Dynamic(max_types=2)) from numbers(200000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 2 == 0, tuple(number), NULL)):'"
+    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 2 == 0, tuple(number), NULL))::'"
   },
   {
     "query": "insert into test select number, tuple(if(number % 3 == 0, number, 'str_' || toString(number)))::Tuple(a Dynamic(max_types=2)) from numbers(100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, number, 'str_' || toString(number))):'"
+    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, number, 'str_' || toString(number)))::'"
   },
   {
     "query": "insert into test select number, tuple(if(number % 3 == 0, toDate(number), range(number % 10)))::Tuple(a Dynamic(max_types=2)) from numbers(50000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, toDate(number), range(number % 10))):'"
+    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, toDate(number), range(number % 10)))::'"
   },
   {
     "query": "insert into test select number, tuple(if(number % 3 == 0, toDateTime(number), NULL))::Tuple(a Dynamic(max_types=2)) from numbers(50000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, toDateTime(number), NULL)):'"
+    "error": "no viable alternative at input 'insert into test select number, tuple(if(number % 3 == 0, toDateTime(number), NULL))::'"
   },
   {
     "query": "insert into test select number, tuple(toDateTime(number))::Tuple(a Dynamic(max_types=2)) from numbers(40000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03038_nested_dynamic_merges_wide_vertical.sql",
-    "error": "no viable alternative at input 'insert into test select number, tuple(toDateTime(number)):'"
+    "error": "no viable alternative at input 'insert into test select number, tuple(toDateTime(number))::'"
   },
   {
     "query": "insert into test select x, 1 from file(02458_data.jsoncompacteachrow); -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE} insert into test select x, y from file(02458_data.jsoncompacteachrow); -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE}\ninsert into test select x + 1, y from file(02458_data.jsoncompacteachrow); -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE}\ninsert into test select x, z from file(02458_data.jsoncompacteachrow); -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE}\ninsert into test select * from input() format CSV 1,2\ninsert into test select x, y from input() format CSV 1,2 -- {serverError CANNOT_EXTRACT_TABLE_STRUCTURE}\ninsert into test select x, y from input() format JSONEachRow {\"x\" : null, \"y\" : 42};",
@@ -1972,12 +1847,12 @@
   {
     "query": "insert into test values ('str'), ([1, 2, 3]), (42::Int32), ('2020-01-01'::Date);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03233_dynamic_in_functions.sql",
-    "error": "no viable alternative at input 'insert into test values ('str'), ([1, 2, 3]), (42:'"
+    "error": "no viable alternative at input 'insert into test values ('str'), ([1, 2, 3]), (42::'"
   },
   {
     "query": "insert into test values ('str_0'), ('str_1'::FixedString(5));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03233_dynamic_in_functions.sql",
-    "error": "no viable alternative at input 'insert into test values ('str_0'), ('str_1':'"
+    "error": "no viable alternative at input 'insert into test values ('str_0'), ('str_1'::'"
   },
   {
     "query": "insert into test values ('xxx', 'x', {'content-type':'text/plain','user-agent':'bulk-tests'});",
@@ -1992,12 +1867,12 @@
   {
     "query": "insert into test values (0, NULL), (1, 1::Int8), (2, 2::UInt8), (3, 3::Int16), (4, 4::UInt16), (5, 5::Int32), (6, 6::UInt32), (7, 7::Int64), (8, 8::UInt64), (9, 9::Float32), (10, 10::Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03233_dynamic_in_functions.sql",
-    "error": "no viable alternative at input 'insert into test values (0, NULL), (1, 1:'"
+    "error": "no viable alternative at input 'insert into test values (0, NULL), (1, 1::'"
   },
   {
     "query": "insert into test values (0, NULL), (NULL, 1::Int8), (2, 2::UInt8), (NULL, 3::Int16), (4, 4::UInt16), (NULL, 5::Int32), (6, 6::UInt32), (NULL, 7::Int64), (8, 8::UInt64), (NULL, 9::Float32), (10, 10::Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03233_dynamic_in_functions.sql",
-    "error": "no viable alternative at input 'insert into test values (0, NULL), (NULL, 1:'"
+    "error": "no viable alternative at input 'insert into test values (0, NULL), (NULL, 1::'"
   },
   {
     "query": "insert into test values (NULL), (42), ('42.42'), (true), ('e10');",
@@ -2097,17 +1972,7 @@
   {
     "query": "INSERT INTO test_agg_variant SELECT\nName,\nt AS Value\nFROM\n(\nSELECT\nName,\narrayJoin([\nuniqExactState(Value)::Variant(AggregateFunction(uniqExact, Int64), AggregateFunction(avg, Int64)), \navgState(Value)::Variant(AggregateFunction(uniqExact, Int64), AggregateFunction(avg, Int64))\n]) AS t\nFROM source\nGROUP BY Name \n);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03210_variant_with_aggregate_function_type.sql",
-    "error": "no viable alternative at input 'INSERT INTO test_agg_variant SELECT\\nName,\\nt AS Value\\nFROM\\n(\\nSELECT\\nName,\\narrayJoin([\\nuniqExactState(Value):'"
-  },
-  {
-    "query": "INSERT INTO test_apply_deleted_mask SELECT number, number::String FROM numbers(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02902_diable_apply_deleted_mask.sql",
-    "error": "no viable alternative at input 'INSERT INTO test_apply_deleted_mask SELECT number, number:'"
-  },
-  {
-    "query": "INSERT INTO test_apply_deleted_mask SELECT number, number::String FROM numbers(5, 1);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02902_diable_apply_deleted_mask.sql",
-    "error": "no viable alternative at input 'INSERT INTO test_apply_deleted_mask SELECT number, number:'"
+    "error": "no viable alternative at input 'INSERT INTO test_agg_variant SELECT\\nName,\\nt AS Value\\nFROM\\n(\\nSELECT\\nName,\\narrayJoin([\\nuniqExactState(Value)::'"
   },
   {
     "query": "INSERT into test_graphite WITH dates AS\n(\nSELECT toStartOfDay(toDateTime(now('UTC'), 'UTC')) as today,\ntoday - INTERVAL 3 day as older_date\n)\nselect 1 AS key, 'sum_1' AS s, today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 2, 'sum_1', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 1, 'sum_2', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 2, 'sum_2', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 1, 'max_1', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 2, 'max_1', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 1, 'max_2', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 2, 'max_2', today - number * 60 - 30, number, 1, number from dates, numbers(300) union all\nselect 1 AS key, 'sum_1' AS s, older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 2, 'sum_1', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 1, 'sum_2', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 2, 'sum_2', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 1, 'max_1', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 2, 'max_1', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 1, 'max_2', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200) union all\nselect 2, 'max_2', older_date - number * 60 - 30, number, 1, number from dates, numbers(1200);",
@@ -2123,11 +1988,6 @@
     "query": "INSERT INTO test_hilbert_encode SELECT number DIV 32, number % 32 FROM numbers(1024);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03171_indexing_by_hilbert_curve.sql",
     "error": "no viable alternative at input 'INSERT INTO test_hilbert_encode SELECT number DIV 32'"
-  },
-  {
-    "query": "insert into test_json_dynamic_aggregate_functions select toJSONString(map('a' || number % 13, multiIf(number % 5 == 0, NULL, number % 5 == 1, number::UInt32, number % 5 == 2, 'str_' || number, number % 5 == 3, range(number % 5), toBool(number % 2)))) from numbers(100000);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03227_distinct_dynamic_types_json_paths.sql",
-    "error": "no viable alternative at input 'insert into test_json_dynamic_aggregate_functions select toJSONString(map('a' || number % 13, multiIf(number % 5 == 0, NULL, number % 5 == 1, number:'"
   },
   {
     "query": "INSERT INTO test_map VALUES ({'K0':'V0'});",

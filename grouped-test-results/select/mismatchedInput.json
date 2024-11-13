@@ -5,119 +5,9 @@
     "error": "mismatched input 'FROM' expecting <EOF>"
   },
   {
-    "query": "SELECT '2010-10-10'::Date AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2010-10-10'::DateTime('UTC') AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2022-10-11'::Date + tuple(INTERVAL 1 DAY);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2022-10-11'::Date - tuple(INTERVAL 1 DAY);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime FORMAT Pretty;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime FORMAT PrettyMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime FORMAT PrettyNoEscapes;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime FORMAT PrettyNoEscapesMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime::DateTime64 FORMAT Pretty;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime::DateTime64 FORMAT PrettyMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime::DateTime64 FORMAT PrettyNoEscapes;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29 00:00:00'::DateTime::DateTime64 FORMAT PrettyNoEscapesMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date FORMAT Pretty;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date FORMAT PrettyMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date FORMAT PrettyNoEscapes;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date FORMAT PrettyNoEscapesMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date32 FORMAT Pretty;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date32 FORMAT PrettyMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date32 FORMAT PrettyNoEscapes;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '2024-02-29'::Date32 FORMAT PrettyNoEscapesMonoBlock;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02998_pretty_format_print_readable_number_on_single_value.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT '4'; -- min and max values of integer types (-2^63, 2^63-1) SELECT round(quantileDD(0.01, 0.5)(number), 2)\nFROM\n(\nSELECT arrayJoin([toInt64(number), number - 9223372036854775808, toInt64(number + 9223372036854775798)]) AS number\nFROM numbers(0, 10)\n);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02919_ddsketch_quantile.sql",
     "error": "mismatched input 'FROM' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '414243'::String;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03227_proper_parsing_of_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select '42'::Variant(String, UInt64)::UInt64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT '5'; -- min and max values of floating point types SELECT round(quantileDD(0.01, 0.42)(number), 2)\nFROM\n(\nSELECT arrayJoin([toFloat32(number), number - 3.4028235e+38, toFloat32(number + 3.4028235e+38)]) AS number\nFROM numbers(0, 10)\n);",
@@ -152,17 +42,12 @@
   {
     "query": "SELECT '\\\\x01\\\\x00'::AggregateFunction(groupBitmap, UInt32); -- { serverError INCORRECT_DATA } SELECT '\\\\x01\\\\x01\\\\x01'::AggregateFunction(groupBitmap, UInt64); -- { serverError STD_EXCEPTION }\nSELECT '\\\\x02\\\\x00\\\\x0d'::AggregateFunction(topK, UInt256); -- { serverError CANNOT_READ_ALL_DATA }\nSELECT unhex('bebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebe0c0c3131313131313131313131313173290aee00b300')::AggregateFunction(minDistinct, Int8); -- { serverError TOO_LARGE_ARRAY_SIZE }\nSELECT unhex('01000b0b0b0d0d0d0d7175616e74696c6554696d696e672c20496e743332000300')::AggregateFunction(quantileTiming, Int32); -- { serverError INCORRECT_DATA }\nSELECT unhex('010001')::AggregateFunction(quantileTiming, Int32); -- { serverError INCORRECT_DATA }\nSELECT unhex('0a00797979797979797979790a0a6e')::AggregateFunction(minForEach, Ring); -- { serverError TOO_LARGE_ARRAY_SIZE }\n",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02688_aggregate_states.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT 'ab' REGEXP 'a.*b';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02700_regexp_operator.sql",
     "error": "mismatched input 'REGEXP' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 'abc'::FixedString(3) AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT 'C\"' AS s,\nnormalizeUTF8NFC(s) s1,\nnormalizeUTF8NFD(s) s2,\nnormalizeUTF8NFKC(s) s3,\nnormalizeUTF8NFKD(s) s4,\nhex(s),\nhex(s1),\nhex(s2),\nhex(s3),\nhex(s4);",
@@ -180,16 +65,6 @@
     "error": "mismatched input ''' expecting <EOF>"
   },
   {
-    "query": "select 'Hello'::LowCardinality(Nullable(String))::Variant(LowCardinality(String), UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select 'Hello'::LowCardinality(String)::Variant(LowCardinality(String), UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT 'Looking_at_transaction_id_False' FORMAT Null SETTINGS implicit_transaction=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02345_implicit_transaction.sql",
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
@@ -200,24 +75,9 @@
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
   },
   {
-    "query": "select 'NULL'::LowCardinality(Nullable(String))::Variant(LowCardinality(String), UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select 'str'::Variant(String, UInt64)::UInt64; -- {serverError CANNOT_PARSE_TEXT} select CAST(multiIf(number % 3 == 0, NULL::Variant(String, UInt64), number % 3 == 1, 'Hello'::Variant(String, UInt64), number::Variant(String, UInt64)), 'Nullable(String)') from numbers(6);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT 'The results of query: SELECT id, mapExtractKeyLike(map, \\\\'5-K1\\\\') FROM map_extractKeyLike_test ORDER BY id;';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02111_function_mapExtractKeyLike.sql",
     "error": "mismatched input '5' expecting <EOF>"
-  },
-  {
-    "query": "select 'true'::Bool::Variant(UInt32, Bool);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03032_variant_bool_number_not_suspicious.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT 'w\\\\0\\\\0ldworldwo\\\\0l\\\\0world' FROM grouping_sets\nGROUP BY\nGROUPING SETS (\n( fact_4_id),\n( NULL),\n( fact_3_id, fact_4_id))\nORDER BY\nNULL ASC,\nNULL DESC NULLS FIRST,\nfact_3_id ASC,\nfact_3_id ASC NULLS LAST,\n'wo\\\\0ldworldwo\\\\0ldworld' ASC NULLS LAST,\n'w\\\\0\\\\0ldworldwo\\\\0l\\\\0world' DESC NULLS FIRST,\n'wo\\\\0ldworldwo\\\\0ldworld' ASC,\nNULL ASC NULLS FIRST,\nfact_4_id DESC NULLS LAST;",
@@ -225,29 +85,9 @@
     "error": "mismatched input '(' expecting <EOF>"
   },
   {
-    "query": "select '{\"a\" : 42}'::JSON as json, toTypeName(json);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03230_json_alias_new_old_types.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select '{\"a\" : 42}'::JSON(max_dynamic_paths=100) as json, toTypeName(json); -- {serverError BAD_ARGUMENTS} set allow_experimental_object_type = 0;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03230_json_alias_new_old_types.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT '{\"a\": \\\\'\\\\x41\\\\'}'::String;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03227_proper_parsing_of_cast_operator.sql",
     "error": "mismatched input '\\' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '{\"a\": {\"b\": 1, \"c\": 2}}'::Object('JSON') AS s format JSONEachRow;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01825_type_json_5.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT '{\"a\": {\"b\": 1, \"c\": 2}}'::Object('JSON') AS s;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01825_type_json_5.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT ((1, 2), (2, 3), (3, 4)) FORMAT TSVWithNames SETTINGS legacy_column_name_of_tuple_literal = 1;",
@@ -257,72 +97,82 @@
   {
     "query": "SELECT (0 + 1 + 2 + 3 + 4)::Date AS c;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (0.1, 0.2)::Tuple(Decimal(75, 70), Decimal(75, 70));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
+  },
+  {
+    "query": "SELECT (0.1::Decimal(4, 4) * 5)::Float64 AS c;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
+    "error": "mismatched input '::' expecting <EOF>"
+  },
+  {
+    "query": "SELECT (0.1::Decimal(4, 4) + 0.2::Decimal(4, 4) + 0.3::Decimal(4, 4))::Decimal(4, 4) AS c;",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (1 + 2)::UInt32 AS c;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (1, 'foo')::Tuple(a Int, b String,);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02676_trailing_commas.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (1, 'foo')::Tuple(a Int, b String,,); -- { clientError SYNTAX_ERROR } SELECT (1, 'foo')::Tuple(Int, String,);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02676_trailing_commas.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (1, (2,'foo'))::Tuple(Int, Tuple(Int, String,),);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02676_trailing_commas.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select (number % 2 ? NULL : number)::Dynamic as d, dynamicType(d) from numbers(3);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::Int128 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM -3 TO 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::Int128 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM 3 TO 8;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::Int256 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM -3 TO 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::Int256 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM 3 TO 8;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::UInt128 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM 3 TO 8;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number * 2)::UInt256 FROM numbers(10) ORDER BY 1 ASC WITH FILL FROM 3 TO 8;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02560_with_fill_int256_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT (number IS NULL)::Boolean, now() FROM numbers(2) GROUP BY (number IS NULL)::Boolean, now() FORMAT Null;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03206_is_null_constant_result_old_analyzer_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT * APPLY (x -> toString(x)) APPLY (x -> length(x)) FROM test_table;",
@@ -695,19 +545,9 @@
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
   },
   {
-    "query": "SELECT -0.111::Float64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_3.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT -0.1::Decimal(38, 38);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_3.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT -1::UInt64; -- { serverError CANNOT_PARSE_NUMBER } SELECT CAST(-1 AS UInt64); -- conversion with overflow\nSELECT [1.1, 2.3]::Array(Decimal(30, 20));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input 'SELECT' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select 0 from test_rows_compact_part limit 1 FORMAT JSONCompact settings exact_rows_before_limit = 0,output_format_write_statistics = 0;",
@@ -730,21 +570,6 @@
     "error": "mismatched input 'settings' expecting <EOF>"
   },
   {
-    "query": "SELECT 0.1 :: Decimal(4, 4);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 0.1000000000000000055511151231257827021181583404541015625::Decimal256(70) = 0.1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02124_comparison_betwwen_decimal_and_float.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 0.1::Decimal(38, 38) AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT 02339_db.test_table.COLUMNS('i'), 02339_db.test_table.COLUMNS('v') FROM 02339_db.test_table;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02339_analyzer_matcher_basic.sql",
     "error": "mismatched input '(' expecting <EOF>"
@@ -758,11 +583,6 @@
     "query": "SELECT 02339_db.test_table.COLUMNS(id), 02339_db.test_table.COLUMNS(value) FROM 02339_db.test_table;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02339_analyzer_matcher_basic.sql",
     "error": "mismatched input '(' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 0::Bool(Upyachka); -- { serverError DATA_TYPE_CANNOT_HAVE_ARGUMENTS } SELECT [(1, 2), (3, 4)]::Ring(Upyachka); -- { serverError DATA_TYPE_CANNOT_HAVE_ARGUMENTS }\nSELECT '1.1.1.1'::IPv4('Hello, world!'); -- { serverError DATA_TYPE_CANNOT_HAVE_ARGUMENTS }\n",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02689_meaningless_data_types.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT 1 ') as QUERY_GROUP_ID, count()\nFROM system.query_log\nWHERE current_database = currentDatabase() AND type<>1 and event_date >= yesterday() and QUERY_GROUP_ID<>''\nGROUP BY QUERY_GROUP_ID\nORDER BY QUERY_GROUP_ID;",
@@ -783,11 +603,6 @@
     "query": "SELECT 1 AS x ORDERALL SELECT 1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/00466_comments_in_keyword.sql",
     "error": "mismatched input 'SELECT' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1 AS x, -x::String; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT accurateCast(1.123456789, 'Float32'); -- { serverError CANNOT_CONVERT_TYPE }\nSELECT accurateCastOrNull(1.123456789, 'Float32');",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT 1 DIV \\`MOD\\` \\`DIV\\` FROM (SELECT 1 \\`MOD\\`) FORMAT TSVWithNames;",
@@ -820,144 +635,9 @@
     "error": "mismatched input '(' expecting <EOF>"
   },
   {
-    "query": "SELECT 1-1::String; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT -1::String;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.0::Decimal32(5) / 0.0;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123456789012345678901::Decimal256(20);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123456789012345678901::Decimal256(22);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1234567890::Decimal128(10);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1234567890::Decimal256(10);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1234567890::Decimal64(10);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1234567::Decimal32(8);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(1);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(10);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(2);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(4);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.123::Decimal64(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT 1.1::Decimal(30, 20), CAST('1.1' AS Decimal(30, 20)), (1+1)::UInt8 FORMAT Vertical;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1::Decimal(30, 20);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.1::Decimal(60, 30);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02685_decimal256_various.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.23::Decimal(3, 2) IN (1.2::Decimal(60, 30), 3.4::Decimal(60, 30));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02685_decimal256_various.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.2::Decimal(2, 1) IN (1.2::Decimal(60, 30), 3.4::Decimal(60, 30));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02685_decimal256_various.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.2::Decimal(60, 30) IN (1.2::Decimal(2, 1));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02685_decimal256_various.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5 * 1.5::Decimal32(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5 + 1.5::Decimal32(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5 - 1.5::Decimal32(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5 / 1.5::Decimal32(5);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5::Decimal32(5) * 1.5;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5::Decimal32(5) + 1.5;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5::Decimal32(5) - 1.5;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1.5::Decimal32(5) / 1.5;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02155_binary_op_between_float_and_decimal.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT 10 AS x FORMAT Vertical SETTINGS use_query_cache = 1;",
@@ -975,54 +655,9 @@
     "error": "mismatched input 'ps_partkey' expecting <EOF>"
   },
   {
-    "query": "SELECT 123::String AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 14776434768051644139306697240981192872314776434768051644139306697240981192872::Int256 AS x, 0::UInt128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 14776434768051644139306697240981192872314776434768051644139306697240981192872::UInt256 AS x, 0::Int128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 14776434768051644139306697240981192872314776434768051644139306697240981192872::UInt256 AS x, 0::UInt128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select 1670853969::DateTime64(3, 'UTC');",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_broken_datetime64_init_on_mac.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "select 17, 'fail: correlated subquery'; -- TODO: Missing columns: 'p_partkey' select\nsum(l_extendedprice) / 7.0 as avg_yearly\nfrom\nlineitem,\npart\nwhere\np_partkey = l_partkey\nand p_brand = 'Brand#23'\nand p_container = 'MED BOX'\nand l_quantity < (\nselect\n0.2 * avg(l_quantity)\nfrom\nlineitem\nwhere\nl_partkey = p_partkey\n); -- { serverError UNSUPPORTED_METHOD, 47 }\nselect 18;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01095_tpch_like_smoke.sql",
     "error": "mismatched input 'sum' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1::Decimal64(0);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1::Decimal64(1);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1::Decimal64(10);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02009_decimal_no_trailing_zeros.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 1::Int8 AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "select 1; #! SELECT # hello\n1;",
@@ -1055,36 +690,6 @@
     "error": "mismatched input '0' expecting <EOF>"
   },
   {
-    "query": "SELECT 314776434768051644139306697240981192872::Int128 AS x, 0::UInt128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 314776434768051644139306697240981192872::Int128 AS x, 14776434768051644139306697240981192872314776434768051644139306697240981192872::UInt256 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 314776434768051644139306697240981192872::UInt128 AS x, 0::Int128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 314776434768051644139306697240981192872::UInt128 AS x, 0::UInt128 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 314776434768051644139306697240981192872::UInt128 AS x, 14776434768051644139306697240981192872314776434768051644139306697240981192872::Int256 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT 314776434768051644139306697240981192872::UInt128 AS x, 14776434768051644139306697240981192872314776434768051644139306697240981192872::UInt256 AS y, bitCount(bitXor(x, y)) AS a, bitHammingDistance(x, y) AS b;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02921_bit_hamming_distance_big_int.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT 36 AS n, toDate('2000-01-01') + n AS d, (n, d) AS tuple FROM system.numbers LIMIT 1 FORMAT RowBinaryWithNamesAndTypes SETTINGS allow_experimental_analyzer=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/00309_formats.sql",
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
@@ -1092,177 +697,157 @@
   {
     "query": "select 42 as num, [42, 42] as arr, [[[42, 42], [42, 42]], [[42, 42]]] as nested_arr, tuple(42, 42)::Tuple(a UInt32, b UInt32) as tuple, tuple(tuple(tuple(42, 42), 42), 42)::Tuple(a Tuple(b Tuple(c UInt32, d UInt32), e UInt32), f UInt32) as nested_tuple, map(42, 42, 24, 24) as map, map(42, map(42, map(42, 42))) as nested_map, [tuple(map(42, 42), [42, 42]), tuple(map(42, 42), [42, 42])]::Array(Tuple(Map(UInt32, UInt32), Array(UInt32))) as nested_types, '{\"a\" : {\"b\" : 1, \"c\" : 2}}'::Object('json') as json_object format PrettyNDJSON;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02717_pretty_json.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select 42424.4242424242::Float64 as x, [42.42::Float64, 42.42::Float64] as arr, tuple(42.42::Float64) as tuple format JSONEachRow settings output_format_json_quote_64bit_floats=0;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02423_json_quote_float64.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input 'settings' expecting <EOF>"
   },
   {
     "query": "select 42424.4242424242::Float64 as x, [42.42::Float64, 42.42::Float64] as arr, tuple(42.42::Float64) as tuple format JSONEachRow settings output_format_json_quote_64bit_floats=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02423_json_quote_float64.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select 42::UInt32::Variant(String, UInt64); -- {serverError CANNOT_CONVERT_TYPE} select now()::Variant(String, UInt64); -- {serverError CANNOT_CONVERT_TYPE}\nselect CAST(number % 2 ? NULL : number, 'Variant(String, UInt64)') from numbers(4);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select 42::UInt64::Variant(String, UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input 'settings' expecting <EOF>"
   },
   {
     "query": "SELECT ['2010-10-10', '2010-10-10']::Array(Date) AS c;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [(1, 'a'), (3, 'b')]::Nested(u UInt8, s String) AS t, toTypeName(t);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1, -2, -3]::Array(Int16) AS x, [4, 5, 6]::Array(Int16) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1, -2, -3]::Array(Int32) AS x, [4, 5, 6]::Array(Int32) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1, -2, -3]::Array(Int64) AS x, [4, 5, 6]::Array(Int64) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1, -2, -3]::Array(Int8) AS x, [4, 5, 6]::Array(Int8) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1, 2, -3]::Array(Int32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_3.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [-1.1, 2, -3]::Array(Float64);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_3.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 1 + 1, 1 + 2]::Array(UInt32) AS c;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3] :: Array(Int32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(Float32) AS x, [4, 5, 6]::Array(Float32) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(Float64) AS x, [4, 5, 6]::Array(Float64) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(UInt16) AS x, [4, 5, 6]::Array(UInt16) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(UInt32) AS c;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(UInt32) AS x, [4, 5, 6]::Array(UInt32) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(UInt64) AS x, [4, 5, 6]::Array(UInt64) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1, 2, 3]::Array(UInt8) AS x, [4, 5, 6]::Array(UInt8) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1,2,3]::Array(UInt64)[[number, number]::Array(UInt8)[number]::UInt64]::UInt8 from numbers(3);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [1.1, 2.3 + 0]::Array(Decimal(30, 20));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
-    "query": "SELECT [1], 0::UInt16;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02895_cast_operator_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "query": "SELECT [1::UInt32, 2::UInt32]::Array(UInt64);",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [3,4,5]::Array(Int64)[2]::Int8;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [3,4,5][1]::Int32;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select [42]::Array(LowCardinality(UInt64)); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY} select [[[42]]]::Array(Array(Array(LowCardinality(UInt64)))); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\nselect map('a', 42)::Map(String, LowCardinality(UInt64)); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\nselect map('a', map('b', [42]))::Map(String, Map(String, Array(LowCardinality(UInt64)))); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\nselect tuple('a', 42)::Tuple(String, LowCardinality(UInt64)); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\nselect tuple('a', [map('b', 42)])::Tuple(String, Array(Map(String, LowCardinality(UInt64)))); -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Array(LowCardinality(UInt64))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Array(Array(LowCardinality(UInt64)))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Map(String, LowCardinality(UInt64))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Map(String, Map(String, LowCardinality(UInt64)))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Tuple(String, LowCardinality(UInt64))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\ncreate table test (x Tuple(String, Array(Map(String, LowCardinality(UInt64))))) engine=Memory; -- {serverError SUSPICIOUS_TYPE_FOR_LOW_CARDINALITY}\nselect ['42']::Array(FixedString(1000000)); -- {serverError ILLEGAL_COLUMN}\nselect ['42']::Array(FixedString(1000000)); -- {serverError ILLEGAL_COLUMN}\nselect [[['42']]]::Array(Array(Array(FixedString(1000000)))); -- {serverError ILLEGAL_COLUMN}\nselect map('a', '42')::Map(String, FixedString(1000000)); -- {serverError ILLEGAL_COLUMN}\nselect map('a', map('b', ['42']))::Map(String, Map(String, Array(FixedString(1000000)))); -- {serverError ILLEGAL_COLUMN}\nselect tuple('a', '42')::Tuple(String, FixedString(1000000)); -- {serverError ILLEGAL_COLUMN}\nselect tuple('a', [map('b', '42')])::Tuple(String, Array(Map(String, FixedString(1000000)))); -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Array(FixedString(1000000))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Array(Array(FixedString(1000000)))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Map(String, FixedString(1000000))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Map(String, Map(String, FixedString(1000000)))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Tuple(String, FixedString(1000000))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Tuple(String, Array(Map(String, FixedString(1000000))))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\nselect [42]::Array(Variant(String, UInt64)); -- {serverError ILLEGAL_COLUMN}\nselect [[[42]]]::Array(Array(Array(Variant(String, UInt64)))); -- {serverError ILLEGAL_COLUMN}\nselect map('a', 42)::Map(String, Variant(String, UInt64)); -- {serverError ILLEGAL_COLUMN}\nselect map('a', map('b', [42]))::Map(String, Map(String, Array(Variant(String, UInt64)))); -- {serverError ILLEGAL_COLUMN}\nselect tuple('a', 42)::Tuple(String, Variant(String, UInt64)); -- {serverError ILLEGAL_COLUMN}\nselect tuple('a', [map('b', 42)])::Tuple(String, Array(Map(String, Variant(String, UInt64)))); -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Array(Variant(String, UInt64))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Array(Array(Variant(String, UInt64)))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Map(String, Variant(String, UInt64))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Map(String, Map(String, Variant(String, UInt64)))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Tuple(String, Variant(String, UInt64))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\ncreate table test (x Tuple(String, Array(Map(String, Variant(String, UInt64))))) engine=Memory; -- {serverError ILLEGAL_COLUMN}\nset allow_experimental_variant_type=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02981_nested_bad_types.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT [6, 6, 3] / 2.5::Decimal(1, 1);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02883_array_scalar_mult_div_modulo.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [[1, 2, 3], [], [1]]::Array(Array(UInt32));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [[1][1]]::Array(UInt32);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT [[], []]::Array(Array(UInt32));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT []::Array(Float32) AS x, []::Array(Float32) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT []::Array(UInt8) AS x, []::Array(UInt8) AS y, dotProduct(x, y) AS res, toTypeName(res);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02708_dotProduct.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT _CAST(123 AS UInt8); -- { serverError NUMBER_OF_ARGUMENTS_DOESNT_MATCH } SELECT CAST(123 AS UInt8); -- works\nSELECT 123::String;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03011_definitive_guide_to_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT a \\`test2.a\\` FROM test1 PASTE JOIN test2;",
@@ -1297,12 +882,12 @@
   {
     "query": "select accurateCastOrDefault(dynamic, 'UInt32'), multiIf(number % 4 == 0, NULL, number % 4 == 1, number, number % 4 == 2, 'str_' || toString(number), range(number))::Dynamic as dynamic from numbers(8);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select accurateCastOrNull(dynamic, 'UInt32'), multiIf(number % 4 == 0, NULL, number % 4 == 1, number, number % 4 == 2, 'str_' || toString(number), range(number))::Dynamic as dynamic from numbers(8);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03212_variant_dynamic_cast_or_default.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT ALL 'a';",
@@ -1482,7 +1067,7 @@
   {
     "query": "SELECT col2, col2 + 1 FROM test1 FULL OUTER JOIN test2 USING (col1)\nPREWHERE (col2 * 2) :: UInt8\n;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02534_join_prewhere_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT COLUMNS('[jk]') APPLY(toString) APPLY(length) from columns_transformers;",
@@ -1560,76 +1145,6 @@
     "error": "mismatched input '(' expecting <EOF>"
   },
   {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date > '2020-03-04'::Date;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_lc > '2020-03-04 10:20:45'::DateTime; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_date_lc > '2020-03-04 10:20:45.100';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_lc > '2020-03-04 10:20:45.100'::DateTime64(3); -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT 'DateTime LC';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_lc > '2020-03-04'::Date; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_date_lc > '2020-03-04 10:20:45';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_string > '2020-03-04 10:20:45'::DateTime; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_date_string > '2020-03-04 10:20:45.100';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_string > '2020-03-04 10:20:45.100'::DateTime64(3); -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT 'DateTime String';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_date_string > '2020-03-04'::Date; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_date_string > '2020-03-04 10:20:45';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime > '2020-03-04 10:20:45'::DateTime;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime > '2020-03-04'::Date;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime_lc > '2020-03-04 10:20:45'::DateTime; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_datetime_lc > '2020-03-04 10:20:45.100';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime_lc > '2020-03-04'::Date;  -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_datetime_lc > '2020-03-04 10:20:45';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime_string > '2020-03-04 10:20:45'::DateTime; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_datetime_string > '2020-03-04 10:20:45.100';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime_string > '2020-03-04 10:20:45.100'::DateTime64(3); -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT 'Date LC';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM datetime_date_table WHERE col_datetime_string > '2020-03-04'::Date; -- { serverError NO_COMMON_TYPE } SELECT count() FROM datetime_date_table WHERE col_datetime_string > '2020-03-04 10:20:45';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02513_date_string_comparison.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT count() FROM numbers(2)\nGROUP BY\nGROUPING SETS (\n(number, number + 0, number + 1),\n(number % 1048576, number % -9223372036854775808),\n(number / 2, number / 2));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02705_grouping_keys_equal_keys.sql",
     "error": "mismatched input '(' expecting <EOF>"
@@ -1648,16 +1163,6 @@
     "query": "select count() from system.query_log where current_database = currentDatabase() and query like 'select \\\\'01231_log_queries_min_type/EXCEPTION_WHILE_PROCESSING%'\nand event_date >= yesterday() and type = 'ExceptionWhileProcessing';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01231_log_queries_min_type.sql",
     "error": "mismatched input ''' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM t_key_condition_float WHERE a > 0::Float32;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02207_key_condition_floats.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT count() FROM t_key_condition_float WHERE a > 0::Float64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02207_key_condition_floats.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "select count(), * from dist_01247 group by number offset 1 settings distributed_push_down_limit=0;",
@@ -1748,36 +1253,6 @@
     "query": "SELECT d, c, row_number() over (partition by d order by c) as c8 FROM t qualify c8=1 order by d settings max_threads=2, allow_experimental_analyzer = 1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_parallel_window_finctions_and_column_sparse_bug.sql",
     "error": "mismatched input '=' expecting <EOF>"
-  },
-  {
-    "query": "SELECT d::Dynamic d1, dynamicType(d1) FROM test_deep_nested_json ORDER BY i;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03157_dynamic_type_json.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select d::Float64 from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select d::Nullable(Float64) from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select d::Nullable(String) from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select d::String from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select d::UInt64 from test; -- {serverError CANNOT_PARSE_TEXT} select d::Nullable(UInt64) from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT d_ids, id, name FROM f LEFT ARRAY JOIN d_ids LEFT JOIN d ON d.id = d_ids ORDER BY id;",
@@ -2022,12 +1497,12 @@
   {
     "query": "SELECT isNull(number)::Boolean, now() FROM numbers(2) GROUP BY isNull(number)::Boolean, now() FORMAT Null;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03206_is_null_constant_result_old_analyzer_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT isNullable(number)::Boolean, now() FROM numbers(2) GROUP BY isNullable(number)::Boolean, now() FORMAT Null;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03206_is_null_constant_result_old_analyzer_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT k,\ncount()\nFROM t1\nGROUP BY k\nORDER BY k\nSETTINGS force_primary_key = 1; -- { serverError INDEX_NOT_USED }\nDROP TABLE t1 SYNC;",
@@ -2092,7 +1567,7 @@
   {
     "query": "SELECT left.x, (right.x IS NULL)::Boolean FROM left LEFT OUTER JOIN right ON left.x = right.x GROUP BY ALL;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03206_is_null_constant_result_old_analyzer_bug.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT length(stack_trace) > 1000 FROM system.query_log WHERE current_database = currentDatabase() AND query LIKE '%SELECT \\\\'Hello\\\\', throwIf(1)%' AND query NOT LIKE '%system%' ORDER BY event_time_microseconds DESC LIMIT 1;",
@@ -2117,102 +1592,102 @@
   {
     "query": "select materialize('{\"a\" : 42, \"b\" : \"Hello\"}')::JSON;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : 42}')::JSON as json, toTypeName(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03230_json_alias_new_old_types.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : [[1, {}], null]}')::JSON as json, getSubcolumn(json, 'a'), dynamicType(getSubcolumn(json, 'a'));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03229_json_null_as_default_for_tuple.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(a.b.c.d Bool);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 0) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 0, max_dynamic_types=0) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 1) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 1, max_dynamic_types=0) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 2) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(max_dynamic_paths = 2, max_dynamic_types=0) as json, JSONAllPathsWithTypes(json), JSONDynamicPathsWithTypes(json), JSONSharedDataPathsWithTypes(json);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP a);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP a.b);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP a.b.c);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP a.b.c.d);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP REGEXP '.*');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP REGEXP '.*a.*');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON(SKIP REGEXP '.*a.*b');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{\"a\" : {\"b\" : {\"c\" : {\"d\" : 42}, \"e\" : 43}, \"f\" : 44}, \"g\" : 44}')::JSON;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select materialize('{}')::JSON;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03205_json_cast_from_string.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT materialize(3) + 3 FROM numbers(10) GROUP BY GROUPING SETS (('str', materialize(materialize(3))), ('str')) order by all;",
@@ -2262,42 +1737,37 @@
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, 'str_' || toString(number), number % 4 == 2, range(number), NULL)::Dynamic as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, 'str_' || toString(number), number % 4 == 2, range(number), NULL)::Dynamic(max_types=0) as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, 'str_' || toString(number), number % 4 == 2, range(number), NULL)::Dynamic(max_types=1) as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, 'str_' || toString(number), number % 4 == 2, range(number), NULL)::Dynamic(max_types=2) as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, 'str_' || toString(number), number % 4 == 2, range(number), NULL)::Dynamic(max_types=2)::Dynamic(max_types=1) as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select multiIf(number % 4 == 0, number, number % 4 == 1, toDate(number), number % 4 == 2, range(number), NULL)::Dynamic(max_types=4)::Dynamic(max_types=3) as d, dynamicType(d) from numbers(6);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT nonexistentsomething; -- { serverError UNKNOWN_IDENTIFIER } CREATE DICTIONARY dict (n UInt64, col String DEFAULT '42') PRIMARY KEY n\nSOURCE(CLICKHOUSE(HOST 'localhost' PORT getServerPort('tcp_port_secure') SECURE 1 USER 'default' TABLE 'url')) LIFETIME(1) LAYOUT(CACHE(SIZE_IN_CELLS 1));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01083_expressions_in_engine_arguments.sql",
     "error": "mismatched input 'SOURCE' expecting <EOF>"
-  },
-  {
-    "query": "SELECT now() + 1::Int128; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } SELECT now() + 1::Int256; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() + 1::UInt128; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() + 1::UInt256; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() - 1::Int128; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() - 1::Int256; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() - 1::UInt128; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() - 1::UInt256; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT }\nSELECT now() + INTERVAL 1::Int128 SECOND - now();",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02469_interval_msan.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT NULL FROM (SELECT [1048575, NULL] AS ax, 2147483648 AS c) t1 ARRAY JOIN ax\nINNER JOIN (SELECT NULL AS c) t2 USING (c);",
@@ -2308,21 +1778,6 @@
     "query": "SELECT NULL FROM t_02709__fuzz_23 FINAL GROUP BY sign, '1023'\nORDER BY nan DESC, [0, NULL, NULL, NULL, NULL] DESC\nFORMAT Null\nSETTINGS\nmax_parallel_replicas = 3,\nenable_parallel_replicas = 1,\nuse_hedged_requests = 0,\ncluster_for_parallel_replicas = 'test_cluster_one_shard_three_replicas_localhost';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02932_parallel_replicas_fuzzer.sql",
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
-  },
-  {
-    "query": "select NULL::Variant(String, UInt64)::Nullable(UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select NULL::Variant(String, UInt64)::UInt64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select NULL::Variant(String, UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02942_variant_cast.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECT number\nFROM\nnumbers(10)\nGROUP BY\nGROUPING SETS\n(\nnumber,\nnumber % 2\n)\nWITH ROLLUP; -- { serverError NOT_IMPLEMENTED }\nSELECT\nnumber\nFROM\nnumbers(10)\nGROUP BY\nGROUPING SETS\n(\nnumber,\nnumber % 2\n)\nWITH CUBE; -- { serverError NOT_IMPLEMENTED }\n",
@@ -2510,51 +1965,6 @@
     "error": "mismatched input 'NULLS' expecting <EOF>"
   },
   {
-    "query": "select number::Dynamic as d, dynamicType(d) from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic(max_types=0) as d, dynamicType(d) from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic(max_types=2)::Dynamic(max_types=1) as d from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic(max_types=2)::Dynamic(max_types=3) as d from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic::Array(UInt64) as v from numbers(3); -- {serverError TYPE_MISMATCH} select number::Dynamic::Variant(UInt64, String) as v, variantType(v) from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic::Date as v from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic::String as v from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select number::Dynamic::UInt64 as v from numbers(3);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT number::UInt8 AS c, toTypeName(c) FROM numbers(1);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "SELECT one.* FROM system.one one;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/00467_qualified_names.sql",
     "error": "mismatched input '.' expecting <EOF>"
@@ -2593,16 +2003,6 @@
     "query": "SELECT s FROM order_by_desc ORDER BY u LIMIT 10 FORMAT Null SETTINGS max_memory_usage = '400M';",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01926_order_by_desc_limit.sql",
     "error": "mismatched input 'SETTINGS' expecting <EOF>"
-  },
-  {
-    "query": "select s::Dynamic as d, dynamicType(d) from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03033_dynamic_text_serialization.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select s::Dynamic(max_types=3) as d, dynamicType(d), isDynamicElementInSharedData(d) from test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03033_dynamic_text_serialization.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "select sleep(2) format Null; -- increases probability of reproducing the issue detach table rmt1;      -- make replica inactive\nsystem start replicated sends rmt1;",
@@ -2690,16 +2090,6 @@
     "error": "mismatched input '600' expecting <EOF>"
   },
   {
-    "query": "select toDate('2020-01-01') in 1::Int64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02714_date_date32_in.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "select toDate32('2020-01-01') in 1::UInt64;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02714_date_date32_in.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
     "query": "select toDecimal128(42.42, 5) as d format JSONEachRow settings output_format_json_quote_decimals=1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02421_json_decimals_as_strings.sql",
     "error": "mismatched input 'settings' expecting <EOF>"
@@ -2722,22 +2112,22 @@
   {
     "query": "select toString(x)::Decimal(15, 9) from generateRandom('x Decimal(15, 9)', 42) limit 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02709_generate_random_valid_decimals_and_bools.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select toString(x)::Decimal(30, 20) from generateRandom('x Decimal(30, 20)', 42) limit 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02709_generate_random_valid_decimals_and_bools.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select toString(x)::Decimal(6, 3) from generateRandom('x Decimal(6, 3)', 42) limit 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02709_generate_random_valid_decimals_and_bools.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "select toString(x)::Decimal(60, 40) from generateRandom('x Decimal(60, 40)', 42) limit 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02709_generate_random_valid_decimals_and_bools.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT toUInt64(42) AS x FORMAT Vertical SETTINGS use_query_cache = 1;",
@@ -2752,7 +2142,7 @@
   {
     "query": "select toUUID('f82aef31-279e-431f-8b00-2899ad387aea')::UInt128;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02810_convert_uuid_to_uint128.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT transform(arrayJoin([NULL, NULL]), [NULL, NULL], [NULL]) GROUP BY GROUPING SETS (('0.1'), ('-0.2147483647'));",
@@ -2782,22 +2172,12 @@
   {
     "query": "SELECT tuple(3,4,5).1::Int32;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT tuple(3,4,5)::Tuple(UInt64, UInt64, UInt64).2::Int32;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_4.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT tuple(INTERVAL 1 DAY) + '2022-10-11'::Date;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "mismatched input ':' expecting <EOF>"
-  },
-  {
-    "query": "SELECT tuple(INTERVAL 1 DAY) - '2022-10-11'::Date; -- { serverError ILLEGAL_TYPE_OF_ARGUMENT } WITH tuple(INTERVAL 1 SECOND) + INTERVAL 1 SECOND as expr SELECT expr, toTypeName(expr);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "mismatched input ':' expecting <EOF>"
+    "error": "mismatched input '::' expecting <EOF>"
   },
   {
     "query": "SELECT tuple(number) AS x FROM numbers(10) GROUP BY GROUPING SETS (number) order by x;",
@@ -2898,11 +2278,6 @@
     "query": "SELECT x'414243'::String;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03227_proper_parsing_of_cast_operator.sql",
     "error": "mismatched input ''414243'' expecting <EOF>"
-  },
-  {
-    "query": "SELECT x::UInt64 FROM t WHERE toUInt64(x) = 1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02519_monotonicity_fuzz.sql",
-    "error": "mismatched input ':' expecting <EOF>"
   },
   {
     "query": "SELECTB 2;",

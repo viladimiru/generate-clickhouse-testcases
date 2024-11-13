@@ -17,37 +17,32 @@
   {
     "query": "WITH '2022-01-30'::Date + INTERVAL 1 DAY + INTERVAL 1 MONTH AS e1, '2022-01-30'::Date + (INTERVAL 1 DAY + INTERVAL 1 MONTH) AS e2,\n'2022-01-30'::Date + (INTERVAL 1 DAY, INTERVAL 1 MONTH) AS e3,\n'2022-01-30'::Date + INTERVAL '1 DAY 1 MONTH' AS e4\nSELECT e1 == e2 AND e2 == e3 AND e3 == e4, e1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "no viable alternative at input 'WITH '2022-01-30':'"
+    "error": "no viable alternative at input 'WITH '2022-01-30'::Date + INTERVAL 1 DAY + INTERVAL 1 MONTH AS e1, '2022-01-30'::Date + (INTERVAL 1 DAY + INTERVAL 1 MONTH) AS e2,\\n'2022-01-30'::Date + (INTERVAL 1 DAY, INTERVAL 1 MONTH) AS e3,\\n'2022-01-30'::Date + INTERVAL '1 DAY 1 MONTH' AS e4\\nSELECT'"
   },
   {
     "query": "WITH '2022-01-30'::Date + INTERVAL 1 MONTH + INTERVAL 1 DAY AS e1, '2022-01-30'::Date + (INTERVAL 1 MONTH + INTERVAL 1 DAY) AS e2,\n'2022-01-30'::Date + (INTERVAL 1 MONTH, INTERVAL 1 DAY) AS e3,\n'2022-01-30'::Date + INTERVAL '1 MONTH 1 DAY' AS e4\nSELECT e1 == e2 AND e2 == e3 AND e3 == e4, e1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "no viable alternative at input 'WITH '2022-01-30':'"
+    "error": "no viable alternative at input 'WITH '2022-01-30'::Date + INTERVAL 1 MONTH + INTERVAL 1 DAY AS e1, '2022-01-30'::Date + (INTERVAL 1 MONTH + INTERVAL 1 DAY) AS e2,\\n'2022-01-30'::Date + (INTERVAL 1 MONTH, INTERVAL 1 DAY) AS e3,\\n'2022-01-30'::Date + INTERVAL '1 MONTH 1 DAY' AS e4\\nSELECT'"
   },
   {
     "query": "WITH '2022-10-11'::Date + INTERVAL -1 SECOND + INTERVAL 2 MINUTE + INTERVAL -3 MONTH + INTERVAL 1 YEAR AS e1, '2022-10-11'::Date + (INTERVAL -1 SECOND + INTERVAL 2 MINUTE + INTERVAL -3 MONTH + INTERVAL 1 YEAR) AS e2,\n'2022-10-11'::Date + (INTERVAL -1 SECOND, INTERVAL 2 MINUTE, INTERVAL -3 MONTH, INTERVAL 1 YEAR) AS e3,\n'2022-10-11'::Date + INTERVAL '-1 SECOND 2 MINUTE -3 MONTH 1 YEAR' AS e4\nSELECT e1 == e2 AND e2 == e3 AND e3 == e4, e1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "no viable alternative at input 'WITH '2022-10-11':'"
+    "error": "no viable alternative at input 'WITH '2022-10-11'::Date + INTERVAL -1 SECOND + INTERVAL 2 MINUTE + INTERVAL -3 MONTH + INTERVAL 1 YEAR AS e1, '2022-10-11'::Date + (INTERVAL -1 SECOND + INTERVAL 2 MINUTE + INTERVAL -3 MONTH + INTERVAL 1 YEAR) AS e2,\\n'2022-10-11'::Date + (INTERVAL -1 SECOND, INTERVAL 2 MINUTE, INTERVAL -3 MONTH, INTERVAL 1 YEAR) AS e3,\\n'2022-10-11'::Date + INTERVAL '-1 SECOND 2 MINUTE -3 MONTH 1 YEAR' AS e4\\nSELECT'"
   },
   {
     "query": "WITH '2022-10-11'::DateTime - INTERVAL 1 QUARTER - INTERVAL -3 WEEK - INTERVAL 1 YEAR - INTERVAL 1 HOUR AS e1, '2022-10-11'::DateTime + (- INTERVAL 1 QUARTER - INTERVAL -3 WEEK - INTERVAL 1 YEAR - INTERVAL 1 HOUR) AS e2,\n'2022-10-11'::DateTime - (INTERVAL 1 QUARTER, INTERVAL -3 WEEK, INTERVAL 1 YEAR, INTERVAL 1 HOUR) AS e3,\n'2022-10-11'::DateTime - INTERVAL '1 QUARTER -3 WEEK 1 YEAR 1 HOUR' AS e4\nSELECT e1 == e2 AND e2 == e3 AND e3 == e4, e1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "no viable alternative at input 'WITH '2022-10-11':'"
+    "error": "no viable alternative at input 'WITH '2022-10-11'::DateTime - INTERVAL 1 QUARTER - INTERVAL -3 WEEK - INTERVAL 1 YEAR - INTERVAL 1 HOUR AS e1, '2022-10-11'::DateTime + (- INTERVAL 1 QUARTER - INTERVAL -3 WEEK - INTERVAL 1 YEAR - INTERVAL 1 HOUR) AS e2,\\n'2022-10-11'::DateTime - (INTERVAL 1 QUARTER, INTERVAL -3 WEEK, INTERVAL 1 YEAR, INTERVAL 1 HOUR) AS e3,\\n'2022-10-11'::DateTime - INTERVAL '1 QUARTER -3 WEEK 1 YEAR 1 HOUR' AS e4\\nSELECT'"
   },
   {
     "query": "WITH '2022-10-11'::DateTime64 - INTERVAL 1 YEAR - INTERVAL 4 MONTH - INTERVAL 1 SECOND AS e1, '2022-10-11'::DateTime64 + (- INTERVAL 1 YEAR - INTERVAL 4 MONTH - INTERVAL 1 SECOND) AS e2,\n'2022-10-11'::DateTime64 - (INTERVAL 1 YEAR, INTERVAL 4 MONTH, INTERVAL 1 SECOND) AS e3,\n'2022-10-11'::DateTime64 - INTERVAL '1 YEAR 4 MONTH 1 SECOND' AS e4\nSELECT e1 == e2 AND e2 == e3 AND e3 == e4, e1;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02457_tuple_of_intervals.sql",
-    "error": "no viable alternative at input 'WITH '2022-10-11':'"
+    "error": "no viable alternative at input 'WITH '2022-10-11'::DateTime64 - INTERVAL 1 YEAR - INTERVAL 4 MONTH - INTERVAL 1 SECOND AS e1, '2022-10-11'::DateTime64 + (- INTERVAL 1 YEAR - INTERVAL 4 MONTH - INTERVAL 1 SECOND) AS e2,\\n'2022-10-11'::DateTime64 - (INTERVAL 1 YEAR, INTERVAL 4 MONTH, INTERVAL 1 SECOND) AS e3,\\n'2022-10-11'::DateTime64 - INTERVAL '1 YEAR 4 MONTH 1 SECOND' AS e4\\nSELECT'"
   },
   {
     "query": "WITH 'CSV', '1,2,\"[1,2,3]\",\"[[\\\\'abc\\\\'], [], [\\\\'d\\\\', \\\\'e\\\\']]\"' AS format_value SELECT c1, c2, c3, c4 FROM format('CSV', format_value);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02368_analyzer_table_functions.sql",
     "error": "no viable alternative at input 'WITH 'CSV', '1,2,\"[1,2,3]\",\"[[\\\\'abc\\'"
-  },
-  {
-    "query": "WITH 'Hello'::Enum8('Hello', 'World') AS enum1, 'test'::Enum8('test', 'best') AS enum2 SELECT [enum1, 'Goodbye', enum2];",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03003_enum_and_string_compatible.sql",
-    "error": "no viable alternative at input 'WITH 'Hello':'"
   },
   {
     "query": "WITH 'OK' AS s SELECT * FROM param_test(test_str=s);",
@@ -62,22 +57,17 @@
   {
     "query": "WITH ('a', 'b')::Tuple(c1 String, c2 String) AS t SELECT t.c1, t.c2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH ('a', 'b'):'"
+    "error": "no viable alternative at input 'WITH ('a', 'b')::'"
   },
   {
     "query": "WITH (1, ('a', 'b'))::Tuple(c1 UInt64, t1 Tuple(c1 String, c2 String)) AS t SELECT t.c1, t.t1.c1, t.t1.c2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH (1, ('a', 'b')):'"
+    "error": "no viable alternative at input 'WITH (1, ('a', 'b'))::'"
   },
   {
     "query": "WITH (1, 2)::Tuple(a UInt32, b UInt32) AS t SELECT t.1, tupleElement(t, 'b');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02116_tuple_element_analyzer.sql",
-    "error": "no viable alternative at input 'WITH (1, 2):'"
-  },
-  {
-    "query": "WITH (1,2,3) || ('a','b','c') || ('2020-10-08'::Date, '2020-11-08'::Date) AS t SELECT t, t.1, t.2, t.3, t.4, t.5, t.6, t.7, t.8;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02833_tuple_concat.sql",
-    "error": "no viable alternative at input 'WITH (1,2,3) || ('a','b','c') || ('2020-10-08':'"
+    "error": "no viable alternative at input 'WITH (1, 2)::'"
   },
   {
     "query": "WITH (functor, x) -> functor(x) AS lambda, x -> x + 1 AS functor_1, x -> toString(x) AS functor_2 SELECT lambda(functor_1, 1), lambda(functor_2, 1);",
@@ -97,12 +87,7 @@
   {
     "query": "WITH (range(0, number % 10), range(0, number % 10))::Map(UInt64, UInt64) AS m1, (range(0, number % 10, 2), arrayMap(x -> x * x, range(0, number % 10, 2)))::Map(UInt64, UInt64) AS m2\nSELECT DISTINCT mapUpdate(m1, m2) FROM numbers (100000);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02169_map_functions.sql",
-    "error": "no viable alternative at input 'WITH (range(0, number % 10), range(0, number % 10)):'"
-  },
-  {
-    "query": "WITH (SELECT '111111111111111111111111111111111111111'::UInt128) AS v SELECT sum(x), max(v) FROM test;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02949_parallel_replicas_scalar_subquery_big_integer.sql",
-    "error": "no viable alternative at input 'WITH (SELECT '111111111111111111111111111111111111111':'"
+    "error": "no viable alternative at input 'WITH (range(0, number % 10), range(0, number % 10))::'"
   },
   {
     "query": "WITH (SELECT 100 + 20 + 3) AS s SELECT * FROM param_test(test_str=s);",
@@ -138,11 +123,6 @@
     "query": "with (select count() from (select 1 union distinct select 2 except select 1)) as max select count() from (select 1 union all select max) limit 100;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02004_intersect_except_operators.sql",
     "error": "no viable alternative at input 'with (select count() from (select 1 union distinct select 2 except'"
-  },
-  {
-    "query": "WITH (SELECT groupConcat(',')(st) FROM t) AS a, (SELECT groupConcat(',')(st :: String) FROM t) AS b\nSELECT equals(a, b);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03235_groupArray_string_consistency.sql",
-    "error": "no viable alternative at input 'WITH (SELECT groupConcat(',')(st) FROM t) AS a, (SELECT groupConcat(',')(st :'"
   },
   {
     "query": "WITH (Select min(number), max(number) from seq) as range Select * from numbers(range.1, range.2);",
@@ -210,16 +190,6 @@
     "error": "no viable alternative at input 'WITH 1 as n FROM'"
   },
   {
-    "query": "WITH 1::Nullable(UInt64) as my_literal Select sum(number + my_literal) from numbers(0);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_analyzer_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'WITH 1:'"
-  },
-  {
-    "query": "WITH 1::Nullable(UInt64) as my_literal Select sum(number) + my_literal * count() from numbers(0);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_analyzer_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'WITH 1:'"
-  },
-  {
     "query": "WITH 2 AS \\`b.c\\`, [4, 5] AS a, 6 AS u, 3 AS v, 2 AS d, TRUE AS e, 1 AS f, 0 AS g, 2 AS h, 'Hello' AS i, 'World' AS j, 'hi' AS w, NULL AS k, (1, 2) AS l, 2 AS m, 3 AS n, [] AS o, [1] AS p, 1 AS q, q AS r, 1 AS s, 1 AS t SELECT INTERVAL CASE CASE WHEN NOT -a[\\`b.c\\`] * u DIV v + d IS NOT NULL AND e OR f BETWEEN g AND h THEN i ELSE j END WHEN w THEN k END || [l, (m, n)] MINUTE IS NULL OR NOT o::Array(INT) = p <> q < r > s != t AS upyachka;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02163_operators.sql",
     "error": "no viable alternative at input 'WITH 2 AS \\'"
@@ -252,22 +222,22 @@
   {
     "query": "WITH ['2023-04-05 00:25:23', '2023-04-05 00:25:24']::Array(DateTime) AS dt SELECT arrayMax(dt), arrayMin(dt), arrayDifference(dt);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01602_array_aggregation.sql",
-    "error": "no viable alternative at input 'WITH ['2023-04-05 00:25:23', '2023-04-05 00:25:24']:'"
+    "error": "no viable alternative at input 'WITH ['2023-04-05 00:25:23', '2023-04-05 00:25:24']::'"
   },
   {
     "query": "WITH ['2023-04-05 00:25:23.123', '2023-04-05 00:25:24.124']::Array(DateTime64(3)) AS dt SELECT arrayMax(dt), arrayMin(dt), arrayDifference(dt);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01602_array_aggregation.sql",
-    "error": "no viable alternative at input 'WITH ['2023-04-05 00:25:23.123', '2023-04-05 00:25:24.124']:'"
+    "error": "no viable alternative at input 'WITH ['2023-04-05 00:25:23.123', '2023-04-05 00:25:24.124']::'"
   },
   {
     "query": "WITH ['2023-04-05', '2023-04-06']::Array(Date) AS d SELECT arrayMax(d), arrayMin(d), arrayDifference(d);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01602_array_aggregation.sql",
-    "error": "no viable alternative at input 'WITH ['2023-04-05', '2023-04-06']:'"
+    "error": "no viable alternative at input 'WITH ['2023-04-05', '2023-04-06']::'"
   },
   {
     "query": "WITH ['2023-04-05', '2023-04-06']::Array(Date32) AS d SELECT arrayMax(d), arrayMin(d), arrayDifference(d);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01602_array_aggregation.sql",
-    "error": "no viable alternative at input 'WITH ['2023-04-05', '2023-04-06']:'"
+    "error": "no viable alternative at input 'WITH ['2023-04-05', '2023-04-06']::'"
   },
   {
     "query": "WITH [1, 2, NULL] AS arr SELECT arr.null;",
@@ -277,12 +247,12 @@
   {
     "query": "WITH arrayJoin(['Hello', 'world'])::Enum('Hello', 'world') AS x SELECT x, transform(x, ['Hello', 'world', 'goodbye'], [123, 456], 0); -- { serverError UNKNOWN_ELEMENT_OF_ENUM } WITH arrayJoin(['Hello', 'world'])::Enum('Hello', 'world') AS x SELECT x, transform(x, ['Hello', 'world'], ['test', 'best']::Array(Enum('test' = 123, 'best' = 456, '' = 0)), ''::Enum('test' = 123, 'best' = 456, '' = 0)) AS y;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02958_transform_enum.sql",
-    "error": "no viable alternative at input 'WITH arrayJoin(['Hello', 'world']):'"
+    "error": "no viable alternative at input 'WITH arrayJoin(['Hello', 'world'])::'"
   },
   {
     "query": "WITH arrayJoin(['Hello', 'world'])::Enum('Hello', 'world') AS x SELECT x, transform(x, ['Hello', 'world'], [123, 456], 0);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02958_transform_enum.sql",
-    "error": "no viable alternative at input 'WITH arrayJoin(['Hello', 'world']):'"
+    "error": "no viable alternative at input 'WITH arrayJoin(['Hello', 'world'])::'"
   },
   {
     "query": "WITH CAST(123, 'String') AS s SELECT * FROM param_test(test_str=s);",
@@ -293,11 +263,6 @@
     "query": "WITH concat('1,2,\"[1,2,3]\",','\"[[\\\\'abc\\\\'], [], [\\\\'d\\\\', \\\\'e\\\\']]\"') AS format_value SELECT c1, c2, c3, c4 FROM format('CSV', format_value);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02368_analyzer_table_functions.sql",
     "error": "no viable alternative at input 'WITH concat('1,2,\"[1,2,3]\",','\"[[\\\\'abc\\'"
-  },
-  {
-    "query": "with d as (select 'key'::Varchar(255) c, 'x'::Varchar(255) s) SELECT r1, c as r2\nFROM (\nSELECT t as s, c as r1\nFROM ( SELECT 'y'::Varchar(255) as t, 'x'::Varchar(255) as s) t1\nLEFT JOIN d USING (s)\n) t2\nLEFT JOIN d using (s)\nSETTINGS join_use_nulls=1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/03067_analyzer_complex_alias_join.sql",
-    "error": "no viable alternative at input 'with d as (select 'key':'"
   },
   {
     "query": "WITH data AS (\nSELECT\nrand64() AS val1,\nrand64() AS val2,\nrand64() AS val3,\nrand64() AS val4,\nrand64() AS val5,\nrand64() AS val6,\nrand64() AS val7,\nrand64() AS val8,\nrand64() AS val9,\nrand64() AS val10,\nrand64() AS val11,\nrand64() AS val12,\nrand64() AS val13,\nrand64() AS val14\nFROM numbers(10)\n),\n(SELECT avg(val1) FROM data) AS value1,\n(SELECT avg(val2) FROM data) AS value2,\n(SELECT avg(val3) FROM data) AS value3,\n(SELECT avg(val4) FROM data) AS value4,\n(SELECT avg(val5) FROM data) AS value5,\n(SELECT avg(val6) FROM data) AS value6,\n(SELECT avg(val7) FROM data) AS value7,\n(SELECT avg(val8) FROM data) AS value8,\n(SELECT avg(val9) FROM data) AS value9,\n(SELECT avg(val10) FROM data) AS value10,\n(SELECT avg(val11) FROM data) AS value11,\n(SELECT avg(val12) FROM data) AS value12,\n(SELECT avg(val13) FROM data) AS value13,\n(SELECT avg(val14) FROM data) AS value14\nSELECT\nvalue1 AS v1,\nvalue2 AS v2,\nvalue3 AS v3,\nvalue4 AS v4,\nvalue5 AS v5,\nvalue6 AS v6,\nvalue7 AS v7,\nvalue8 AS v8,\nvalue9 AS v9,\nvalue10 AS v10,\nvalue11 AS v11,\nvalue12 AS v12,\nvalue13 AS v13,\nvalue14 AS v14\nFORMAT Null;",
@@ -322,7 +287,7 @@
   {
     "query": "WITH groupArray((table, bytes))::Map(String, UInt64) AS stats SELECT\nlength(stats), stats['t_modify_from_lc_1'] < stats['t_modify_from_lc_2']\nFROM\n(\nSELECT table, sum(bytes_on_disk) AS bytes FROM system.parts\nWHERE database = currentDatabase() AND table LIKE 't_modify_from_lc%' AND active\nGROUP BY table\n);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02377_modify_column_from_lc.sql",
-    "error": "no viable alternative at input 'WITH groupArray((table, bytes)):'"
+    "error": "no viable alternative at input 'WITH groupArray((table, bytes))::'"
   },
   {
     "query": "WITH helper AS (\nSELECT\n*\nFROM\n03033_example_table\nORDER BY\nColumnA WITH FILL INTERPOLATE (\nColumnB AS ColumnC,\nColumnC AS ColumnA\n)\n)\nSELECT ColumnB FROM helper;",
@@ -337,22 +302,22 @@
   {
     "query": "WITH map('foo', (1, 2), 'bar', (3, 4))::Map(String, Tuple(a UInt64, b UInt64)) AS m SELECT m.keys, m.values, m.values.*;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH map('foo', (1, 2), 'bar', (3, 4)):'"
+    "error": "no viable alternative at input 'WITH map('foo', (1, 2), 'bar', (3, 4))::'"
   },
   {
     "query": "WITH map('foo', (1, 2), 'bar', (3, 4))::Map(String, Tuple(a UInt64, b UInt64)) AS m SELECT m.keys, m.values, m.values.a, m.values.b;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH map('foo', (1, 2), 'bar', (3, 4)):'"
+    "error": "no viable alternative at input 'WITH map('foo', (1, 2), 'bar', (3, 4))::'"
   },
   {
     "query": "WITH materialize(('a', 'b')::Tuple(c1 String, c2 String)) AS t SELECT t.c1, t.c2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH materialize(('a', 'b'):'"
+    "error": "no viable alternative at input 'WITH materialize(('a', 'b')::'"
   },
   {
     "query": "WITH materialize((1, ('a', 'b'))::Tuple(c1 UInt64, t1 Tuple(c1 String, c2 String))) AS t SELECT t.c1, t.t1.c1, t.t1.c2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH materialize((1, ('a', 'b')):'"
+    "error": "no viable alternative at input 'WITH materialize((1, ('a', 'b'))::'"
   },
   {
     "query": "WITH materialize([1, 2, NULL]) AS arr SELECT arr.null;",
@@ -362,12 +327,12 @@
   {
     "query": "WITH materialize(map('foo', (1, 2), 'bar', (3, 4))::Map(String, Tuple(a UInt64, b UInt64))) AS m SELECT m.keys, m.values, m.values.*;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH materialize(map('foo', (1, 2), 'bar', (3, 4)):'"
+    "error": "no viable alternative at input 'WITH materialize(map('foo', (1, 2), 'bar', (3, 4))::'"
   },
   {
     "query": "WITH materialize(map('foo', (1, 2), 'bar', (3, 4))::Map(String, Tuple(a UInt64, b UInt64))) AS m SELECT m.keys, m.values, m.values.a, m.values.b;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02677_analyzer_compound_expressions.sql",
-    "error": "no viable alternative at input 'WITH materialize(map('foo', (1, 2), 'bar', (3, 4)):'"
+    "error": "no viable alternative at input 'WITH materialize(map('foo', (1, 2), 'bar', (3, 4))::'"
   },
   {
     "query": "WITH number DIV 50 AS k, toUInt32(number % 50) AS value SELECT k, sparkbar(50, 0, 99)(number, value) FROM numbers(100) GROUP BY k ORDER BY k;",
@@ -597,17 +562,17 @@
   {
     "query": "WITH splitByChar('_', _file)[3]::UInt64 AS num SELECT count(), min(num), max(num)\nFROM  s3(s3_conn, filename = 'test_02495_*', format = Parquet)\nWHERE num >= 5;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02495_s3_filter_by_file.sql",
-    "error": "no viable alternative at input 'WITH splitByChar('_', _file)[3]:'"
+    "error": "no viable alternative at input 'WITH splitByChar('_', _file)[3]::'"
   },
   {
     "query": "WITH splitByChar('_', part_name) AS name_parts, name_parts[2]::UInt64 AS min_block,\nname_parts[3]::UInt64 AS max_block\nSELECT min_block, max_block, event_type, merge_algorithm, part_type FROM system.part_log\nWHERE\ndatabase = currentDatabase() AND\ntable = 't_compact_vertical_merge' AND\nmin_block = 1 AND max_block = 2;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02539_vertical_merge_compact_parts.sql",
-    "error": "no viable alternative at input 'WITH splitByChar('_', part_name) AS name_parts, name_parts[2]:'"
+    "error": "no viable alternative at input 'WITH splitByChar('_', part_name) AS name_parts, name_parts[2]::'"
   },
   {
     "query": "WITH splitByChar('_', part_name) AS name_parts, name_parts[2]::UInt64 AS min_block,\nname_parts[3]::UInt64 AS max_block\nSELECT min_block, max_block, event_type, merge_algorithm, part_type FROM system.part_log\nWHERE\ndatabase = currentDatabase() AND\ntable = 't_compact_vertical_merge' AND\nmin_block = 1 AND max_block = 3;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02539_vertical_merge_compact_parts.sql",
-    "error": "no viable alternative at input 'WITH splitByChar('_', part_name) AS name_parts, name_parts[2]:'"
+    "error": "no viable alternative at input 'WITH splitByChar('_', part_name) AS name_parts, name_parts[2]::'"
   },
   {
     "query": "WITH toDate('1970-01-01') AS date_value,\ntoDateTime('1970-01-01 11:22:33') AS date_time_value,\ntoDateTime64('1900-01-01 11:22:33', 3) AS date_time_64_value\nSELECT toLastDayOfMonth(date_value), toLastDayOfMonth(date_time_value), toLastDayOfMonth(date_time_64_value)\nSETTINGS enable_extended_results_for_datetime_functions = true;",

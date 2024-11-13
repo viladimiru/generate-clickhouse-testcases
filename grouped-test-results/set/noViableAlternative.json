@@ -1,10 +1,5 @@
 [
   {
-    "query": "SET allow_deprecated_snowflake_conversion_functions = 1; -- Force-enable deprecated snowflake conversion functions (in case this is randomized in CI) SELECT snowflakeToDateTime();  -- {serverError NUMBER_OF_ARGUMENTS_DOESNT_MATCH}\nSELECT snowflakeToDateTime64();  -- {serverError NUMBER_OF_ARGUMENTS_DOESNT_MATCH}\nSELECT snowflakeToDateTime('abc');  -- {serverError ILLEGAL_TYPE_OF_ARGUMENT}\nSELECT snowflakeToDateTime64('abc');  -- {serverError ILLEGAL_TYPE_OF_ARGUMENT}\nSELECT snowflakeToDateTime('abc', 123);  -- {serverError ILLEGAL_TYPE_OF_ARGUMENT}\nSELECT snowflakeToDateTime64('abc', 123);  -- {serverError ILLEGAL_TYPE_OF_ARGUMENT}\nSELECT snowflakeToDateTime(123::Int64) SETTINGS allow_deprecated_snowflake_conversion_functions = 0; -- { serverError DEPRECATED_FUNCTION }\nSELECT snowflakeToDateTime64(123::Int64) SETTINGS allow_deprecated_snowflake_conversion_functions = 0; -- { serverError DEPRECATED_FUNCTION }\nSELECT 'const column';",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01942_snowflakeToDateTime.sql",
-    "error": "no viable alternative at input 'SELECT snowflakeToDateTime(123:'"
-  },
-  {
     "query": "SET allow_experimental_full_text_index = true;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02346_fulltext_index_match_predicate.sql",
     "error": "no viable alternative at input 'SET allow_experimental_full_text_index = true'"

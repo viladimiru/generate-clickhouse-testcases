@@ -535,16 +535,6 @@
     "error": "no viable alternative at input 'EXPLAIN PLAN SELECT 1 + number from system.numbers LIMIT 1 SETTINGS use_query_cache = true'"
   },
   {
-    "query": "EXPLAIN QUERY TREE (WITH 1::Nullable(UInt64) as my_literal Select sum(number + my_literal) from numbers(0));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_analyzer_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'EXPLAIN QUERY TREE (WITH 1:'"
-  },
-  {
-    "query": "EXPLAIN QUERY TREE (WITH 1::Nullable(UInt64) as my_literal Select sum(number) + my_literal * count() from numbers(0));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02932_analyzer_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'EXPLAIN QUERY TREE (WITH 1:'"
-  },
-  {
     "query": "EXPLAIN QUERY TREE dump_ast = 1 SELECT * FROM mysql(\n'127.0.0.1:9004', currentDatabase(), foo, 'default', '',\nSETTINGS connection_wait_timeout = 123, connect_timeout = 40123002, read_write_timeout = 40123001, connection_pool_size = 3\n);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02479_mysql_connect_to_self.sql",
     "error": "no viable alternative at input 'EXPLAIN QUERY TREE dump_ast'"
@@ -1095,16 +1085,6 @@
     "error": "no viable alternative at input 'explain select distinct k1 from remote('127.{1,2}', view(select 1'"
   },
   {
-    "query": "EXPLAIN SYNTAX (WITH 1::Nullable(UInt64) as my_literal Select sum(number + my_literal) from numbers(0));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02931_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX (WITH 1:'"
-  },
-  {
-    "query": "EXPLAIN SYNTAX (WITH 1::Nullable(UInt64) as my_literal Select sum(number) + my_literal * count() from numbers(0));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02931_rewrite_sum_column_and_constant.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX (WITH 1:'"
-  },
-  {
     "query": "EXPLAIN SYNTAX CREATE TABLE t (x varchar(255) COLLATE binary NOT NULL) ENGINE=Memory;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02269_create_table_with_collation.sql",
     "error": "no viable alternative at input 'EXPLAIN SYNTAX CREATE TABLE t (x varchar(255) COLLATE'"
@@ -1138,16 +1118,6 @@
     "query": "EXPLAIN SYNTAX INSERT INTO test FROM INFILE 'data.file' WATCH view; -- { clientError SYNTAX_ERROR } EXPLAIN SYNTAX INSERT INTO test FROM INFILE 'data.file' VALUES (1) -- { clientError SYNTAX_ERROR }\nEXPLAIN SYNTAX INSERT INTO test FROM INFILE 'data.file' WITH number AS x SELECT number FROM input('number UInt32');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02165_insert_from_infile.sql",
     "error": "no viable alternative at input 'EXPLAIN SYNTAX INSERT'"
-  },
-  {
-    "query": "EXPLAIN SYNTAX SELECT (0.1::Decimal(4, 4) * 5)::Float64 AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT (0.1:'"
-  },
-  {
-    "query": "EXPLAIN SYNTAX SELECT (0.1::Decimal(4, 4) + 0.2::Decimal(4, 4) + 0.3::Decimal(4, 4))::Decimal(4, 4) AS c;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT (0.1:'"
   },
   {
     "query": "EXPLAIN SYNTAX SELECT (1,);",
@@ -1185,24 +1155,14 @@
     "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT * FROM view(SELECT 1'"
   },
   {
-    "query": "EXPLAIN SYNTAX SELECT -1::Int32;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_3.sql",
-    "error": "no viable alternative at input '-1:'"
-  },
-  {
-    "query": "EXPLAIN SYNTAX SELECT [1::UInt32, 2::UInt32]::Array(UInt64);",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT [1:'"
-  },
-  {
     "query": "EXPLAIN SYNTAX SELECT [[1, 2]::Array(UInt32), [3]]::Array(Array(UInt64));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT [[1, 2]:'"
+    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT [[1, 2]::'"
   },
   {
     "query": "EXPLAIN SYNTAX SELECT [[1::UInt16, 2::UInt16]::Array(UInt32), [3]]::Array(Array(UInt64));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01852_cast_operator_2.sql",
-    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT [[1:'"
+    "error": "no viable alternative at input 'EXPLAIN SYNTAX SELECT [[1::UInt16, 2::UInt16]::'"
   },
   {
     "query": "EXPLAIN SYNTAX SELECT columns_transformers.* EXCEPT(j) APPLY(avg) from columns_transformers;",

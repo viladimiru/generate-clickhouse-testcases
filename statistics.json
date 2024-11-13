@@ -1,33 +1,33 @@
 {
   "select": {
-    "noViableAlternative": 2747,
-    "mismatchedInput": 583,
+    "noViableAlternative": 2081,
+    "mismatchedInput": 458,
     "extraneousInput": 0,
     "missing": 3,
     "unknown": 0,
     "totalCases": 35996,
-    "successCases": 32666,
-    "errorPercentage": 9.251027891987999
+    "successCases": 33456,
+    "errorPercentage": 7.0563395932881425
   },
   "create": {
-    "noViableAlternative": 1277,
-    "mismatchedInput": 70,
+    "noViableAlternative": 1270,
+    "mismatchedInput": 68,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 7656,
-    "successCases": 6309,
-    "errorPercentage": 17.594043887147333
+    "successCases": 6318,
+    "errorPercentage": 17.476489028213166
   },
   "insert": {
-    "noViableAlternative": 522,
+    "noViableAlternative": 494,
     "mismatchedInput": 4,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 6687,
-    "successCases": 6161,
-    "errorPercentage": 7.866008673545685
+    "successCases": 6189,
+    "errorPercentage": 7.447285778375953
   },
   "drop": {
     "noViableAlternative": 341,
@@ -40,44 +40,44 @@
     "errorPercentage": 9.88205861329521
   },
   "set": {
-    "noViableAlternative": 100,
+    "noViableAlternative": 99,
     "mismatchedInput": 1,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 1269,
-    "successCases": 1168,
-    "errorPercentage": 7.959022852639874
+    "successCases": 1169,
+    "errorPercentage": 7.880220646178094
   },
   "alter": {
-    "noViableAlternative": 195,
-    "mismatchedInput": 33,
+    "noViableAlternative": 197,
+    "mismatchedInput": 32,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 1237,
-    "successCases": 1009,
-    "errorPercentage": 18.43168957154406
+    "successCases": 1008,
+    "errorPercentage": 18.512530315278898
   },
   "explain": {
-    "noViableAlternative": 249,
-    "mismatchedInput": 49,
+    "noViableAlternative": 241,
+    "mismatchedInput": 42,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 945,
-    "successCases": 647,
-    "errorPercentage": 31.53439153439154
+    "successCases": 662,
+    "errorPercentage": 29.947089947089943
   },
   "with": {
-    "noViableAlternative": 151,
-    "mismatchedInput": 14,
+    "noViableAlternative": 144,
+    "mismatchedInput": 13,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 839,
-    "successCases": 674,
-    "errorPercentage": 19.66626936829559
+    "successCases": 682,
+    "errorPercentage": 18.71275327771156
   },
   "other": {
     "noViableAlternative": 5,
