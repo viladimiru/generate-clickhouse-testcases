@@ -73,5 +73,3 @@ async function main(): Promise<void> {
 
 	console.log('grouping done');
 }
-
-main();

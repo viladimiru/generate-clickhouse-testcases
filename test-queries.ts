@@ -1,5 +1,4 @@
-import { glob } from 'glob';
-import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'fs';
+import { existsSync, writeFileSync, mkdirSync } from 'fs';
 import { parseClickHouseQueryWithoutCursor } from '@gravity-ui/websql-autocomplete/clickhouse';
 import { getQueriesByTypeMap, queryTypes } from './shared';
 

@@ -6,8 +6,8 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"analyze": "npx ts-node test-queries && npm run read-results && npm run group-results",
-		"read-results": "npx ts-node read-results",
-		"group-results": "npx ts-node group-test-results-by-error-type",
+		"read-results": "npx ts-node -e \"require('./read-results').main\"",
+		"group-results": "npx ts-node -e \"require('./group-test-results-by-error-type').main\"",
 		"generate-tests": "npx ts-node -e \"require('./generate-tests').main\""
 	},
 	"author": "",

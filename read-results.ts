@@ -77,5 +77,3 @@ function getResultStats(
 		errorPercentage: (errorStats.totalErrorCases / content.total) * 100,
 	};
 }
-
-main();
