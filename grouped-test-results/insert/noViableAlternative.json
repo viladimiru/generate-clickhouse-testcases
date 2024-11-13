@@ -25,81 +25,6 @@
     "error": "no viable alternative at input 'INSERT INTO 02538_bf_ngrambf_map_values_test VALUES (1, {'"
   },
   {
-    "query": "INSERT INTO 02540_date VALUES('CAST(0 as Date)', CAST(0 as Date));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(0 as Date)', CAST(0 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(0 as Int32)', CAST(0 as Int32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(0 as Int32)', CAST(0 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(0 as UInt16)', CAST(0 as UInt16));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(0 as UInt16)', CAST(0 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(0 as UInt32)', CAST(0 as UInt32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(0 as UInt32)', CAST(0 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65534 as Date)', CAST(65534 as Date));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65534 as Date)', CAST(65534 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65534 as Int32)', CAST(65534 as Int32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65534 as Int32)', CAST(65534 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65534 as UInt16)', CAST(65534 as UInt16));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65534 as UInt16)', CAST(65534 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65534 as UInt32)', CAST(65534 as UInt32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65534 as UInt32)', CAST(65534 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65535 as Date)', CAST(65535 as Date));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65535 as Date)', CAST(65535 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65535 as Int32)', CAST(65535 as Int32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65535 as Int32)', CAST(65535 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65535 as UInt16)', CAST(65535 as UInt16));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65535 as UInt16)', CAST(65535 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65535 as UInt32)', CAST(65535 as UInt32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65535 as UInt32)', CAST(65535 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65536 as Date)', CAST(65536 as Date));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65536 as Date)', CAST(65536 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65536 as UInt16)', CAST(65536 as UInt16)); -- Narrowing conversion 65536 ==> 0 INSERT INTO 02540_date VALUES('CAST(65536 as Int32)', CAST(65536 as Int32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65536 as UInt16)', CAST(65536 as'"
-  },
-  {
-    "query": "INSERT INTO 02540_date VALUES('CAST(65536 as UInt32)', CAST(65536 as UInt32));",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02540_date_column_consistent_insert_behaviour.sql",
-    "error": "no viable alternative at input 'INSERT INTO 02540_date VALUES('CAST(65536 as UInt32)', CAST(65536 as'"
-  },
-  {
     "query": "INSERT INTO 02918_table_obj1 SELECT * FROM fuzzJSON( 02918_json_fuzzer,\njson_str='{\"name\": \"John Doe\", \"age\": 27, \"address\": {\"city\": \"Citiville\", \"zip\": \"12345\"}, \"hobbies\": [\"reading\", \"traveling\", \"coding\"]}',\nrandom_seed=12345) LIMIT 200;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/02918_fuzzjson_table_function.sql",
     "error": "no viable alternative at input 'INSERT INTO 02918_table_obj1 SELECT * FROM fuzzJSON( 02918_json_fuzzer,\\njson_str='"
@@ -277,7 +202,7 @@
   {
     "query": "INSERT INTO array_of_tuples values ([(1, 2), (2, 3), (3, 4)], array(tuple(1, 2, 3), tuple(2, 3, 4))), (array((1.0, 2.0)), [tuple(4, 3, 1)]);",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01038_array_of_unnamed_tuples.sql",
-    "error": "no viable alternative at input 'INSERT INTO array_of_tuples values ([(1, 2), (2, 3), (3, 4)], array(tuple(1, 2, 3), tuple(2, 3, 4))), (array(('"
+    "error": "no viable alternative at input 'INSERT INTO array_of_tuples values ([(1, 2), (2, 3), (3, 4)], array(tuple(1, 2, 3),'"
   },
   {
     "query": "INSERT INTO bf_ngrambf_map_keys_test VALUES (0, {'K0':'V0'}, {'K0':'V0'}), (1, {'K1':'V1'}, {'K1':'V1'});",
@@ -752,7 +677,12 @@
   {
     "query": "INSERT INTO map_formats VALUES(map('k1', 1, 'k2', 2, 'k3', 3), map('k1', toDate('2020-05-05')), map('k1', [], 'k2', [7, 8]));",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01550_type_map_formats.sql",
-    "error": "no viable alternative at input 'INSERT INTO map_formats VALUES(map('k1', 1, 'k2', 2, 'k3', 3), map('k1', toDate('2020-05-05')), map('k1', ['"
+    "error": "no viable alternative at input 'INSERT INTO map_formats VALUES(map('k1', 1, 'k2', 2, 'k3', 3), map('k1', toDate'"
+  },
+  {
+    "query": "INSERT INTO map_formats VALUES(map('k1', 10, 'k3', 30), map('k2', toDate('2020-06-06')), map());",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/01550_type_map_formats.sql",
+    "error": "no viable alternative at input 'INSERT INTO map_formats VALUES(map('k1', 10, 'k3', 30), map('k2', toDate'"
   },
   {
     "query": "INSERT INTO map_test_index_map_keys VALUES (0, {'K0':'V0'}), (1, {'K1':'V1'});",
@@ -2058,6 +1988,16 @@
     "query": "insert into test values (NULL), (42), ('42.42'), (true), ('e10');",
     "fileName": "../ClickHouse/tests/queries/0_stateless/03034_dynamic_conversions.sql",
     "error": "no viable alternative at input 'insert into test values (NULL), (42), ('42.42'), (true)'"
+  },
+  {
+    "query": "INSERT INTO test02008 VALUES (tuple(tuple(1, 2), tuple(3, 4)));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02008_tuple_to_name_value_pairs.sql",
+    "error": "no viable alternative at input 'INSERT INTO test02008 VALUES (tuple(tuple(1, 2),'"
+  },
+  {
+    "query": "INSERT INTO test02008 VALUES (tuple(tuple(5, 6), tuple(7, 8)));",
+    "fileName": "../ClickHouse/tests/queries/0_stateless/02008_tuple_to_name_value_pairs.sql",
+    "error": "no viable alternative at input 'INSERT INTO test02008 VALUES (tuple(tuple(5, 6),'"
   },
   {
     "query": "INSERT INTO test1 (\\`pt\\`, \\`brand_name\\`, \\`total_indirect_order_cnt\\`, \\`total_indirect_gmv\\`) VALUES ('20230625', 'LINING', 2232, 1008710), ('20230625', 'adidas', 125, 58820), ('20230625', 'Nike', 1291, 1033020), ('20230626', 'Nike', 1145, 938926), ('20230626', 'LINING', 1904, 853336), ('20230626', 'adidas', 133, 62546), ('20220626', 'LINING', 3747, 1855203), ('20220626', 'Nike', 2295, 1742665), ('20220626', 'adidas', 302, 122388);",
