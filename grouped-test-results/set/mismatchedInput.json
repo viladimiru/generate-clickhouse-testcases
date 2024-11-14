@@ -1,7 +1,0 @@
-[
-  {
-    "query": "SET session_timezone='Europe/Madrid'; -- disable time zone randomization in CI SELECT if(length(x) = 26, ULIDStringToDateTime(x, 'Europe/Madrid'), toDateTime('2024-02-21 12:00:00', 'Europe/Madrid')) AS datetime\nFROM values('x String', '01HQ3KJJKHRWP357YVYBX32WHY', '01HQ3KJJKH')\n",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02999_ulid_short_circuit.sql",
-    "error": "mismatched input 'FROM' expecting <EOF>"
-  }
-]

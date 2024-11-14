@@ -1,7 +1,0 @@
-[
-  {
-    "query": "DELETE FROM 02581_trips                        WHERE id IN (SELECT (number*10 + 9)::UInt32 FROM numbers(10000000)) SETTINGS lightweight_deletes_sync = 2;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02581_share_big_sets_between_multiple_mutations_tasks_long.sql",
-    "error": "no viable alternative at input 'DELETE FROM 02581_trips                        WHERE id IN (SELECT (number*10 + 9)::'"
-  }
-]

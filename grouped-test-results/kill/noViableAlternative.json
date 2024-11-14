@@ -1,7 +1,0 @@
-[
-  {
-    "query": "KILL QUERY WHERE query_id='3-857d-4a57-9ee0-3c7da5d60a90' SETTINGS use_query_cache = true;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/02494_query_cache_eligible_queries.sql",
-    "error": "no viable alternative at input 'KILL QUERY'"
-  }
-]
