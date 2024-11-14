@@ -1,4 +1,7 @@
 generated
+grouped-test-results
 node_modules
 invalid-chars.json
 test-results
+ClickHouse
+statistics.json

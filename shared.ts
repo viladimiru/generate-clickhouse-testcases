@@ -118,7 +118,7 @@ export async function getQueriesByTypeMap(): Promise<QueriesByTypeMap> {
 	);
 
 	const fileNames = await glob(
-		'../ClickHouse/tests/queries/0_stateless/*.sql',
+		'./ClickHouse/tests/queries/0_stateless/*.sql',
 		{}
 	);
 	let totalDuplicateQueries = 0;
