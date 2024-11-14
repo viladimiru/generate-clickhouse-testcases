@@ -50,14 +50,14 @@
     "errorPercentage": 7.880220646178094
   },
   "alter": {
-    "noViableAlternative": 197,
+    "noViableAlternative": 196,
     "mismatchedInput": 32,
     "extraneousInput": 0,
     "missing": 0,
     "unknown": 0,
     "totalCases": 1237,
-    "successCases": 1008,
-    "errorPercentage": 18.512530315278898
+    "successCases": 1009,
+    "errorPercentage": 18.43168957154406
   },
   "explain": {
     "noViableAlternative": 241,

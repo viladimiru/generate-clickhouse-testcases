@@ -375,11 +375,6 @@
     "error": "no viable alternative at input 'ALTER TABLE fx_1m ADD PROJECTION fx_5m (\\nSELECT\\nsymbol,\\ntoStartOfInterval(dt_close, INTERVAL 300 SECOND) AS dt_close,\\nargMin(open, dt_close),\\nmax(high),\\nmin(low),\\nargMax(close, dt_close),\\nsum(volume) volume'"
   },
   {
-    "query": "ALTER TABLE minmax_compact ADD INDEX idx (i64, u64 * i64) TYPE minmax GRANULARITY 1;",
-    "fileName": "../ClickHouse/tests/queries/0_stateless/01114_materialize_clear_index_compact_parts.sql",
-    "error": "no viable alternative at input 'ALTER TABLE minmax_compact ADD INDEX idx (i64, u64 * i64)'"
-  },
-  {
     "query": "ALTER TABLE modify_sample_old MODIFY SAMPLE BY x; -- { serverError BAD_ARGUMENTS } DROP TABLE modify_sample;",
     "fileName": "../ClickHouse/tests/queries/0_stateless/01430_modify_sample_by_zookeeper_long.sql",
     "error": "no viable alternative at input 'ALTER TABLE modify_sample_old MODIFY SAMPLE'"
